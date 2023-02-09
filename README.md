@@ -1,38 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# My GitHub Portfolio
 
-## Getting Started
+## About Me
 
-First, run the development server:
+I am a 3rd year computer science student at Memorial University of Newfoundland, currently learning Next.js, React, REST API, AI, and AI in game programming. I am passionate about using technology to solve problems and create meaningful experiences for users.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Skills
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   Next.js
+-   React
+-   REST API
+-   Python
+-   C++
+-   Proficient in HTML, CSS, JavaScript, NextJS , NodeJS and React
+-   Experience with Git and GitHub
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Projects
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### Project 1: Freelance Website for a Local Cleaning Company
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+A website designed for a local cleaning company to showcase their services and allow customers to make bookings online. The website was built using NextJS
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Project 2: Artist Portfolio
 
-## Learn More
+A portfolio website for artists to showcase their work and allow potential clients to contact them for commission requests. The website was built using NextJS and React .
 
-To learn more about Next.js, take a look at the following resources:
+## Contact Me
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Feel free to reach out to me via my [email](mailto:rashodkorala2002@gmail.com) or connect with me on [LinkedIn](www.linkedin.com/in/rashodk), [Twitter](https://twitter.com/rashodkorala), [Instagram](https://www.instagram.com/rashodk_/) or visit my [website](www.rashodkorala.com)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<!---
+rashodkorala/rashodkorala is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+You can click the Preview link to take a look at your changes.
+--->
