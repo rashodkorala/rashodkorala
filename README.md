@@ -18,11 +18,13 @@ I am a 3rd year computer science student at Memorial University of Newfoundland,
 
 ### Project 1: Freelance Website for a Local Mobile Car Detailing Company
 
-A website designed for a local cleaning company to showcase their services and allow customers to make bookings online. The website was built using NextJS
+A website designed for a local cleaning company to showcase their services and allow customers to make bookings online. The website was built using NextJS.
+[visit website] (https://dev.squeekleen.com)
 
 ### Project 2: Artist Portfolio/online store 
 
-A portfolio website to showcase their works and sell artworks worlwide . The website was built using NextJS and React .
+A portfolio website to showcase their works and sell artworks worlwide . The website was built using NextJS and React .[visit website] (https://dev.bandumanamperi.com)
+
 
 ## Contact Me
 
