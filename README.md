@@ -16,13 +16,13 @@ I am a 3rd year computer science student at Memorial University of Newfoundland,
 
 ## Projects
 
-### Project 1: Freelance Website for a Local Cleaning Company
+### Project 1: Freelance Website for a Local Mobile Car Detailing Company
 
 A website designed for a local cleaning company to showcase their services and allow customers to make bookings online. The website was built using NextJS
 
-### Project 2: Artist Portfolio
+### Project 2: Artist Portfolio/online store 
 
-A portfolio website for artists to showcase their work and allow potential clients to contact them for commission requests. The website was built using NextJS and React .
+A portfolio website to showcase their works and sell artworks worlwide . The website was built using NextJS and React .
 
 ## Contact Me
 
