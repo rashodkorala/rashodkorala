@@ -2,7 +2,7 @@
 
 ## About Me
 
-I am a 3rd year computer science student at Memorial University of Newfoundland, currently learning Next.js, React, REST API, AI, and AI in game programming. I am passionate about using technology to solve problems and create meaningful experiences for users.
+I am a 4th year computer science student at Memorial University of Newfoundland, currently learning Next.js, React, REST API, AI, and AI in game programming. I am passionate about using technology to solve problems and create meaningful experiences for users.
 
 ## Skills
 
