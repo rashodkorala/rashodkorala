@@ -2,8 +2,9 @@ import React from "react";
 
 import { FaHtml5, FaCss3, FaReact, FaNodeJs, FaJava } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
-import { SiMongodb, SiMysql } from "react-icons/si";
+import { SiMongodb, SiMysql,SiFirebase,SiFlutter  } from "react-icons/si";
 import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
+
 
 type Props = {};
 
@@ -38,9 +39,14 @@ const skills = (props: Props) => {
                 Next.js
               </li>
               <li className="flex items-center py-2">
+                <SiFlutter  size={30} className="px-1" />
+                Flutter
+              </li>
+              <li className="flex items-center py-2">
                 <TbBrandTailwind size={30} className="px-1" />
                 Tailwind CSS
               </li>
+              
             </ul>
           </div>
           <div className="flex flex-col">
@@ -61,6 +67,10 @@ const skills = (props: Props) => {
               <li className="flex items-center py-2">
                 <FaJava size={30} className="px-1" />
                 Java
+              </li>
+              <li className="flex items-center py-2">
+                <SiFirebase size={30} className="px-1" />
+                FireBase
               </li>
             </ul>
           </div>
