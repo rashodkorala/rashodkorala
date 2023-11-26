@@ -11,6 +11,8 @@ I am a 4th year computer science student at Memorial University of Newfoundland,
 -   REST API
 -   Python
 -   C++
+-   Firebase authentication , cloud storage , firestores and realtime databases
+-   Flutter for developing mobile apps
 -   Proficient in HTML, CSS, JavaScript, NextJS , NodeJS and React
 -   Experience with Git and GitHub
 
