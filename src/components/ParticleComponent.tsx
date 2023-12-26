@@ -1,49 +1,52 @@
 import React, { useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
+import textureImg from './texture.png'; // Ensure this path is correct
 
 const Particles = () => {
   const meshRef = useRef<THREE.Points>(null);
-  const particlesCount = 5000;
-  const posArray = new Float32Array(particlesCount * 9);
+  const particlesCount = 50000;
+  const posArray = new Float32Array(particlesCount * 3);
+  const colorArray = new Float32Array(particlesCount * 3); // Array for colors
 
-  // Create scattered particles
-  for (let i = 0; i < particlesCount * 3; i++) {
+  // Create initial scattered particles and assign random colors
+  for (let i = 0; i < particlesCount * 3; i += 3) {
     // Randomize positions for a scattered look
-    posArray[i] = (Math.random() - 0.5) *10; // Adjust the range as needed
+    posArray[i] = (Math.random() - 0.5) * 10;
+    posArray[i + 1] = (Math.random() - 0.5) * 10;
+    posArray[i + 2] = (Math.random() - 0.5) * 10;
+
+    // Assign random color for each vertex
+    colorArray[i] = Math.random()*Math.random();
+    colorArray[i + 1] = Math.random()*Math.random();
+    colorArray[i + 2] =  Math.random()*Math.random()*244;
   }
 
   const particlesGeometry = new THREE.BufferGeometry();
   particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+  particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorArray, 3)); // Add color attribute
 
-  let clock = new THREE.Clock();
-  let time = 3;
+  const texture = useLoader(THREE.TextureLoader, '/assets/texture.png');
 
   useFrame(() => {
     if (meshRef.current) {
-      time += clock.getDelta()* 19;
-        // Rotate the mesh every frame
-        meshRef.current.rotation.y += 0.00009;
-    
-        meshRef.current.rotation.x *=0.000009;
-
-        meshRef.current.rotation.z -=0.00009;
-
-      // Update the material properties for rounded particles
-      const material = meshRef.current.material;
-      if (material instanceof THREE.PointsMaterial) {
-        // material.color.set(new THREE.Color(Math.abs(Math.sin(time)), Math.abs(Math.cos(time)), Math.abs(Math.tan(time))));
-        // material.opacity = Math.abs(Math.cos(time));
-        material.transparent = true;
-        material.size = 0.009; // Adjust size for visible roundness
-        material.sizeAttenuation = true;
-      }
+      // Optional: Update logic for each frame (e.g., rotation)
+      meshRef.current.rotation.y += 0.00009;
+      meshRef.current.rotation.x += 0.000009;
+      meshRef.current.rotation.z -= 0.00009;
     }
   });
 
   return (
     <points ref={meshRef} geometry={particlesGeometry}>
-      <pointsMaterial color={'#FF4FFF'} size={0.00009} sizeAttenuation={true} />
+      <pointsMaterial
+        map={texture} // Apply the texture
+        size={0.01} // Adjust size as needed
+        sizeAttenuation={true}
+        vertexColors // Enable vertex colors
+        transparent={true}
+        alphaTest={0.5} // This helps with handling the texture's transparency
+      />
     </points>
   );
 };
