@@ -5,7 +5,7 @@ import textureImg from './texture.png'; // Ensure this path is correct
 
 const Particles = () => {
   const meshRef = useRef<THREE.Points>(null);
-  const particlesCount = 50000;
+  const particlesCount = 60000;
   const posArray = new Float32Array(particlesCount * 3);
   const colorArray = new Float32Array(particlesCount * 3); // Array for colors
 
@@ -33,7 +33,7 @@ const Particles = () => {
       // Optional: Update logic for each frame (e.g., rotation)
       meshRef.current.rotation.y += 0.00009;
       meshRef.current.rotation.x -= 0.000009;
-      meshRef.current.rotation.z += 0.0000000005;
+      meshRef.current.rotation.z += 0.0005;
     }
   });
 
@@ -41,7 +41,7 @@ const Particles = () => {
     <points ref={meshRef} geometry={particlesGeometry}>
       <pointsMaterial
         map={texture} // Apply the texture
-        size={0.01} // Adjust size as needed
+        size={0.007} // Adjust size as needed
         sizeAttenuation={true}
         vertexColors // Enable vertex colors
         transparent={false}
