@@ -5,7 +5,7 @@ import textureImg from './texture.png'; // Ensure this path is correct
 
 const Particles = () => {
   const meshRef = useRef<THREE.Points>(null);
-  const particlesCount = 50000;
+  const particlesCount = 60000;
   const posArray = new Float32Array(particlesCount * 3);
   const colorArray = new Float32Array(particlesCount * 3); // Array for colors
 
@@ -17,9 +17,9 @@ const Particles = () => {
     posArray[i + 2] = (Math.random() - 0.5) * 10;
 
     // Assign random color for each vertex
-    colorArray[i] = Math.random()*Math.random();
-    colorArray[i + 1] = Math.random()*Math.random();
-    colorArray[i + 2] =  Math.random()*Math.random()*244;
+    colorArray[i] =Math.random();
+    colorArray[i + 1] = Math.random()* 0.2;
+    colorArray[i + 2] = Math.random();
   }
 
   const particlesGeometry = new THREE.BufferGeometry();
@@ -32,8 +32,8 @@ const Particles = () => {
     if (meshRef.current) {
       // Optional: Update logic for each frame (e.g., rotation)
       meshRef.current.rotation.y += 0.00009;
-      meshRef.current.rotation.x += 0.000009;
-      meshRef.current.rotation.z -= 0.00009;
+      meshRef.current.rotation.x -= 0.000009;
+      meshRef.current.rotation.z += 0.0005;
     }
   });
 
@@ -44,8 +44,8 @@ const Particles = () => {
         size={0.01} // Adjust size as needed
         sizeAttenuation={true}
         vertexColors // Enable vertex colors
-        transparent={true}
-        alphaTest={0.5} // This helps with handling the texture's transparency
+        transparent={false}
+        alphaTest={0.1} // This helps with handling the texture's transparency
       />
     </points>
   );
