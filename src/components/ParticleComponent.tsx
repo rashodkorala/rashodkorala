@@ -41,7 +41,7 @@ const Particles = () => {
     <points ref={meshRef} geometry={particlesGeometry}>
       <pointsMaterial
         map={texture} // Apply the texture
-        size={0.007} // Adjust size as needed
+        size={0.012} // Adjust size as needed
         sizeAttenuation={true}
         vertexColors // Enable vertex colors
         transparent={false}
