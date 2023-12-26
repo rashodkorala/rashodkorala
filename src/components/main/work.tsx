@@ -16,7 +16,7 @@ const Work = () => {
           {projectData.map((project) => (
             <div className="py-3 px-3" key={project.id}>
               <div>
-                <Image className="w-[100%]" src={project.image} alt={project.name} width={100} height={100} />
+                <Image className="w-[100%]" src={project.image} alt={project.name} width={100} height={100} sizes="10"/>
               </div>
               <h3 className="text-2xl text-center pt-2 font-bold">{project.name}</h3>
               <p className="text-white text-md py-3 text-center">{project.description}</p>

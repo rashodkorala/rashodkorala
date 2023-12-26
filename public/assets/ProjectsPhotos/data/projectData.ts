@@ -1,4 +1,5 @@
-import Artistportfolio from "./../ArtistPortfolio.png";
+import Artistportfolio from "./../MyPortfolio.png";
+
 
 
 export const projectData = [
