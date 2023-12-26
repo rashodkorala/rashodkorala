@@ -1,11 +1,13 @@
 import React from "react";
 import Link from "next/link";
 
+
 type Props = {};
 
 const about = (props: Props) => {
   return (
-    <div id="About" className="w-full h-screen bg-bg ">
+    <div id="About" className="w-full h-screen bg-transparent ">
+    
       <div className="max-w-[1000px] mx-auto px-4 flex flex-col justify-center h-full text-white xsm:px-5">
         <h1 className="font-bold text-4xl xsm:text-5xl sm:text-6xl">Me, Myself & I</h1>
         <div className="flex flex-col md:grid md:grid-cols-1 ">

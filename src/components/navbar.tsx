@@ -17,12 +17,12 @@ function Navbar({}: Props) {
     const [nav, setNav] = useState(false);
     const HandleClick = () => setNav(!nav);
   return (
-    <div className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-bg text-gray-50">
+    <div className="fixed w-full h-[80] flex justify-between items-center bg-transparent text-gray-50 p-10">
       <div className="z-10">
-        <Image src={Logo} alt="logo" style={{ width: "50px" }} />
+        <Image src={Logo} alt="logo" style={{ width: "70px" }} />
       </div>
       {/*menu */}
-      <div className="hidden md:flex ">
+      <div className="hidden md:flex text-[18px]">
         <ul className="flex">
           <li>
             <Links to="Home" smooth={true} duration={1000} offset={10}>
@@ -34,11 +34,11 @@ function Navbar({}: Props) {
               ABOUT
             </Links>
           </li>
-          <li>
+          {/* <li>
             <Links to="Skills" smooth={true} duration={1000}>
               SKILLS
             </Links>
-          </li>
+          </li> */}
           <li>
             <Links to="Work" smooth={true} duration={1000} offset={-150} isDynamic={true}>
               WORK
@@ -72,11 +72,11 @@ function Navbar({}: Props) {
           </Links>
         </li>
 
-        <li className="py-6 text-4fxl">
+        {/* <li className="py-6 text-4fxl">
           <Links onClick={HandleClick} to="Skills" smooth={true} duration={500}>
             SKILLS
           </Links>
-        </li>
+        </li> */}
 
         <li className="py-6 text-4fxl">
           <Links onClick={HandleClick} to="Work" smooth={true} duration={500} offset={-100}>
