@@ -5,7 +5,7 @@ import textureImg from './texture.png'; // Ensure this path is correct
 
 const Particles = () => {
   const meshRef = useRef<THREE.Points>(null);
-  const particlesCount = 60000;
+  const particlesCount = 50000;
   const posArray = new Float32Array(particlesCount * 3);
   const colorArray = new Float32Array(particlesCount * 3); // Array for colors
 
@@ -33,7 +33,7 @@ const Particles = () => {
       // Optional: Update logic for each frame (e.g., rotation)
       meshRef.current.rotation.y += 0.00009;
       meshRef.current.rotation.x -= 0.000009;
-      meshRef.current.rotation.z += 0.0005;
+      meshRef.current.rotation.z += 0.0000000005;
     }
   });
 
@@ -45,7 +45,7 @@ const Particles = () => {
         sizeAttenuation={true}
         vertexColors // Enable vertex colors
         transparent={false}
-        alphaTest={0.1} // This helps with handling the texture's transparency
+        alphaTest={0.5} // This helps with handling the texture's transparency
       />
     </points>
   );
@@ -53,9 +53,11 @@ const Particles = () => {
 
 const ParticleComponent = () => {
   return (
-    <Canvas style={{ position: 'absolute', top: 0, left: 0, zIndex: -1 }}>
-      <Particles />
-    </Canvas>
+    <Canvas style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}>
+    {/* Particle system setup */}
+    <Particles />
+  </Canvas>
+  
   );
 };
 
