@@ -27,7 +27,7 @@ const PhotosGallery: React.FC<PhotosGalleryProps> = ({ images }) => {
       {/* Loading screen, etc. */}
       {/* Gallery content */}
       {!isLoading && (
-        <div className="max-w-[1300px] mx-auto px-4 flex flex-col justify-center h-full text-black xsm:px-5">
+        <div className="max-w-[1900px] mx-auto px-4 flex flex-col justify-center h-full text-black xsm:px-5">
           <div className="columns-3 gap-3 mx-auto space-y-3 py-28">
             {images.map((image) => (
               <div key={image.id} className="break-inside-avoid">

@@ -26,6 +26,7 @@
     "react-scroll": "^1.8.9",
     "react-slick": "^0.29.0",
     "react-spring": "^9.7.3",
+    "sharp": "^0.33.1",
     "slick-carousel": "^1.8.1",
     "tailwind-scrollbar-hide": "^1.1.7",
     "three": "^0.159.0",
