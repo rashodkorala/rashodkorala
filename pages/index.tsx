@@ -18,16 +18,12 @@ const DynamicComponentWithNoSSR = dynamic(() => import("@/src/components/MouseGr
 export default function Index() {
   return (
     <>
-      {/* <DynamicComponentWithNoSSR /> */}
       <ParticleComponent />
-      <Navbar />
       <Home />
       <About />
-      {/* <Skills /> */}
+    
       <Work />
       <Contact />
-      <Footer />
-     
     </>
   );
 }

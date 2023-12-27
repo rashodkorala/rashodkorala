@@ -25,24 +25,37 @@ function Navbar({}: Props) {
       <div className="hidden md:flex text-[18px]">
         <ul className="flex">
           <li>
-            <Links to="Home" smooth={true} duration={1000} offset={10} spy={true}>
+           <Link href="/" legacyBehavior>
+           <Links to="Home" smooth={true} duration={1000} offset={10} spy={true}>
               HOME
             </Links>
+           </Link>
           </li>
           <li>
+          <Link href="/" legacyBehavior>
             <Links to="About" smooth={true} duration={1000} spy={true}>
               ABOUT
             </Links>
+            </Link>
           </li>
           <li>
+          <Link href="/" legacyBehavior>
             <Links to="Work" smooth={true} duration={1000} offset={-150} isDynamic={true} spy={true}>
               WORK
             </Links>
+            </Link>
           </li>
           <li>
+          <Link href="/" legacyBehavior passHref>
             <Links to="Contact" smooth={true} duration={1000} offset={120} spy={true}>
               CONTACT
             </Links>
+            </Link>
+          </li>
+          <li>
+            <Link href='/gallery' >
+              PHOTOS
+            </Link>
           </li>
         </ul>
       </div>
@@ -76,7 +89,13 @@ function Navbar({}: Props) {
           <Links onClick={HandleClick} to="Contact" smooth={true} duration={500}>
             CONTACT
           </Links>
+         
         </li>
+        <li>
+            <Links to="Contact" smooth={true} duration={1000} offset={120} spy={true}>
+              PHOTOS
+            </Links>
+          </li>
 
         {/*social icons */}
         <div>

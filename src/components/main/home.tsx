@@ -6,8 +6,9 @@ import { useTrail, animated } from "@react-spring/web";
 import { FaHtml5, FaCss3, FaReact, FaNodeJs, FaJava } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
 import { SiMongodb, SiMysql, SiFirebase, SiFlutter } from "react-icons/si";
-import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
+import { TbBrandNextjs, TbBrandTailwind} from "react-icons/tb";
 import { useInView } from "react-intersection-observer";
+import { TbBrandThreejs } from "react-icons/tb";
 const Home = () => {
   const [inViewRef, inView] = useInView({
     triggerOnce: false,
@@ -77,9 +78,11 @@ const Home = () => {
       {/* Firebase */}
       <FaJava size={30} className="px-1" style={{ color: "#007396" }} />{" "}
       {/* Java */}
+      <TbBrandThreejs size={30} className="px-1" style={{ color: "#FFFFFF" }} />{" "}
+      {/* Three.js */}
     </div>,
     <div key="button" className="w-[180px] my-4">
-      <Links to="Work" smooth={true} offset={100} duration={500}>
+      <Links to="Work" smooth={true} offset={-150} duration={500}>
         <button className="flex justify-center items-center bg-transparent text-white px-4 py-2 rounded-3xl ring-2 ring-blue-500 hover:scale-110 transition-all duration-1000 ease-in-out">
           View Work
           <HiArrowNarrowRight className="ml-1" />
