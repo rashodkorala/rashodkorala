@@ -22,7 +22,7 @@ const About = () => {
   });
 
   return (
-    <div id="about" ref={inViewRef} className="w-full h-screen bg-transparent">
+    <div id="About" ref={inViewRef} className="w-full h-screen bg-transparent">
       <div className="max-w-[1000px] mx-auto px-4 flex flex-col justify-center h-full text-white xsm:px-5">
         {trail.map(({ x, ...style }, index) => {
           const Component = animated.div;

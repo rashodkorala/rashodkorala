@@ -17,7 +17,7 @@ function Navbar({}: Props) {
     const [nav, setNav] = useState(false);
     const HandleClick = () => setNav(!nav);
   return (
-    <div className="fixed w-full h-[80] flex justify-between items-center bg-transparent text-gray-50 p-10">
+    <div className="fixed w-full h-[80] flex justify-between items-center bg-transparent text-gray-50 p-10 z-10">
       <div className="z-10">
         <Image src={Logo} alt="logo" style={{ width: "70px" }} />
       </div>
@@ -25,12 +25,12 @@ function Navbar({}: Props) {
       <div className="hidden md:flex text-[18px]">
         <ul className="flex">
           <li>
-            <Links to="Home" smooth={true} duration={1000} offset={10}>
+            <Links to="Home" smooth={true} duration={1000} offset={10} spy={true}>
               HOME
             </Links>
           </li>
           <li>
-            <Links to="About" smooth={true} duration={1000}>
+            <Links to="About" smooth={true} duration={1000} spy={true}>
               ABOUT
             </Links>
           </li>
@@ -40,12 +40,12 @@ function Navbar({}: Props) {
             </Links>
           </li> */}
           <li>
-            <Links to="Work" smooth={true} duration={1000} offset={-150} isDynamic={true}>
+            <Links to="Work" smooth={true} duration={1000} offset={-150} isDynamic={true} spy={true}>
               WORK
             </Links>
           </li>
           <li>
-            <Links to="Contact" smooth={true} duration={1000} offset={120}>
+            <Links to="Contact" smooth={true} duration={1000} offset={120} spy={true}>
               CONTACT
             </Links>
           </li>
