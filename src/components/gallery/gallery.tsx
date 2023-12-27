@@ -26,7 +26,7 @@ const PhotosGallery: React.FC<PhotosGalleryProps> = ({ images }) => {
     <div id="gallery" className="w-full bg-transparent">
      
      {isLoading && (
-        <div className="fixed inset-0 z-50 flex justify-center items-center bg-black">
+        <div className="fixed inset-0 z-9 flex justify-center items-center bg-black">
           <TailSpin color="#FFFFFF" height={80} width={80} />
 
         </div>
