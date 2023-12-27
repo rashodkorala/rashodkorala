@@ -33,7 +33,7 @@ const Particles = () => {
       // Optional: Update logic for each frame (e.g., rotation)
       meshRef.current.rotation.y += 0.00009;
       meshRef.current.rotation.x -= 0.000009;
-      meshRef.current.rotation.z += 0.0005;
+      meshRef.current.rotation.z += 0.001;
     }
   });
 
