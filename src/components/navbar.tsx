@@ -34,11 +34,6 @@ function Navbar({}: Props) {
               ABOUT
             </Links>
           </li>
-          {/* <li>
-            <Links to="Skills" smooth={true} duration={1000}>
-              SKILLS
-            </Links>
-          </li> */}
           <li>
             <Links to="Work" smooth={true} duration={1000} offset={-150} isDynamic={true} spy={true}>
               WORK
@@ -71,13 +66,6 @@ function Navbar({}: Props) {
             ABOUT
           </Links>
         </li>
-
-        {/* <li className="py-6 text-4fxl">
-          <Links onClick={HandleClick} to="Skills" smooth={true} duration={500}>
-            SKILLS
-          </Links>
-        </li> */}
-
         <li className="py-6 text-4fxl">
           <Links onClick={HandleClick} to="Work" smooth={true} duration={500} offset={-100}>
             WORK

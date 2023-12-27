@@ -28,12 +28,10 @@ const About = () => {
           const Component = animated.div;
           return (
             <Component key={index} style={{ ...style, transform: x.to(x => `translate3d(0,${x}px,0)`) }}>
-              {index === 0 && <h1 className="font-bold text-4xl xsm:text-5xl sm:text-6xl">Me, Myself & I</h1>}
+              {index === 0 && <h1 className="font-bold text-4xl xsm:text-5xl sm:text-6xl text-center">Me, Myself & I</h1>}
               {index === 1 && (
-                <p className="py-4 text-md xsm:text-xl xl:text-2xl text-clip">
-                  I am a fourth year student at the Memorial University of Newfoundland studying Computer Science. I am a
-                  self-taught developer and designer with a passion for creating beautiful and functional websites. I am also
-                  passionate about photography and love to create and edit photos.
+                <p className="py-4 text-md xsm:text-xl xl:text-2xl text-justify">
+                  As a spirited fourth-year Computer Science student at the Memorial University of Newfoundland, I&apos;ve enthusiastically embraced the world of coding and design as a self-taught developer. My journey has been nothing short of a thrilling adventure, filled with the joy of crafting stunning and highly functional websites. Alongside my tech pursuits, I&apos;m deeply passionate about photography, reveling in the art of capturing and crafting breathtaking images. Every click of the camera and stroke of the keyboard is a step towards creating digital masterpieces, all while enjoying every moment of this delightful and creative journey!
                 </p>
               )}
             </Component>

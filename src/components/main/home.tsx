@@ -11,7 +11,7 @@ import { useInView } from "react-intersection-observer";
 const Home = () => {
   const [inViewRef, inView] = useInView({
     triggerOnce: false,
-    threshold: 0.9,
+    threshold: 0.85,
   });
 
   const [startAnimation, setStartAnimation] = useState(false);
@@ -36,7 +36,7 @@ const Home = () => {
       RASHOD
     </h1>,
     // <p key="title" className="text-lg xsm:text-xl sm:text-2xl md:text-3xl xl:text-3xl">DEVELOPER | PHOTOGRAPHER | CREATOR</p>,
-    <div key="skills" className="flex gap-2">
+    <div key="skills" className="flex  flex-wrap gap-2 items-center justify-center">
       <FaHtml5 size={30} className="px-1" style={{ color: "#E34F26" }} />{" "}
       {/* HTML5 */}
       <FaCss3 size={30} className="px-1" style={{ color: "#1572B6" }} />{" "}
@@ -91,9 +91,9 @@ const Home = () => {
   const trail = useTrail(items.length, {
     
     opacity: startAnimation ? 1 : 0,
-    x: startAnimation ? 0 : 20,
+    x: startAnimation ? 0 : 90,
     from: { opacity: 0, x: 20 },
-    config: { mass: 1, tension: 280, friction: 60 },
+    config: { mass: 2, tension: 300, friction: 90 },
     delay:200, // You can adjust the spring physics here
   });
 
