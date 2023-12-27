@@ -120,6 +120,11 @@ function Navbar({}: Props) {
                 <HiOutlineMail size={30} />
               </a>{" "}
             </li>
+            <li>
+            <Link href='/gallery' >
+              PHOTOS
+            </Link>
+          </li>
           </ul>
         </div>
       </ul>
