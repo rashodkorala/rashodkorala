@@ -97,7 +97,7 @@ const Home = () => {
     x: startAnimation ? 0 : 90,
     from: { opacity: 0, x: 20 },
     config: { mass: 2, tension: 300, friction: 90 },
-    delay:200, // You can adjust the spring physics here
+    delay:600, // You can adjust the spring physics here
   });
 
   return (
