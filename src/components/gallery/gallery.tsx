@@ -18,13 +18,19 @@ const PhotosGallery: React.FC<PhotosGalleryProps> = ({ images }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2000);
+    const timer = setTimeout(() => setIsLoading(false), 6000);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div id="gallery" className="w-full bg-transparent">
-      {/* Loading screen, etc. */}
+     
+     {isLoading && (
+        <div className="fixed inset-0 z-50 flex justify-center items-center bg-black">
+          <TailSpin color="#FFFFFF" height={80} width={80} />
+
+        </div>
+      )}
       {/* Gallery content */}
       {!isLoading && (
         <div className="max-w-[1900px] mx-auto px-4 flex flex-col justify-center h-full text-black xsm:px-5">
