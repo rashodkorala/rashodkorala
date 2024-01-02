@@ -52,11 +52,7 @@ function Navbar({}: Props) {
             </Links>
             </Link>
           </li>
-          <li>
-            <Link href='/gallery' >
-              PHOTOS
-            </Link>
-          </li>
+          
         </ul>
       </div>
       {/*hamburgur menu */}
@@ -89,13 +85,7 @@ function Navbar({}: Props) {
           <Links onClick={HandleClick} to="Contact" smooth={true} duration={500}>
             CONTACT
           </Links>
-         
         </li>
-        <li>
-            <Links to="Contact" smooth={true} duration={1000} offset={120} spy={true}>
-              PHOTOS
-            </Links>
-          </li>
 
         {/*social icons */}
         <div>
@@ -120,11 +110,6 @@ function Navbar({}: Props) {
                 <HiOutlineMail size={30} />
               </a>{" "}
             </li>
-            <li>
-            <Link href='/gallery' >
-              PHOTOS
-            </Link>
-          </li>
           </ul>
         </div>
       </ul>
