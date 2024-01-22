@@ -31,7 +31,7 @@ const About = () => {
               {index === 0 && <h1 className="font-bold text-4xl xsm:text-5xl sm:text-6xl text-center">Me, Myself & I</h1>}
               {index === 1 && (
                 <p className="py-4 text-md xsm:text-xl xl:text-2xl text-center">
-                  As a spirited fourth-year Computer Science student at the Memorial University of Newfoundland, I&apos;ve enthusiastically embraced the world of coding and design as a self-taught developer. My journey has been nothing short of a thrilling adventure, filled with the joy of crafting stunning and highly functional websites. Alongside my tech pursuits, I&apos;m deeply passionate about photography, reveling in the art of capturing and crafting breathtaking images. Every click of the camera and stroke of the keyboard is a step towards creating digital masterpieces, all while enjoying every moment of this delightful and creative journey!
+                  Fourth-year Computer Science student at Memorial University of Newfoundland. I have passionately embraced coding, design, and photography, crafting both functional websites and breathtaking images. Every keystroke and camera click is a step in my delightful journey of creating digital masterpieces.
                 </p>
               )}
             </Component>
