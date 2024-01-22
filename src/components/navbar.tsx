@@ -40,8 +40,8 @@ function Navbar({}: Props) {
           </li>
           <li>
           <Link href="/" legacyBehavior>
-            <Links to="Work" smooth={true} duration={1000} offset={-150} isDynamic={true} spy={true}>
-              WORK
+            <Links to="Projects" smooth={true} duration={1000} offset={-150} isDynamic={true} spy={true}>
+              PROJECTS
             </Links>
             </Link>
           </li>
@@ -76,8 +76,8 @@ function Navbar({}: Props) {
           </Links>
         </li>
         <li className="py-6 text-4fxl">
-          <Links onClick={HandleClick} to="Work" smooth={true} duration={500} offset={-100}>
-            WORK
+          <Links onClick={HandleClick} to="Projects" smooth={true} duration={500} offset={-100}>
+            PROJECTS
           </Links>
         </li>
 
