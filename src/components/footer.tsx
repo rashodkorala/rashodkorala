@@ -37,7 +37,7 @@ const footer = (props: Props) => {
       <div className="flex flex-col items-center justify-center">
         <p className="flex items-center font-mono">
           <FaRegCopyright size={22} className="px-1" />
-          Rashod Korala 2023
+          Rashod Korala 2024
         </p>
         <p className="font-mono">Designed & built by Rashod Korala</p>
       </div>
