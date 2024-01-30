@@ -17,75 +17,75 @@ function Navbar({}: Props) {
     const [nav, setNav] = useState(false);
     const HandleClick = () => setNav(!nav);
   return (
-    <div className="fixed w-full h-[80] flex justify-between items-center bg-transparent text-gray-50 p-10 z-10">
+    <div className="fixed w-full h-[80] flex justify-between items-center bg-transparent p-5 md:p-10 z-10">
       <div className="z-10">
-        <Image src={Logo} alt="logo" style={{ width: "70px" }} />
+        {/* <Image src={Logo} alt="logo" style={{ width: "70px" }} /> */}
       </div>
       {/*menu */}
-      <div className="hidden md:flex text-[18px]">
+      <div className="hidden md:flex text-[20px]">
         <ul className="flex">
           <li>
            <Link href="/" legacyBehavior>
            <Links to="Home" smooth={true} duration={1000} offset={10} spy={true}>
-              HOME
+              Home
             </Links>
            </Link>
           </li>
           <li>
           <Link href="/" legacyBehavior>
             <Links to="About" smooth={true} duration={1000} spy={true}>
-              ABOUT
+              About
             </Links>
             </Link>
           </li>
           <li>
           <Link href="/" legacyBehavior>
-            <Links to="Projects" smooth={true} duration={1000} offset={-150} isDynamic={true} spy={true}>
-              PROJECTS
+            <Links to="Projects" smooth={true} duration={1000} offset={-200} isDynamic={true} spy={true}>
+              Projects
             </Links>
             </Link>
           </li>
-          <li>
+          {/* <li>
           <Link href="/" legacyBehavior passHref>
             <Links to="Contact" smooth={true} duration={1000} offset={120} spy={true}>
-              CONTACT
+              Contact
             </Links>
             </Link>
-          </li>
+          </li> */}
           
         </ul>
       </div>
       {/*hamburgur menu */}
-      <div onClick={HandleClick} className="md:hidden z-10">
+      <div onClick={HandleClick} className="md:hidden z-10 ">
         {nav ? <FaTimes /> : <FaBars />}
       </div>
       {/*mobile menu */}
       <ul
         className={
-          !nav ? "hidden" : "absolute top-0 left-0 w-full h-screen bg-black flex flex-col justify-center items-center"
+          !nav ? "hidden" : "absolute top-0 left-0 w-full h-screen bg-[#000000] flex flex-col justify-center items-center"
         }>
-        <li className="py-6 text-4fxl">
+        <li className="py-3 text-3xl">
           <Links onClick={HandleClick} to="Home" smooth={true} duration={500}>
-            HOME
+            Home
           </Links>
         </li>
 
-        <li className="py-6 text-4fxl">
+        <li className="py-3 text-3xl">
           <Links onClick={HandleClick} to="About" smooth={true} duration={500}>
-            ABOUT
+            About
           </Links>
         </li>
-        <li className="py-6 text-4fxl">
-          <Links onClick={HandleClick} to="Projects" smooth={true} duration={500} offset={-100}>
-            PROJECTS
+        <li className="py-3 text-3xl">
+          <Links onClick={HandleClick} to="Projects" smooth={true} duration={500} offset={-20}>
+            Projects
           </Links>
         </li>
 
-        <li className="py-6 text-4fxl">
+        {/* <li className="py-3 text-3xl">
           <Links onClick={HandleClick} to="Contact" smooth={true} duration={500}>
-            CONTACT
+            Contact
           </Links>
-        </li>
+        </li> */}
 
         {/*social icons */}
         <div>

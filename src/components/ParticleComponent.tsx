@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import * as THREE from 'three';
-import textureImg from './texture.png'; // Ensure this path is correct
 
 const Particles = () => {
   const meshRef = useRef<THREE.Points>(null);

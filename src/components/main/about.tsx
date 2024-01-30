@@ -23,14 +23,14 @@ const About = () => {
 
   return (
     <div id="About" ref={inViewRef} className="w-full h-screen bg-transparent">
-      <div className="max-w-[1000px] mx-auto px-4 flex flex-col justify-center h-full text-white xsm:px-5">
+      <div className="max-w-[1000px] mx-auto px-4 flex flex-col justify-center h-full xsm:px-5">
         {trail.map(({ x, ...style }, index) => {
           const Component = animated.div;
           return (
             <Component key={index} style={{ ...style, transform: x.to(x => `translate3d(0,${x}px,0)`) }}>
               {index === 0 && <h1 className="font-bold text-4xl xsm:text-5xl sm:text-6xl text-center">Me, Myself & I</h1>}
               {index === 1 && (
-                <p className="py-4 text-md xsm:text-xl xl:text-2xl text-center">
+                <p className="py-4 text-md xsm:text-xl xl:text-2xl text-center text-systemGray">
                   Fourth-year Computer Science student at Memorial University of Newfoundland. I have passionately embraced coding, design, and photography, crafting both functional websites and breathtaking images. Every keystroke and camera click is a step in my delightful journey of creating digital masterpieces.
                 </p>
               )}
