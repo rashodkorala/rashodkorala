@@ -20,8 +20,8 @@ export default function Index() {
     <>
       {/* <ParticleComponent /> */}
       <Home />
+      {/* <About /> */}
       <Projects />
-      <About />
       <Contact />
     </>
   );

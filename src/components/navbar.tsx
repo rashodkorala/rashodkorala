@@ -31,13 +31,13 @@ function Navbar({}: Props) {
             </Links>
            </Link>
           </li>
-          <li>
+          {/* <li>
           <Link href="/" legacyBehavior>
             <Links to="About" smooth={true} duration={1000} spy={true}>
               About
             </Links>
             </Link>
-          </li>
+          </li> */}
           <li>
           <Link href="/" legacyBehavior>
             <Links to="Projects" smooth={true} duration={1000} offset={-200} isDynamic={true} spy={true}>
@@ -45,50 +45,50 @@ function Navbar({}: Props) {
             </Links>
             </Link>
           </li>
-          {/* <li>
+          <li>
           <Link href="/" legacyBehavior passHref>
             <Links to="Contact" smooth={true} duration={1000} offset={120} spy={true}>
               Contact
             </Links>
             </Link>
-          </li> */}
+          </li>
           
         </ul>
       </div>
       {/*hamburgur menu */}
       <div onClick={HandleClick} className="md:hidden z-10 ">
         {nav ? <FaTimes /> : <FaBars />}
-      </div>
+      </div> 
       {/*mobile menu */}
-      <ul
-        className={
-          !nav ? "hidden" : "absolute top-0 left-0 w-full h-screen bg-[#000000] flex flex-col justify-center items-center"
-        }>
+      <ul className={
+          !nav ? "hidden" : "absolute top-0 left-0 w-full h-screen bg-[#000000] flex flex-col justify-center items-center not-sr-only"
+        }
+        >
         <li className="py-3 text-3xl">
           <Links onClick={HandleClick} to="Home" smooth={true} duration={500}>
             Home
           </Links>
         </li>
-
-        <li className="py-3 text-3xl">
+        
+        {/* <li className="py-3 text-3xl">
           <Links onClick={HandleClick} to="About" smooth={true} duration={500}>
             About
           </Links>
-        </li>
+        </li> */}
         <li className="py-3 text-3xl">
           <Links onClick={HandleClick} to="Projects" smooth={true} duration={500} offset={-20}>
             Projects
           </Links>
         </li>
-
-        {/* <li className="py-3 text-3xl">
+        
+        <li className="py-3 text-3xl">
           <Links onClick={HandleClick} to="Contact" smooth={true} duration={500}>
             Contact
           </Links>
-        </li> */}
+        </li>
 
         {/*social icons */}
-        <div>
+        <div className="m-5">
           <ul className="flex">
             <li>
               <a href="https://www.instagram.com/rashodk_/">

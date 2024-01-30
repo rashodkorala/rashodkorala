@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 const About = () => {
   const [inViewRef, inView] = useInView({
     triggerOnce: false, // Change to false to monitor the element continuously
-    threshold: 0.65,
+    threshold: 0.5,
   });
 
   const [startAnimation, setStartAnimation] = useState(false);
@@ -19,6 +19,7 @@ const About = () => {
     x: startAnimation ? 0 : 20,
     from: { opacity: 0, x: 20 },
     config: { mass: 1, tension: 280, friction: 60 }, // You can adjust the spring physics here
+    delay: 200, // You can adjust the delay here
   });
 
   return (
@@ -30,7 +31,7 @@ const About = () => {
             <Component key={index} style={{ ...style, transform: x.to(x => `translate3d(0,${x}px,0)`) }}>
               {index === 0 && <h1 className="font-bold text-4xl xsm:text-5xl sm:text-6xl text-center">Me, Myself & I</h1>}
               {index === 1 && (
-                <p className="py-4 text-md xsm:text-xl xl:text-2xl text-center text-systemGray">
+                <p className="py-4 text-md xsm:text-xl xl:text-2xl text-center text-systemGray p-10">
                   Fourth-year Computer Science student at Memorial University of Newfoundland. I have passionately embraced coding, design, and photography, crafting both functional websites and breathtaking images. Every keystroke and camera click is a step in my delightful journey of creating digital masterpieces.
                 </p>
               )}

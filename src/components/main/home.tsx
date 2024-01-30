@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { HiArrowNarrowRight } from "react-icons/hi";
+import { HiArrowNarrowDown, HiArrowNarrowRight } from "react-icons/hi";
 import { Link as Links } from "react-scroll";
 import { useTrail, animated } from "@react-spring/web";
-import { FaHtml5, FaCss3, FaReact, FaNodeJs, FaJava } from "react-icons/fa";
+import { FaHtml5, FaCss3, FaReact, FaNodeJs, FaJava,FaAnglesDown } from "react-icons/fa6";
 import { IoLogoJavascript } from "react-icons/io";
 import { SiMongodb, SiMysql, SiFirebase, SiFlutter } from "react-icons/si";
 import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
@@ -20,7 +20,7 @@ const getOffset = () => {
 const Home = () => {
   const [inViewRef, inView] = useInView({
     triggerOnce: false,
-    threshold: 0.85,
+    threshold: 0.5,
   });
 
   const [startAnimation, setStartAnimation] = useState(false);
@@ -32,25 +32,40 @@ const Home = () => {
   const items = [
     <h1
       key="intro"
-      className="text-2xl xsm:text-5xl sm:text-4xl md:text-5xl xl:text-7xl"
+      className="text-4xl md:text-5xl xl:text-7xl"
     >
     Hello, I am Rashod
     </h1>,
-    <h2
-      key="name"
-      className="p-5 text-systemGray text-sm xsm:text-sm sm:text-md md:text-lg xl:text-2xl"
-    >
-      I am a Full Stack Developer and a Computer Science Student
-    </h2>,
-    <div key="skills" className="flex flex-wrap gap-2 items-center justify-center">
+    // <h2
+    //   key="name"
+    //   className="py-3 text-xl md:text-3xl xl:text-4xl"
+    // >
+    //   I am a Full Stack Developer
+    // </h2>,
+    <p key="desc" className="py-4 text-md xsm:text-xl xl:text-2xl text-center text-systemGray max-w-[950px]">
+    Fourth-year Computer Science student at Memorial University of Newfoundland. I have passionately embraced coding, design, and photography, crafting both functional websites and breathtaking images. Every keystroke and camera click is a step in my delightful journey of creating digital masterpieces.
+  </p>,
+    <div key="skills" className="flex flex-wrap gap-2 items-center justify-center text-systemGray">
       {/* Insert your skill icons here */}
+      <FaHtml5 size={30} className="px-1" />
+      <FaCss3 size={30} className="px-1" />
+      <IoLogoJavascript size={30} className="px-1" />
+      <FaReact size={30} className="px-1" />
+      <TbBrandNextjs size={30} className="px-1" />
+      <SiFlutter size={30} className="px-1" />
+      <TbBrandTailwind size={30} className="px-1" />
+      <FaNodeJs size={30} className="px-1" />
+      <SiMongodb size={30} className="px-1" />
+      <SiMysql size={30} className="px-1" />
+      <SiFirebase size={30} className="px-1" />
+      <FaJava size={30} className="px-1" />
+      <TbBrandThreejs size={30} className="px-1" />
+
     </div>,
-    <div key="button" className="w-[180px] my-4">
-      <Links to="Projects" smooth={true} offset={getOffset()} duration={500}>
-        <button className="flex justify-center items-center bg-transparent px-4 py-2 rounded-3xl ring-2 ring-blue-500 hover:scale-110 transition-all duration-1000 ease-in-out">
-          View Projects
-          <HiArrowNarrowRight className="ml-1" />
-        </button>
+    <div key="button" className="my-2">
+      <Links to="Projects" smooth={true} offset={getOffset()} duration={500} className="flex flex-col justify-center items-center gap-2 text-blue-500">
+        <p className="text-md">Scroll Down to see my projects</p>
+        <FaAnglesDown size={30} className="animate-bounce " />
       </Links>
     </div>,
   ];
@@ -60,7 +75,7 @@ const Home = () => {
     x: startAnimation ? 0 : 90,
     from: { opacity: 0, x: 20 },
     config: { mass: 2, tension: 300, friction: 90 },
-    delay: 600, // You can adjust the spring physics here
+    delay: 200, // You can adjust the spring physics here
   });
 
   return (
