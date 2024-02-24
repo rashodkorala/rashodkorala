@@ -25,7 +25,7 @@ function Navbar({}: Props) {
       <div className="hidden md:flex text-[20px]">
         <ul className="flex">
           <li>
-           <Link href="/" legacyBehavior>
+           <Link href="/" legacyBehavior scroll={false}>
            <Links to="Home" smooth={true} duration={1000} offset={10} spy={true}>
               Home
             </Links>
@@ -39,14 +39,14 @@ function Navbar({}: Props) {
             </Link>
           </li> */}
           <li>
-          <Link href="/" legacyBehavior>
-            <Links to="Projects" smooth={true} duration={1000} offset={-200} isDynamic={true} spy={true}>
+          <Link href="/#Projects" legacyBehavior scroll={false}>
+            <Links to="Projects" smooth={true} duration={1000} offset={0} isDynamic={true} spy={true}>
               Projects
             </Links>
             </Link>
           </li>
           <li>
-          <Link href="/" legacyBehavior passHref>
+          <Link href="/#Contact" legacyBehavior passHref scroll={false}>
             <Links to="Contact" smooth={true} duration={1000} offset={120} spy={true}>
               Contact
             </Links>

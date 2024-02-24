@@ -1,27 +1,21 @@
 import React from 'react';
 
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-}
+import router from 'next/router';
+
+import { projectData } from '@/public/assets/data/projectData';
 
 const Projects: React.FC = () => {
-  const projectData: Project[] = [
-    { id: 5, title: 'Personal Website', description: 'Showcase your portfolio and identity with a personalized online platform.' },
-    { id: 2, title: 'getFit mobile app', description: 'Track workouts, plan meals, and achieve fitness goals on-the-go.' },
-    { id: 3, title: 'Artist Website', description: 'Exhibit your artistry and connect with enthusiasts through an immersive platform.' },
-    { id: 4, title: 'Small business Website', description: 'Digital storefront for showcasing products, services, and engaging customers.' },
-    { id: 5, title: 'Movie database website', description: 'Discover, explore, and engage with your favorite movies and TV shows.' },
-  ];
-
+  
   const handleViewProject = (projectId: number) => {
     // Implement logic to handle the view project action
-    console.log(`View Project ${projectId}`);
+    // redirect to the project page
+    
+    router.push(`/projects/${projectId}`);
   };
 
   return (
-    <div className="max-w-screen-lg mx-auto p-8 snap-always snap-center" id='Projects'>
+    <div className='w-full h-screen flex justify-center items-center snap-mandotory snap-center' id='Projects'>
+    <div className="max-w-screen-lg p-8" >
       <h2 className="text-3xl font-bold mb-4">My Projects</h2>
       <div className="flex flex-col p-6">
         {projectData.map((project, index) => (
@@ -41,6 +35,7 @@ const Projects: React.FC = () => {
           </React.Fragment>
         ))}
       </div>
+    </div>
     </div>
   );
 };

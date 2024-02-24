@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { projectData } from "./../../../public/assets/ProjectsPhotos/data/projectData";
+import { projectData } from "../../../public/assets/data/projectData";
 
 const Work = () => {
   const settings = {
@@ -28,9 +28,9 @@ const Work = () => {
           {projectData.map((project) => (
             <div className="py-3 px-3" key={project.id}>
               <div>
-                <Image className="w-[100%]" src={project.image} alt={project.name} width={100} height={100} sizes="10" />
+                <Image className="w-[100%]" src={project.image[0]} alt={project.title} width={100} height={100} sizes="10" />
               </div>
-              <h3 className="text-2xl text-center pt-2 font-bold">{project.name}</h3>
+              <h3 className="text-2xl text-center pt-2 font-bold">{project.title}</h3>
               <p className="text-white text-md py-3 text-center">{project.description}</p>
               <div className="flex justify-center">
                 <Link href={project.link} target="_blank" rel="noreferrer">

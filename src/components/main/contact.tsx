@@ -4,8 +4,8 @@ type Props = {};
 
 const Contact = (props: Props) => {
   return (
-    <div id="Contact" className="w-full h-screen bg-transparent">
-      <div className="max-w-[1000px] mx-auto px-4 flex flex-col justify-center items-center h-full xsm:px-5">
+    <div id="Contact" className="w-full h-screen bg-transparent flex justify-center items-center">
+      <div className="max-w-[1000px] px-4 flex flex-col justify-center items-center h-full xsm:px-5">
         <h1 className="text-4xl md:text-6xl">Let&apos;s Connect</h1>
         <div className="flex flex-col justify-center items-center">
           <p className="text-lg md:text-2xl my-4 text-systemGray">Feel free to reach out via email</p>
