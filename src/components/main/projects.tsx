@@ -14,9 +14,9 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <div className='w-full h-screen flex justify-center items-center snap-mandotory snap-center' id='Projects'>
+    <div className='w-full md:h-screen flex justify-center items-center snap-mandotory snap-center' id='Projects'>
     <div className="max-w-screen-lg p-8" >
-      <h2 className="text-3xl font-bold mb-4">My Projects</h2>
+      <h2 className="text-[48px] w-56 md:w-full font-bold mb-4">My Projects</h2>
       <div className="flex flex-col p-6">
         {projectData.map((project, index) => (
           <React.Fragment key={project.id}>

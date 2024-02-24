@@ -23,7 +23,7 @@ const About = () => {
   });
 
   return (
-    <div id="About" ref={inViewRef} className="w-full h-screen bg-transparent">
+    <section id="About" ref={inViewRef} className="w-full h-screen">
       <div className="max-w-[1000px] mx-auto px-4 flex flex-col justify-center h-full xsm:px-5">
         {trail.map(({ x, ...style }, index) => {
           const Component = animated.div;
@@ -39,7 +39,7 @@ const About = () => {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 

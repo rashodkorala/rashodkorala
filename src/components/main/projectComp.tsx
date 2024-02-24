@@ -34,7 +34,7 @@ const ProjectComp = () => {
       <div className="h-screen w-full bg-transparent">
          <div className="max-w-[1000px] mx-auto px-4 flex flex-col justify-center h-full xsm:px-5">
           <h1 className="text-[48px] font-bold mb-4 over">{project.title}</h1>
-          <p className="text-lg mb-4 text-systemGray text-center">{project.about}</p>
+          <p className="text-lg mb-4 text-systemGray">{project.about}</p>
           <div className='max-w-[1000px] p-4'>
           <Slider {...sliderSettings} className=' text-white p-4'>
             {project.image.map((image, index) => (
@@ -45,11 +45,13 @@ const ProjectComp = () => {
             ))}
           </Slider>
           </div>
-          <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
+          
+          <div className='flex flex-col justify-center items-center'>
+          <Link href={project.link} target="_blank" rel="noopener noreferrer" className=" w-[200px] flex justify-center bg-transparent px-2 py-2 rounded-3xl ring-2 ring-blue-500 m-4 hover:scale-110 transition-all duration-1000 ease-in-out ">
             View on GitHub
-          </a>
-          <div>
+          </Link>
             <Link href="/#Projects">
+              
             back to projects
             </Link>
           </div>

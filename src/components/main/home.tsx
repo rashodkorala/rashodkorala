@@ -12,7 +12,7 @@ import { TbBrandThreejs } from "react-icons/tb";
 // Function to get the appropriate offset based on viewport size
 const getOffset = () => {
   if (typeof window !== 'undefined') {
-    return window.innerWidth <= 668 ? -20 : -200;
+    return window.innerWidth <= 668 ? -20 : 0;
   }
   return 0; // Default offset
 };
@@ -47,7 +47,7 @@ const Home = () => {
   </p>,
     <div key="skills" className="flex flex-wrap gap-2 items-center justify-center text-systemGray">
       {/* Insert your skill icons here */}
-      <FaHtml5 size={30} className="px-1" />
+      {/* <FaHtml5 size={30} className="px-1" />
       <FaCss3 size={30} className="px-1" />
       <IoLogoJavascript size={30} className="px-1" />
       <FaReact size={30} className="px-1" />
@@ -59,7 +59,7 @@ const Home = () => {
       <SiMysql size={30} className="px-1" />
       <SiFirebase size={30} className="px-1" />
       <FaJava size={30} className="px-1" />
-      <TbBrandThreejs size={30} className="px-1" />
+      <TbBrandThreejs size={30} className="px-1" /> */}
 
     </div>,
     <div key="button" className="my-2">

@@ -65,9 +65,11 @@ function Navbar({}: Props) {
         }
         >
         <li className="py-3 text-3xl">
+          <Link href="/" legacyBehavior scroll={false}>
           <Links onClick={HandleClick} to="Home" smooth={true} duration={500}>
             Home
           </Links>
+          </Link>
         </li>
         
         {/* <li className="py-3 text-3xl">
@@ -76,15 +78,19 @@ function Navbar({}: Props) {
           </Links>
         </li> */}
         <li className="py-3 text-3xl">
+          <Link href="/#Projects" legacyBehavior scroll={false}>
           <Links onClick={HandleClick} to="Projects" smooth={true} duration={500} offset={-20}>
             Projects
           </Links>
+          </Link>
         </li>
         
         <li className="py-3 text-3xl">
+          <Link href="/#Contact" legacyBehavior scroll={false}>
           <Links onClick={HandleClick} to="Contact" smooth={true} duration={500}>
             Contact
           </Links>
+          </Link>
         </li>
 
         {/*social icons */}
