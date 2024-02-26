@@ -25,7 +25,12 @@ const ProjectComp = () => {
       speed: 500,
       slidetoStart: 1,
       slidesToScroll: 1,
-      slidesToShow: 3,
+      slidesToShow: project.slidesToShow,
+      CenterMode: true,
+      className: "center",
+      centerPadding: "60px",
+      // adapativeHeight: true,
+      // variableWidth: true,
       customPaging: function (i: number) {
         return (
           <a className="hidden md:inline-block">
@@ -37,8 +42,8 @@ const ProjectComp = () => {
         {
           breakpoint: 1024,
           settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
+            slidesToShow: project.slidesToShow,
+            slidesToScroll: 1,
             infinite: true,
             dots: true,
           },
@@ -46,7 +51,7 @@ const ProjectComp = () => {
         {
           breakpoint: 600,
           settings: {
-            slidesToShow: 2,
+            slidesToShow: 1,
             slidesToScroll: 2,
             initialSlide: 2,
           },
@@ -63,7 +68,7 @@ const ProjectComp = () => {
     };
 
     return (
-      <div className="w-full md:h-screen bg-transparent md:pt-[120px]">
+      <div className="w-full xl:h-screen bg-transparent pt-[40px] xl:pt-[120px]">
         <div className="max-w-[1500px] mx-auto p-4 flex flex-col h-full xsm:px-5 justify-center md:items-center ">
           <div className="flex flex-col gap-3 w-full">
             <h1 className="text-[48px] font-bold">{project.title}</h1>
@@ -81,18 +86,20 @@ const ProjectComp = () => {
             <p className="text-lg text-systemGray pl-4">{project.about}</p>
           </div>
 
-          <div className="max-w-[1000px] justify-center items-center pb-10">
+          <div className="max-w-[1500px] mx-auto w-full p-7">
             <Slider
               {...sliderSettings}
               className="text-white brightness-90 justify-center items-center flex"
             >
               {project.image.map((image, index) => (
-                <Image
+                <div key={index} className="flex justify-center items-center">
+                  <Image
                   src={image}
                   alt=""
-                  key={index}
-                  className="p-7 max-w-[700px]"
+                 
+                  className={`p-7 w-[${project.Imagewidth}px]`}
                 />
+                </div>
               ))}
             </Slider>
           </div>
@@ -104,7 +111,7 @@ const ProjectComp = () => {
               rel="noopener noreferrer"
               className=" w-[200px] flex justify-center bg-transparent px-2 py-2 rounded-3xl ring-2 ring-blue-500 m-4 hover:scale-110 transition-all duration-1000 ease-in-out "
             >
-              View on GitHub
+             {project.linkText}
             </Link>
             <Link href="/#Projects">back to projects</Link>
           </div>

@@ -10,46 +10,70 @@ import getFit8 from "@/public/assets/ProjectsPhotos/getFit/getFit8.png";
 import getFit9 from "@/public/assets/ProjectsPhotos/getFit/getFit9.png";
 import getFit10 from "@/public/assets/ProjectsPhotos/getFit/getFit10.png";
 
+import squeekleen1 from "@/public/assets/ProjectsPhotos/squeekleen/squeekleen1.png";
+import squeekleen2 from "@/public/assets/ProjectsPhotos/squeekleen/squeekleen2.png";
 
+import ImdbClone1 from "@/public/assets/ProjectsPhotos/ImdbClone/imdbClone1.png";
+import ImdbClone2 from "@/public/assets/ProjectsPhotos/ImdbClone/imdbClone2.png";
+import ImdbClone3 from "@/public/assets/ProjectsPhotos/ImdbClone/imdbClone3.png";
+import ImdbClone4 from "@/public/assets/ProjectsPhotos/ImdbClone/imdbClone4.png";
+import ImdbClone5 from "@/public/assets/ProjectsPhotos/ImdbClone/imdbClone5.png";
 
 export const projectData = [
-    { 
-        id: 1,
-        title: 'GetFit',
-        description: 'Track workouts, plan meals, and achieve fitness goals on-the-go.',
-        about: "getFit is a mobile fitness app developed with Flutter, allowing users to track workouts, plan meals, and set fitness goals. Integrated with Firebase for secure authentication and data management, the app also utilizes ChatGPT's API for personalized workout creation. With a user-friendly interface, getFit provides a seamless fitness experience on-the-go, catering to individual needs and preferences. Available as an open-source project on GitHub, getFit represents my commitment to leveraging technology for holistic wellness, offering users a transformative fitness journey.",
-        image: [getFit1,getFit2,getFit3,getFit4,getFit5,getFit6,getFit7,getFit8,getFit9,getFit10],
-        width: 1000,
-        height: 1000,
-        link: 'https://github.com/rashodkorala/Getfit',
-        tags: ['Flutter', 'Firebase', 'ChatGPT', 'Mobile App'],
-},
-    { 
-        id: 2,
-        title: 'Artist Website',
-        description: 'Exhibit your artistry and connect with enthusiasts through an immersive platform.',
-        about: 'This is a website that exhibits artistry and connects with enthusiasts through an immersive platform. It is a single page application that is built with React and styled with CSS. The website is responsive and mobile friendly. It is hosted on Netlify and the source code is available on GitHub.',
-        image: [Artistportfolio,Artistportfolio],
-        link: '',
-        tags: ['Flutter', 'Firebase', 'ChatGPT', 'Mobile App'],
-    },
-    { 
-        id: 3,
-        title: 'Small business Website',
-        description: 'Digital storefront for showcasing products, services, and engaging customers.',
-        about: 'This is a website that showcases products, services, and engages customers. It is a single page application that is built with React and styled with CSS. The website is responsive and mobile friendly. It is hosted on Netlify and the source code is available on GitHub.',
-        image: [Artistportfolio,Artistportfolio,Artistportfolio,Artistportfolio],
-        link: '',
-        tags: ['Flutter', 'Firebase', 'ChatGPT', 'Mobile App'],
-    },
-    { 
-        id: 4,
-        title: 'Movie database website',
-        description: 'Discover, explore, and engage with your favorite movies and TV shows.',
-        about: 'This is a website that helps users discover, explore, and engage with their favorite movies and TV shows. It is a single page application that is built with React and styled with CSS. The website is responsive and mobile friendly. It is hosted on Netlify and the source code is available on GitHub.',
-        image: [Artistportfolio,Artistportfolio],
-        link: '',
-        tags: ['Flutter', 'Firebase', 'ChatGPT', 'Mobile App'],
-    },
-]
+  {
+    id: 1,
+    title: "GetFit",
+    description:
+      "Track workouts, plan meals, and achieve fitness goals on-the-go.",
+    about:
+      "getFit is a mobile fitness app developed with Flutter, allowing users to track workouts, plan meals, and set fitness goals. Integrated with Firebase for secure authentication and data management, the app also utilizes ChatGPT's API for personalized workout creation. With a user-friendly interface, getFit provides a seamless fitness experience on-the-go, catering to individual needs and preferences. Available as an open-source project on GitHub, getFit represents my commitment to leveraging technology for holistic wellness, offering users a transformative fitness journey.",
+    image: [
+      getFit1,
+      getFit2,
+      getFit3,
+      getFit4,
+      getFit5,
+      getFit6,
+      getFit7,
+      getFit8,
+      getFit9,
+      getFit10,
+    ],
+    Imagewidth: 400,
+    height: 1000,
+    link: "https://github.com/rashodkorala/Getfit",
+    linkText: "view on GitHub",
+    tags: ["Flutter", "Firebase", "ChatGPT", "Mobile App"],
+    slidesToShow: 3,
+  },
 
+  {
+    id: 2,
+    title: "Small business Website",
+    description:
+      "Digital storefront for showcasing products, services, and engaging customers.",
+    about:
+      "developed for a small business, this website serves as a digital storefront for showcasing products, services, and engaging customers. Built with NextJs and styled with TailWindCSS, the website is responsive and mobile-friendly.",
+    image: [squeekleen1, squeekleen2],
+    link: "http://dev.squeekleen.com",
+    linkText: "view website",
+    tags: ["NextJs", "TailWindCss", "TypeScript", "Web"],
+    Imagewidth: 1500,
+    slidesToShow: 1,
+
+  },
+  {
+    id: 4,
+    title: "Movie database website",
+    description:
+      "Discover, explore, and engage with your favorite movies and TV shows.",
+    about:
+      "This is a website that helps users discover, explore, and engage with their favorite movies and TV shows. Built with React as the frontend, Express as the backend, and MongoDB as the database, the website is designed to provide a seamless user experience. Styled with TailWindCSS, the website is responsive and mobile-friendly. Developed for a Final group project of a web development course at Memorial Univeristy of Newfoundland. Refer to the GitHub repository for more details. This projects is done to showcase my skills in handling API's, and working with databases as well as to showcase my skills in web development.",
+    image: [ImdbClone1, ImdbClone2, ImdbClone3, ImdbClone4, ImdbClone5],
+    link: "https://github.com/rashodkorala/IMDB-Clone",
+    linkText: "view on GitHub",
+    tags: ["React", "MondoDb","Express","TailWindCss", "Web"],
+    Imagewidth: 1500,
+    slidesToShow: 1,
+  },
+];
