@@ -10,14 +10,8 @@ import getFit8 from "@/public/assets/ProjectsPhotos/getFit/getFit8.png";
 import getFit9 from "@/public/assets/ProjectsPhotos/getFit/getFit9.png";
 import getFit10 from "@/public/assets/ProjectsPhotos/getFit/getFit10.png";
 
-import squeekleen1 from "@/public/assets/ProjectsPhotos/squeekleen/squeekleen1.png";
-import squeekleen2 from "@/public/assets/ProjectsPhotos/squeekleen/squeekleen2.png";
 
-import ImdbClone1 from "@/public/assets/ProjectsPhotos/imdbClone/ImdbClone1.png";
-import ImdbClone2 from "@/public/assets/ProjectsPhotos/imdbClone/ImdbClone2.png";
-import ImdbClone3 from "@/public/assets/ProjectsPhotos/imdbClone/ImdbClone3.png";
-import ImdbClone4 from "@/public/assets/ProjectsPhotos/imdbClone/ImdbClone4.png";
-import ImdbClone5 from "@/public/assets/ProjectsPhotos/imdbClone/ImdbClone5.png";
+
 
 export const projectData = [
   {
@@ -54,7 +48,7 @@ export const projectData = [
       "Digital storefront for showcasing products, services, and engaging customers.",
     about:
       "developed for a small business, this website serves as a digital storefront for showcasing products, services, and engaging customers. Built with NextJs and styled with TailWindCSS, the website is responsive and mobile-friendly.",
-    image: [squeekleen1, squeekleen2],
+    image: [Artistportfolio, Artistportfolio],
     link: "http://dev.squeekleen.com",
     linkText: "view website",
     tags: ["NextJs", "TailWindCss", "TypeScript", "Web"],
@@ -69,7 +63,7 @@ export const projectData = [
       "Discover, explore, and engage with your favorite movies and TV shows.",
     about:
       "This is a website that helps users discover, explore, and engage with their favorite movies and TV shows. Built with React as the frontend, Express as the backend, and MongoDB as the database, the website is designed to provide a seamless user experience. Styled with TailWindCSS, the website is responsive and mobile-friendly. Developed for a Final group project of a web development course at Memorial Univeristy of Newfoundland. Refer to the GitHub repository for more details. This projects is done to showcase my skills in handling API's, and working with databases as well as to showcase my skills in web development.",
-    image: [ImdbClone1, ImdbClone2, ImdbClone3, ImdbClone4, ImdbClone5],
+    image: [Artistportfolio, Artistportfolio, Artistportfolio, Artistportfolio, Artistportfolio],
     link: "https://github.com/rashodkorala/IMDB-Clone",
     linkText: "view on GitHub",
     tags: ["React", "MondoDb","Express","TailWindCss", "Web"],
