@@ -11,7 +11,8 @@ import getFit9 from "@/public/assets/ProjectsPhotos/getFit/getFit9.png";
 import getFit10 from "@/public/assets/ProjectsPhotos/getFit/getFit10.png";
 
 
-
+import squeekleen1 from "@/public/assets/ProjectsPhotos/squeekleen/squeekleen1.png";
+import squeekleen2 from "@/public/assets/ProjectsPhotos/squeekleen/squeekleen2.png";
 
 export const projectData = [
   {
@@ -48,7 +49,7 @@ export const projectData = [
       "Digital storefront for showcasing products, services, and engaging customers.",
     about:
       "developed for a small business, this website serves as a digital storefront for showcasing products, services, and engaging customers. Built with NextJs and styled with TailWindCSS, the website is responsive and mobile-friendly.",
-    image: [Artistportfolio, Artistportfolio],
+    image: [squeekleen1, squeekleen1],
     link: "http://dev.squeekleen.com",
     linkText: "view website",
     tags: ["NextJs", "TailWindCss", "TypeScript", "Web"],
