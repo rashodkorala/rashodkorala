@@ -9,7 +9,7 @@ const footer = (props: Props) => {
   return (
     <div
       id="Footer"
-      className="flex flex-col w-full h-[120px]  text-[#AAAACCAA] justify-center items-center text-[12px] ">
+      className="flex flex-col w-full h-[120px] text-systemGray justify-center items-center text-[12px]">
       <div className="py-3">
         <ul className="flex ">
           <li className="hover:text-pink-500 hover:scale-110 transition-all duration-1000 ease-in-out">

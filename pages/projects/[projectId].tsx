@@ -8,9 +8,9 @@ const ProjectDetails = () => {
   const { projectId } = router.query;
 
   return (
-    <div className="h-screen">
+    <>
       <ProjectComp/>
-    </div>
+    </>
   );
 };
 
