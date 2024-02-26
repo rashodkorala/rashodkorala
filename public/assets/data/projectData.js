@@ -13,11 +13,11 @@ import getFit10 from "@/public/assets/ProjectsPhotos/getFit/getFit10.png";
 import squeekleen1 from "@/public/assets/ProjectsPhotos/squeekleen/squeekleen1.png";
 import squeekleen2 from "@/public/assets/ProjectsPhotos/squeekleen/squeekleen2.png";
 
-import ImdbClone1 from "@/public/assets/ProjectsPhotos/ImdbClone/ImdbClone1.png";
-import ImdbClone2 from "@/public/assets/ProjectsPhotos/ImdbClone/ImdbClone2.png";
-import ImdbClone3 from "@/public/assets/ProjectsPhotos/ImdbClone/ImdbClone3.png";
-import ImdbClone4 from "@/public/assets/ProjectsPhotos/ImdbClone/ImdbClone4.png";
-import ImdbClone5 from "@/public/assets/ProjectsPhotos/ImdbClone/ImdbClone5.png";
+import ImdbClone1 from "@/public/assets/ProjectsPhotos/imdbClone/ImdbClone1.png";
+import ImdbClone2 from "@/public/assets/ProjectsPhotos/imdbClone/ImdbClone2.png";
+import ImdbClone3 from "@/public/assets/ProjectsPhotos/imdbClone/ImdbClone3.png";
+import ImdbClone4 from "@/public/assets/ProjectsPhotos/imdbClone/ImdbClone4.png";
+import ImdbClone5 from "@/public/assets/ProjectsPhotos/imdbClone/ImdbClone5.png";
 
 export const projectData = [
   {
@@ -63,7 +63,7 @@ export const projectData = [
 
   },
   {
-    id: 4,
+    id: 3,
     title: "Movie database website",
     description:
       "Discover, explore, and engage with your favorite movies and TV shows.",
