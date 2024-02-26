@@ -49,7 +49,7 @@ export const projectData = [
       "Digital storefront for showcasing products, services, and engaging customers.",
     about:
       "developed for a small business, this website serves as a digital storefront for showcasing products, services, and engaging customers. Built with NextJs and styled with TailWindCSS, the website is responsive and mobile-friendly.",
-    image: [squeekleen1, squeekleen1],
+    image: [squeekleen1, squeekleen2],
     link: "http://dev.squeekleen.com",
     linkText: "view website",
     tags: ["NextJs", "TailWindCss", "TypeScript", "Web"],
