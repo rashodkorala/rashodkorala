@@ -70,7 +70,7 @@ export const projectData = [
     image: [squeeKleen1, squeeKleen2, squeeKleen3],
     link: "http://dev.squeekleen.com",
     linkText: "view website",
-    tags: ["NextJs", "TailWindCss", "TypeScript", "Web"],
+    tags: ["NextJs", "TailwindCss", "TypeScript", "Web"],
     Imagewidth: 1500,
     slidesToShow: 1,
 
@@ -85,7 +85,7 @@ export const projectData = [
     image: [imdb1, imdb2, imdb3, imdb4, imdb5],
     link: "https://github.com/rashodkorala/IMDB-Clone",
     linkText: "view on GitHub",
-    tags: ["React", "MondoDb","Express","TailWindCss", "Web"],
+    tags: ["React", "MondoDb","Express","TailwindCss", "Web"],
     Imagewidth: 1500,
     slidesToShow: 1,
   },
