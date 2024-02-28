@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/font": "13.1.6",
     "@react-spring/web": "^9.7.3",
     "@tweenjs/tween.js": "^21.0.0",
     "@types/node": "18.13.0",
