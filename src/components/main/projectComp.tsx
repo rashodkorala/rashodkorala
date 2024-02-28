@@ -62,6 +62,7 @@ const ProjectComp = () => {
             slidesToShow: 1,
             slidesToScroll: 1,
             Arrows: false,
+            fade: true,
           },
         },
       ],
@@ -103,12 +104,11 @@ const ProjectComp = () => {
             </Slider>
           </div>
 
-          <div className="flex flex-col justify-center items-center h-full">
+          <div className="flex flex-col justify-center items-center w-full h-full p-5">
             {project.video && (
-              <div className="w-full h-[400px]">
+              <div className="w-full xl:h-screen max-h-[500px] max-w-[1000px]">
                 <iframe
-                  width="560"
-                  height="315"
+                  className="w-full h-full"
                   src={project.video}
                   title={project.title}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
