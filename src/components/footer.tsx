@@ -14,23 +14,23 @@ const footer = (props: Props) => {
         <ul className="flex ">
           <li className="hover:text-pink-500 hover:scale-110 transition-all duration-1000 ease-in-out">
             <Link href="https://www.instagram.com/rashodk_/">
-              <FaInstagram size={30} />
-            </Link>{" "}
+              <FaInstagram size={20} />
+            </Link>
           </li>
           <li className="hover:text-purple-500 hover:scale-110 transition-all duration-1000 ease-in-out">
             <Link href="https://github.com/rashodkorala">
-              <FaGithub size={30} />
-            </Link>{" "}
+              <FaGithub size={20} />
+            </Link>
           </li>
           <li className="hover:text-blue-500 hover:scale-110 transition-all duration-1000 ease-in-out">
             <Link href="https://twitter.com/rashodkorala">
-              <FaTwitter size={30} />
-            </Link>{" "}
+              <FaTwitter size={20} />
+            </Link>
           </li>
           <li className="hover:text-red-500 hover:scale-110 transition-all duration-1000 ease-in-out">
             <Link href="mailto:rashodkorala2002@gmail.com">
-              <HiOutlineMail size={30} />
-            </Link>{" "}
+              <HiOutlineMail size={20} />
+            </Link>
           </li>
         </ul>
       </div>

@@ -61,8 +61,7 @@ const ProjectComp = () => {
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-            Arrows: false,
-            fade: true,
+           
           },
         },
       ],
@@ -97,7 +96,7 @@ const ProjectComp = () => {
                   <Image
                     src={image}
                     alt=""
-                    className={`p-7 w-full max-w-[${project.Imagewidth}px]`}
+                    className={`md:p-7 w-full max-w-[${project.Imagewidth}px]`}
                   />
                 </div>
               ))}
@@ -124,8 +123,7 @@ const ProjectComp = () => {
             >
               {project.linkText}
             </Link>
-            
-            
+
             <Link href="/#Projects">back to projects</Link>
           </div>
         </div>
