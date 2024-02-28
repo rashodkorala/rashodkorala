@@ -97,7 +97,7 @@ const ProjectComp = () => {
                   src={image}
                   alt=""
                   
-                  className={`p-7 w-[${project.Imagewidth}px]`}
+                  className={`p-7 w-full max-w-[${project.Imagewidth}px]`}
                 />
                 </div>
               ))}
