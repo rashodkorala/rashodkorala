@@ -18,6 +18,10 @@ import squeeKleen3 from "@/public/assets/ProjectsPhotos/squeekleen/squeekleen3.j
 
 
 import imdb1 from "@/public/assets/ProjectsPhotos/imdbClone/imdb1.png";
+import imdb2 from "@/public/assets/ProjectsPhotos/imdbClone/imdb2.png";
+import imdb3 from "@/public/assets/ProjectsPhotos/imdbClone/imdb3.png";
+import imdb4 from "@/public/assets/ProjectsPhotos/imdbClone/imdb4.png";
+import imdb5 from "@/public/assets/ProjectsPhotos/imdbClone/imdb5.png";
 
 export const projectData = [
   {
@@ -69,7 +73,7 @@ export const projectData = [
       "Discover, explore, and engage with your favorite movies and TV shows.",
     about:
       "This is a website that helps users discover, explore, and engage with their favorite movies and TV shows. Built with React as the frontend, Express as the backend, and MongoDB as the database, the website is designed to provide a seamless user experience. Styled with TailWindCSS, the website is responsive and mobile-friendly. Developed for a Final group project of a web development course at Memorial Univeristy of Newfoundland. Refer to the GitHub repository for more details. This projects is done to showcase my skills in handling API's, and working with databases as well as to showcase my skills in web development.",
-    image: [imdb1],
+    image: [imdb1, imdb2, imdb3, imdb4, imdb5],
     link: "https://github.com/rashodkorala/IMDB-Clone",
     linkText: "view on GitHub",
     tags: ["React", "MondoDb","Express","TailWindCss", "Web"],
