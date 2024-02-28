@@ -96,7 +96,7 @@ const ProjectComp = () => {
                   <Image
                   src={image}
                   alt=""
-                 
+                  
                   className={`p-7 w-[${project.Imagewidth}px]`}
                 />
                 </div>
