@@ -17,6 +17,8 @@ import squeeKleen2 from "@/public/assets/ProjectsPhotos/squeekleen/squeekleen2.j
 import squeeKleen3 from "@/public/assets/ProjectsPhotos/squeekleen/squeekleen3.jpeg";
 
 
+import imdb1 from "@/public/assets/ProjectsPhotos/imdbClone/imdb1.png";
+
 export const projectData = [
   {
     id: 1,
