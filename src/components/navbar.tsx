@@ -17,81 +17,84 @@ function Navbar({}: Props) {
     const [nav, setNav] = useState(false);
     const HandleClick = () => setNav(!nav);
   return (
-    <div className="fixed w-full h-[80px] flex justify-between items-center px-4 bg-bg text-gray-50">
+    <div className="fixed w-full h-[80] flex justify-between items-center bg-transparent p-5 md:p-10 z-10">
       <div className="z-10">
-        <Image src={Logo} alt="logo" style={{ width: "50px" }} />
+        {/* <Image src={Logo} alt="logo" style={{ width: "70px" }} /> */}
       </div>
       {/*menu */}
-      <div className="hidden md:flex ">
+      <div className="hidden md:flex text-[20px]">
         <ul className="flex">
           <li>
-            <Links to="Home" smooth={true} duration={1000} offset={10}>
-              HOME
+           <Link href="/" legacyBehavior scroll={false}>
+           <Links to="Home" smooth={true} duration={1000} offset={10} spy={true}>
+              Home
             </Links>
+           </Link>
+          </li>
+          {/* <li>
+          <Link href="/" legacyBehavior>
+            <Links to="About" smooth={true} duration={1000} spy={true}>
+              About
+            </Links>
+            </Link>
+          </li> */}
+          <li>
+          <Link href="/#Projects" legacyBehavior scroll={false}>
+            <Links to="Projects" smooth={true} duration={1000} offset={0} isDynamic={true} spy={true}>
+              Projects
+            </Links>
+            </Link>
           </li>
           <li>
-            <Links to="About" smooth={true} duration={1000}>
-              ABOUT
+          <Link href="/#Contact" legacyBehavior passHref scroll={false}>
+            <Links to="Contact" smooth={true} duration={1000} offset={120} spy={true}>
+              Contact
             </Links>
+            </Link>
           </li>
-          <li>
-            <Links to="Skills" smooth={true} duration={1000}>
-              SKILLS
-            </Links>
-          </li>
-          <li>
-            <Links to="Work" smooth={true} duration={1000} offset={-150} isDynamic={true}>
-              WORK
-            </Links>
-          </li>
-          <li>
-            <Links to="Contact" smooth={true} duration={1000} offset={120}>
-              CONTACT
-            </Links>
-          </li>
+          
         </ul>
       </div>
       {/*hamburgur menu */}
-      <div onClick={HandleClick} className="md:hidden z-10">
+      <div onClick={HandleClick} className="md:hidden z-10 ">
         {nav ? <FaTimes /> : <FaBars />}
-      </div>
+      </div> 
       {/*mobile menu */}
-      <ul
-        className={
-          !nav ? "hidden" : "absolute top-0 left-0 w-full h-screen bg-black flex flex-col justify-center items-center"
-        }>
-        <li className="py-6 text-4fxl">
+      <ul className={
+          !nav ? "hidden" : "absolute top-0 left-0 w-full h-screen bg-[#000000] flex flex-col justify-center items-center not-sr-only"
+        }
+        >
+        <li className="py-3 text-3xl">
+          <Link href="/" legacyBehavior scroll={false}>
           <Links onClick={HandleClick} to="Home" smooth={true} duration={500}>
-            HOME
+            Home
           </Links>
+          </Link>
         </li>
-
-        <li className="py-6 text-4fxl">
+        
+        {/* <li className="py-3 text-3xl">
           <Links onClick={HandleClick} to="About" smooth={true} duration={500}>
-            ABOUT
+            About
           </Links>
-        </li>
-
-        <li className="py-6 text-4fxl">
-          <Links onClick={HandleClick} to="Skills" smooth={true} duration={500}>
-            SKILLS
+        </li> */}
+        <li className="py-3 text-3xl">
+          <Link href="/#Projects" legacyBehavior scroll={false}>
+          <Links onClick={HandleClick} to="Projects" smooth={true} duration={500} offset={-20}>
+            Projects
           </Links>
+          </Link>
         </li>
-
-        <li className="py-6 text-4fxl">
-          <Links onClick={HandleClick} to="Work" smooth={true} duration={500} offset={-100}>
-            WORK
-          </Links>
-        </li>
-
-        <li className="py-6 text-4fxl">
+        
+        <li className="py-3 text-3xl">
+          <Link href="/#Contact" legacyBehavior scroll={false}>
           <Links onClick={HandleClick} to="Contact" smooth={true} duration={500}>
-            CONTACT
+            Contact
           </Links>
+          </Link>
         </li>
 
         {/*social icons */}
-        <div>
+        <div className="m-5">
           <ul className="flex">
             <li>
               <a href="https://www.instagram.com/rashodk_/">

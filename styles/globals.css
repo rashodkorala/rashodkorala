@@ -2,13 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@600&display=swap');
+
+
 @layer base {
   body {
-    @apply font-sans;
+    font-family: 'Onest', sans-serif;
+    @apply font-semibold;
     @apply bg-black;
+    @apply text-[#ffffff];
   }
+
   li {
     @apply px-4;
     @apply cursor-pointer;
+    @apply hover:text-blue-500;
+    @apply transition-all;
+    @apply duration-500;
+    @apply ease-in-out;
   }
 }
