@@ -68,7 +68,7 @@ const ProjectComp = () => {
     };
 
     return (
-      <div className="w-full xl:h-screen bg-transparent pt-[40px] xl:pt-[120px]">
+      <div className="w-full bg-transparent pt-[40px] xl:pt-[120px]">
         <div className="max-w-[1500px] mx-auto p-4 flex flex-col h-full xsm:px-5 justify-center md:items-center ">
           <div className="flex flex-col gap-3 w-full">
             <h1 className="text-[48px] font-bold">{project.title}</h1>
@@ -94,25 +94,38 @@ const ProjectComp = () => {
               {project.image.map((image, index) => (
                 <div key={index} className="flex justify-center items-center">
                   <Image
-                  src={image}
-                  alt=""
-                  
-                  className={`p-7 w-full max-w-[${project.Imagewidth}px]`}
-                />
+                    src={image}
+                    alt=""
+                    className={`p-7 w-full max-w-[${project.Imagewidth}px]`}
+                  />
                 </div>
               ))}
             </Slider>
           </div>
 
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center h-full">
+            {project.video && (
+              <div className="w-full h-[400px]">
+                <iframe
+                  width="560"
+                  height="315"
+                  src={project.video}
+                  title={project.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            )}
             <Link
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
               className=" w-[200px] flex justify-center bg-transparent px-2 py-2 rounded-3xl ring-2 ring-blue-500 m-4 hover:scale-110 transition-all duration-1000 ease-in-out "
             >
-             {project.linkText}
+              {project.linkText}
             </Link>
+            
+            
             <Link href="/#Projects">back to projects</Link>
           </div>
         </div>
