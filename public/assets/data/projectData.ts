@@ -12,7 +12,7 @@ import getFit9 from "@/public/assets/ProjectsPhotos/getFit/getFit9.png";
 import getFit10 from "@/public/assets/ProjectsPhotos/getFit/getFit10.png";
 
 
-import squeeKleen1 from "@/public/assets/ProjectsPhotos/squeekleen/squeeKleen1.png";
+import squeeKleen1 from "@/public/assets/ProjectsPhotos/squeekleen/squeekleen1.jpeg";
 
 
 export const projectData = [
