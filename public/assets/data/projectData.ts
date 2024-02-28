@@ -23,6 +23,15 @@ import imdb3 from "@/public/assets/ProjectsPhotos/imdbClone/imdb3.png";
 import imdb4 from "@/public/assets/ProjectsPhotos/imdbClone/imdb4.png";
 import imdb5 from "@/public/assets/ProjectsPhotos/imdbClone/imdb5.png";
 
+import dearDiary1 from "@/public/assets/ProjectsPhotos/dearDiary/dearDiary1.png";
+import dearDiary2 from "@/public/assets/ProjectsPhotos/dearDiary/dearDiary2.png";
+import dearDiary3 from "@/public/assets/ProjectsPhotos/dearDiary/dearDiary3.png";
+import dearDiary4 from "@/public/assets/ProjectsPhotos/dearDiary/dearDiary4.png";
+import dearDiary5 from "@/public/assets/ProjectsPhotos/dearDiary/dearDiary5.png";
+import dearDiary6 from "@/public/assets/ProjectsPhotos/dearDiary/dearDiary6.png";
+import dearDiary7 from "@/public/assets/ProjectsPhotos/dearDiary/dearDiary7.png";
+import dearDiary8 from "@/public/assets/ProjectsPhotos/dearDiary/dearDiary8.png";
+
 export const projectData = [
   {
     id: 1,
@@ -79,5 +88,18 @@ export const projectData = [
     tags: ["React", "MondoDb","Express","TailWindCss", "Web"],
     Imagewidth: 1500,
     slidesToShow: 1,
+  },
+  {
+    id: 4,
+    title:"Dear Diary",
+    description: "A personal diary app for recording thoughts, emotions, and experiences.",
+    about: "Dear Diary is a personal diary app developed with Flutter, allowing users to record thoughts, emotions, and experiences. Integrated with Firebase for secure authentication and data management, the app provides a safe space for users to express themselves. With a user-friendly interface, Dear Diary offers a seamless diary experience on-the-go, catering to individual needs and preferences. Available as an open-source project on GitHub, Dear Diary represents my commitment to leveraging technology for holistic wellness, offering users a transformative diary journey.",
+    image: [dearDiary1, dearDiary2, dearDiary3, dearDiary4, dearDiary5, dearDiary6, dearDiary7, dearDiary8],
+    Imagewidth: 400,
+    height: 1000,
+    link: "/",
+    linkText: "view on GitHub",
+    tags: ["Flutter", "Firebase", "Mobile App"],
+    slidesToShow: 3,
   },
 ];
