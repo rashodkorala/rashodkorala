@@ -1,4 +1,17 @@
-import Artistportfolio from "@/public/assets/ProjectsPhotos/ArtistPortfolio.png";
+import Artistportfolio4 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/ArtistPortfolio4.png";
+import Artistportfolio1 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/ArtistPortfolio1.png";
+import Artistportfolio2 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/ArtistPortfolio2.png";
+import Artistportfolio3 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/ArtistPortfolio3.png";
+
+import CMS1 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/CMS1.png";
+import CMS2 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/CMS2.png";
+import CMS3 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/CMS3.png";
+import CMS4 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/CMS4.png";
+import CMS5 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/CMS5.png";
+import CMS6 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/CMS6.png";
+
+
+
 
 import getFit1 from "@/public/assets/ProjectsPhotos/getFit/getFit1.png";
 import getFit2 from "@/public/assets/ProjectsPhotos/getFit/getFit2.png";
@@ -85,13 +98,13 @@ export const projectData = [
     image: [imdb1, imdb2, imdb3, imdb4, imdb5],
     link: "https://github.com/rashodkorala/IMDB-Clone",
     linkText: "view on GitHub",
-    tags: ["React", "MondoDb","Express","TailwindCss", "Web"],
+    tags: ["React", "MondoDb", "Express", "TailwindCss", "Web"],
     Imagewidth: 1500,
     slidesToShow: 1,
   },
   {
     id: 4,
-    title:"Dear Diary",
+    title: "Dear Diary",
     description: "A personal diary app for recording thoughts, emotions, and experiences.",
     about: "Dear Diary is a personal diary app developed with Flutter, allowing users to record thoughts, emotions, and experiences. Integrated with Firebase for secure authentication and data management, the app provides a safe space for users to express themselves. With a user-friendly interface, Dear Diary offers a seamless diary experience on-the-go, catering to individual needs and preferences. Available as an open-source project on GitHub, Dear Diary represents my commitment to leveraging technology for holistic wellness, offering users a transformative diary journey.",
     image: [dearDiary1, dearDiary2, dearDiary3, dearDiary4, dearDiary5, dearDiary6, dearDiary7, dearDiary8],
@@ -103,4 +116,19 @@ export const projectData = [
     tags: ["Flutter", "Firebase", "Mobile App"],
     slidesToShow: 3,
   },
+  {
+    id: 5,
+    title: "Artist Portfolio",
+    description:
+      "Showcase your work, connect with clients, and grow your online presence.",
+    about:
+      "This project utilizes AWS Amplify as the backend to manage content efficiently. The website, built with Next.js and styled with Tailwind CSS, is responsive and mobile-friendly, designed to provide a seamless user experience. Developed to enhance my skills in AWS and client collaboration, the GitHub repository for this client project is available upon request.",
+    image: [Artistportfolio1, Artistportfolio2, Artistportfolio3, CMS1, CMS2, CMS3, CMS4, CMS5, CMS6],
+    link: "https://dev.bandumanamperi.com",
+    linkText: "view website",
+    tags: ["NextJs", "TailwindCss", "TypeScript", "Web", "AWS Amplify", "AWS S3", "Ongoing Project"],
+    Imagewidth: 1500,
+    slidesToShow: 1,
+
+  }
 ];
