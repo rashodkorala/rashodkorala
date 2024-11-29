@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 
 import { FaGithub, FaInstagram, FaRegCopyright, FaTwitter } from "react-icons/fa";

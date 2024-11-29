@@ -1,13 +1,9 @@
+'use client';
 import React, { useEffect, useState } from "react";
-import { HiArrowNarrowDown, HiArrowNarrowRight } from "react-icons/hi";
 import { Link as Links } from "react-scroll";
 import { useTrail, animated } from "@react-spring/web";
-import { FaHtml5, FaCss3, FaReact, FaNodeJs, FaJava,FaAnglesDown } from "react-icons/fa6";
-import { IoLogoJavascript } from "react-icons/io";
-import { SiMongodb, SiMysql, SiFirebase, SiFlutter } from "react-icons/si";
-import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
+import { FaAnglesDown } from "react-icons/fa6";
 import { useInView } from "react-intersection-observer";
-import { TbBrandThreejs } from "react-icons/tb";
 
 // Function to get the appropriate offset based on viewport size
 const getOffset = () => {
@@ -34,32 +30,13 @@ const Home = () => {
       key="intro"
       className="text-4xl md:text-5xl xl:text-7xl"
     >
-    Hello, I am Rashod
+      Hello, I am Rashod
     </h1>,
-    // <h2
-    //   key="name"
-    //   className="py-3 text-xl md:text-3xl xl:text-4xl"
-    // >
-    //   I am a Full Stack Developer
-    // </h2>,
     <p key="desc" className="py-4 text-md xsm:text-xl xl:text-2xl text-center text-systemGray max-w-[950px]">
-    Fourth-year Computer Science student at Memorial University of Newfoundland. I have passionately embraced coding, design, and photography, crafting both functional websites and breathtaking images. Every keystroke and camera click is a step in my delightful journey of creating digital masterpieces.
-  </p>,
+      Fourth-year Computer Science student at Memorial University of Newfoundland. I have passionately embraced coding, design, and photography, crafting both functional websites and breathtaking images. Every keystroke and camera click is a step in my delightful journey of creating digital masterpieces.
+    </p>,
     <div key="skills" className="flex flex-wrap gap-2 items-center justify-center text-systemGray">
-      {/* Insert your skill icons here */}
-      {/* <FaHtml5 size={30} className="px-1" />
-      <FaCss3 size={30} className="px-1" />
-      <IoLogoJavascript size={30} className="px-1" />
-      <FaReact size={30} className="px-1" />
-      <TbBrandNextjs size={30} className="px-1" />
-      <SiFlutter size={30} className="px-1" />
-      <TbBrandTailwind size={30} className="px-1" />
-      <FaNodeJs size={30} className="px-1" />
-      <SiMongodb size={30} className="px-1" />
-      <SiMysql size={30} className="px-1" />
-      <SiFirebase size={30} className="px-1" />
-      <FaJava size={30} className="px-1" />
-      <TbBrandThreejs size={30} className="px-1" /> */}
+
 
     </div>,
     <div key="button" className="my-2">

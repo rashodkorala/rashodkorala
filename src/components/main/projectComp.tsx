@@ -8,9 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 type Props = {};
 
-const ProjectComp = () => {
-  const router = useRouter();
-  const { projectId } = router.query;
+const ProjectComp = ({ projectId }: { projectId: string }) => {
   // Find project by projectId
   const project = projectData.find(
     (project) => project.id === Number(projectId)
@@ -61,7 +59,7 @@ const ProjectComp = () => {
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-           
+
           },
         },
       ],
