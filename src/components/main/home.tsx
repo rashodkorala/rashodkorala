@@ -33,7 +33,7 @@ const Home = () => {
       Hello, I am Rashod
     </h1>,
     <p key="desc" className="py-4 text-md xsm:text-xl xl:text-2xl text-center text-systemGray max-w-[950px]">
-      Fourth-year Computer Science student at Memorial University of Newfoundland. I have passionately embraced coding, design, and photography, crafting both functional websites and breathtaking images. Every keystroke and camera click is a step in my delightful journey of creating digital masterpieces.
+      I am Desginer/ Front End Developer
     </p>,
     <div key="skills" className="flex flex-wrap gap-2 items-center justify-center text-systemGray">
 

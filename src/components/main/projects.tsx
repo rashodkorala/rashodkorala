@@ -19,8 +19,8 @@ const Projects: React.FC = () => {
               <div className=" flex flex-col md:grid grid-cols-3 md:justify-center md:items-center bg-transparent ">
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                 <p className="text-systemGray">{project.description}</p>
-                <Link href={`/projects/${project.id}`}>
-                  View Projectç
+                <Link href={`/projects/${project.id}`} className='w-[200px] flex justify-center bg-transparent px-2 py-2 rounded-3xl ring-2 ring-blue-500 m-4 hover:scale-110 transition-all duration-1000 ease-in-out'>
+                  View Project
                 </Link>
 
               </div>
