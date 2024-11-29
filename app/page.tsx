@@ -9,7 +9,7 @@ export default function Index() {
             <Home />
             {/* <About /> */}
             <Projects />
-            {/* <Contact /> */}
+            <Contact />
         </>
     );
 }

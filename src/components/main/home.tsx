@@ -1,13 +1,13 @@
 'use client';
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { Link as Links } from "react-scroll";
 import { useTrail, animated } from "@react-spring/web";
 import { FaAnglesDown } from "react-icons/fa6";
 import { useInView } from "react-intersection-observer";
 
-// Function to get the appropriate offset based on viewport size
-const getOffset = () => {
-  if (typeof window !== 'undefined') {
+// Function to get the offset based on viewport size
+const calculateOffset = () => {
+  if (typeof window !== "undefined") {
     return window.innerWidth <= 668 ? -20 : 0;
   }
   return 0; // Default offset
@@ -20,6 +20,7 @@ const Home = () => {
   });
 
   const [startAnimation, setStartAnimation] = useState(false);
+  const offset = useMemo(calculateOffset, []);
 
   useEffect(() => {
     setStartAnimation(inView);
@@ -33,16 +34,21 @@ const Home = () => {
       Hello, I am Rashod
     </h1>,
     <p key="desc" className="py-4 text-md xsm:text-xl xl:text-2xl text-center text-systemGray max-w-[950px]">
-      I am Desginer/ Front End Developer
+      I am Designer / Front End Developer
     </p>,
     <div key="skills" className="flex flex-wrap gap-2 items-center justify-center text-systemGray">
-
-
+      {/* Add skills here */}
     </div>,
     <div key="button" className="my-2">
-      <Links to="Projects" smooth={true} offset={getOffset()} duration={500} className="flex flex-col justify-center items-center gap-2 text-blue-500">
+      <Links
+        to="Projects"
+        smooth={true}
+        offset={offset}
+        duration={500}
+        className="flex flex-col justify-center items-center gap-2 text-blue-500"
+      >
         <p className="text-md">Scroll Down to see my projects</p>
-        <FaAnglesDown size={30} className="animate-bounce " />
+        <FaAnglesDown size={30} className="animate-bounce" />
       </Links>
     </div>,
   ];
@@ -52,7 +58,7 @@ const Home = () => {
     x: startAnimation ? 0 : 90,
     from: { opacity: 0, x: 20 },
     config: { mass: 2, tension: 300, friction: 90 },
-    delay: 200, // You can adjust the spring physics here
+    delay: 200, // Adjust delay for animation
   });
 
   return (
