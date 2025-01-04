@@ -21,15 +21,20 @@ Developed a professional website for a local car detailing business, enabling on
 ### Artist Portfolio and Online Store
 Created an artist portfolio and online store to display and sell artworks internationally. Built with Next.js and React, featuring real-time updates via AWS Amplify.  
 - [Visit Website](https://dev.bandumanamperi.com)
+- [Visit more abut the project](https://www.rashodkorala.com/projects/5)
 
 ### GetFit - Fitness Tracking Application
 Built as a final group project for CS 4768, GetFit is a comprehensive fitness app that enables users to monitor workouts, plan meals, and receive AI-based workout recommendations tailored to individual fitness goals.
+-[Visit project](https://www.rashodkorala.com/projects/1)
 
 ### Movie & TV Show Database Platform
 A movie and TV show platform developed for my CS 3100 final project, where users can explore movies, leave ratings, and add comments. Built with React, Express, and MongoDB.
+-[Visit project](https://www.rashodkorala.com/projects/3)
 
 ### Dear Diary - Personal Diary App
 Designed and developed a secure diary app using Flutter and Firebase, featuring secure data management and image handling. This project showcases my skills in Flutter and Firebase integrations.
+-[Visit project](https://www.rashodkorala.com/projects/4)
+
 
 ## Contact Me
 
