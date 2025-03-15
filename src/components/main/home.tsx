@@ -1,81 +1,37 @@
-'use client';
-import React, { useEffect, useState, useMemo } from "react";
-import { Link as Links } from "react-scroll";
-import { useTrail, animated } from "@react-spring/web";
-import { FaAnglesDown } from "react-icons/fa6";
-import { useInView } from "react-intersection-observer";
+import Image from "next/image";
+import Link from "next/link";
 
-// Function to get the offset based on viewport size
-const calculateOffset = () => {
-  if (typeof window !== "undefined") {
-    return window.innerWidth <= 668 ? -20 : 0;
-  }
-  return 0; // Default offset
-};
+const projects = [
+  {
+    title: "Roof Hotel",
+    description: "Branding, Signage, Web Design",
+    image: "/roof-hotel.jpg",
+  },
+  {
+    title: "Earth Skincare",
+    description: "Branding, Packaging, Web Design, Art Direction",
+    image: "/earth-skincare.jpg",
+  },
+  {
+    title: "Mattia Restaurant",
+    description: "Branding, Art Direction, Web Design",
+    image: "/mattia-restaurant.jpg",
+  },
+];
 
-const Home = () => {
-  const [inViewRef, inView] = useInView({
-    triggerOnce: false,
-    threshold: 0.5,
-  });
-
-  const [startAnimation, setStartAnimation] = useState(false);
-  const offset = useMemo(calculateOffset, []);
-
-  useEffect(() => {
-    setStartAnimation(inView);
-  }, [inView]);
-
-  const items = [
-    <h1
-      key="intro"
-      className="text-4xl md:text-5xl xl:text-7xl"
-    >
-      Hello, I am Rashod
-    </h1>,
-    <p key="desc" className="py-4 text-md xsm:text-xl xl:text-2xl text-center text-systemGray max-w-[950px]">
-      I am Designer / Front End Developer
-    </p>,
-    <div key="skills" className="flex flex-wrap gap-2 items-center justify-center text-systemGray">
-      {/* Add skills here */}
-    </div>,
-    <div key="button" className="my-2">
-      <Links
-        to="Projects"
-        smooth={true}
-        offset={offset}
-        duration={500}
-        className="flex flex-col justify-center items-center gap-2 text-blue-500"
-      >
-        <p className="text-md">Scroll Down to see my projects</p>
-        <FaAnglesDown size={30} className="animate-bounce" />
-      </Links>
-    </div>,
-  ];
-
-  const trail = useTrail(items.length, {
-    opacity: startAnimation ? 1 : 0,
-    x: startAnimation ? 0 : 90,
-    from: { opacity: 0, x: 20 },
-    config: { mass: 2, tension: 300, friction: 90 },
-    delay: 200, // Adjust delay for animation
-  });
-
+export default function PortfolioSection() {
   return (
-    <div
-      id="Home"
-      className="w-full h-screen bg-transparent relative overflow-hidden snap-center font-semibold"
-      ref={inViewRef}
-    >
-      <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center text-center px-4">
-        {trail.map((props, index) => (
-          <animated.div key={index} style={props}>
-            {items[index]}
-          </animated.div>
-        ))}
-      </div>
-    </div>
-  );
-};
+    <section className="py-16">
+      <div className="max-w-[2300px] mx-auto">
+        <header className="flex justify-between items-start mb-10">
+          <div>
+            <h1 className="text-[130px]">Rashod Korala</h1>
+            <p className="text-4xl text-slate-400 font-light">Software Developer</p>
+          </div>
+          <button className="text-8xl font-medium">+ Menu</button>
+        </header>
 
-export default Home;
+      </div>
+    </section>
+  );
+}

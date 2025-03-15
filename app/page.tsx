@@ -1,6 +1,5 @@
 import Home from "@/src/components/main/home";
 import Projects from "@/src/components/main/projects";
-import Contact from "@/src/components/main/contact";
 
 export default function Index() {
     return (
@@ -9,7 +8,6 @@ export default function Index() {
             <Home />
             {/* <About /> */}
             <Projects />
-            <Contact />
         </>
     );
 }
