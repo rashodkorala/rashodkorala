@@ -14,7 +14,7 @@ const Projects: React.FC = () => {
     <section className="min-h-screen px-10 ">
       <div className="max-w-[2300px] mx-auto" >
         <h2 className="text-8xl font-light mb-6">Projects</h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-4 gap-8">
           {projectData.map((project, index) => (
             <div key={index} className="group">
               <div className="relative overflow-hidden rounded-lg">
@@ -23,7 +23,7 @@ const Projects: React.FC = () => {
                   alt={project.title}
                   width={400}
                   height={300}
-                  className="w-full object-cover transition-transform duration-300 group-hover:scale-105 max-h-[300px]"
+                  className="w-full object-cover transition-transform duration-300 group-hover:scale-105 max-h-[500px]"
 
                 />
               </div>

@@ -2,7 +2,7 @@
 import { Metadata } from 'next'
 import '@/styles/globals.css'
 
-import { Josefin_Sans, Inter, Poppins } from 'next/font/google';
+import { Josefin_Sans, Inter, Poppins, Space_Grotesk } from 'next/font/google';
 import Footer from '@/src/components/footer';
 
 const josefinSans = Josefin_Sans({
@@ -18,6 +18,10 @@ const poppins = Poppins({
     weight: '300'
 });
 
+const spaceGrotesk = Space_Grotesk({
+    subsets: ['latin-ext'],
+});
+
 export const metadata: Metadata = {
     title: 'Home',
     description: 'Rashod korala',
@@ -29,7 +33,7 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en" className={inter.className}>
+        <html lang="en" className={spaceGrotesk.className}>
             <body>
                 <div>
                     {children}
