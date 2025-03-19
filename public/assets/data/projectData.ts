@@ -2,6 +2,7 @@ import Artistportfolio4 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/Art
 import Artistportfolio1 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/ArtistPortfolio1.png";
 import Artistportfolio2 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/ArtistPortfolio2.png";
 import Artistportfolio3 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/ArtistPortfolio3.png";
+import artistportflioLogo from "@/public/assets/ProjectsPhotos/ArtistPortfolio/logo.png";
 
 import CMS1 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/CMS1.png";
 import CMS2 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/CMS2.png";
@@ -28,6 +29,7 @@ import getFit10 from "@/public/assets/ProjectsPhotos/getFit/getFit10.png";
 import squeeKleen1 from "@/public/assets/ProjectsPhotos/squeekleen/squeekleen1.jpeg";
 import squeeKleen2 from "@/public/assets/ProjectsPhotos/squeekleen/squeekleen2.jpeg";
 import squeeKleen3 from "@/public/assets/ProjectsPhotos/squeekleen/squeekleen3.jpeg";
+import squeeKleenlogo from "@/public/assets/ProjectsPhotos/squeekleen/logo.png";
 
 
 import imdb1 from "@/public/assets/ProjectsPhotos/imdbClone/imdb1.png";
@@ -35,6 +37,7 @@ import imdb2 from "@/public/assets/ProjectsPhotos/imdbClone/imdb2.png";
 import imdb3 from "@/public/assets/ProjectsPhotos/imdbClone/imdb3.png";
 import imdb4 from "@/public/assets/ProjectsPhotos/imdbClone/imdb4.png";
 import imdb5 from "@/public/assets/ProjectsPhotos/imdbClone/imdb5.png";
+import imdblogo from "@/public/assets/ProjectsPhotos/imdbClone/logo.png";
 
 import dearDiary1 from "@/public/assets/ProjectsPhotos/dearDiary/dearDiary1.png";
 import dearDiary2 from "@/public/assets/ProjectsPhotos/dearDiary/dearDiary2.png";
@@ -44,7 +47,7 @@ import dearDiary5 from "@/public/assets/ProjectsPhotos/dearDiary/dearDiary5.png"
 import dearDiary6 from "@/public/assets/ProjectsPhotos/dearDiary/dearDiary6.png";
 import dearDiary7 from "@/public/assets/ProjectsPhotos/dearDiary/dearDiary7.png";
 import dearDiary8 from "@/public/assets/ProjectsPhotos/dearDiary/dearDiary8.png";
-
+import getFitlogo from "@/public/assets/ProjectsPhotos/getFit/logo.png";
 export const projectData = [
   {
     id: 1,
@@ -54,6 +57,7 @@ export const projectData = [
     about:
       "getFit is a mobile fitness app developed with Flutter, allowing users to track workouts, plan meals, and set fitness goals. Integrated with Firebase for secure authentication and data management, the app also utilizes ChatGPT's API for personalized workout creation. With a user-friendly interface, getFit provides a seamless fitness experience on-the-go, catering to individual needs and preferences. Available as an open-source project on GitHub, getFit represents my commitment to leveraging technology for holistic wellness, offering users a transformative fitness journey.",
     image: [
+      getFitlogo,
       getFit1,
       getFit2,
       getFit3,
@@ -80,7 +84,7 @@ export const projectData = [
       "Digital storefront for showcasing products, services, and engaging customers.",
     about:
       "developed for a small business, this website serves as a digital storefront for showcasing products, services, and engaging customers. Built with NextJs and styled with TailWindCSS, the website is responsive and mobile-friendly.",
-    image: [squeeKleen1, squeeKleen2, squeeKleen3],
+    image: [squeeKleenlogo, squeeKleen1, squeeKleen2, squeeKleen3],
     link: "http://dev.squeekleen.com",
     linkText: "view website",
     tags: ["NextJs", "TailwindCss", "TypeScript", "Web"],
@@ -95,7 +99,7 @@ export const projectData = [
       "Discover, explore, and engage with your favorite movies and TV shows.",
     about:
       "This is a website that helps users discover, explore, and engage with their favorite movies and TV shows. Built with React as the frontend, Express as the backend, and MongoDB as the database, the website is designed to provide a seamless user experience. Styled with TailWindCSS, the website is responsive and mobile-friendly. Developed for a Final group project of a web development course at Memorial Univeristy of Newfoundland. Refer to the GitHub repository for more details. This projects is done to showcase my skills in handling API's, and working with databases as well as to showcase my skills in web development.",
-    image: [imdb1, imdb2, imdb3, imdb4, imdb5],
+    image: [imdblogo,imdb1, imdb2, imdb3, imdb4, imdb5],
     link: "https://github.com/rashodkorala/IMDB-Clone",
     linkText: "view on GitHub",
     tags: ["React", "MondoDb", "Express", "TailwindCss", "Web"],
@@ -123,7 +127,7 @@ export const projectData = [
       "Showcase your work, connect with clients, and grow your online presence.",
     about:
       "This project utilizes AWS Amplify as the backend to manage content efficiently. The website, built with Next.js and styled with Tailwind CSS, is responsive and mobile-friendly, designed to provide a seamless user experience. Developed to enhance my skills in AWS and client collaboration, the GitHub repository for this client project is available upon request.",
-    image: [Artistportfolio1, Artistportfolio2, Artistportfolio3, CMS1, CMS2, CMS3, CMS4, CMS5, CMS6],
+    image: [artistportflioLogo,Artistportfolio1, Artistportfolio2, Artistportfolio3, CMS1, CMS2, CMS3, CMS4, CMS5, CMS6],
     link: "https://dev.bandumanamperi.com",
     linkText: "view website",
     tags: ["NextJs", "TailwindCss", "TypeScript", "Web", "AWS Amplify", "AWS S3", "Ongoing Project"],

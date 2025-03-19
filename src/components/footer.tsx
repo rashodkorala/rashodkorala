@@ -4,8 +4,8 @@ export default function Footer() {
   return (
     <footer className="py-12 px-10 border-t font-light">
       <div className="mb-8 w-full h-full flex justify-between items-center border-b pb-8 border-white">
-        <h2 className="text-6xl font-light">Contact Us</h2>
-        <h2 className="text-6xl font-light">Contact Us</h2>
+        <h2 className="text-6xl font-light">Contact Me</h2>
+        <h2 className="text-6xl font-light">Follow</h2>
 
       </div>
       <div className=" mx-auto grid md:grid-cols-3 gap-6 items-start text-left">

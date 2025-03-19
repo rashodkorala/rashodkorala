@@ -17,13 +17,12 @@ const Projects: React.FC = () => {
         <div className="grid md:grid-cols-4 gap-8">
           {projectData.map((project, index) => (
             <div key={index} className="group">
-              <div className="relative overflow-hidden rounded-lg">
+              <div className="relative overflow-hidden rounded-lg h-[500px]">
                 <Image
                   src={project.image[0]}
                   alt={project.title}
-                  width={400}
-                  height={300}
-                  className="w-full object-cover transition-transform duration-300 group-hover:scale-105 max-h-[500px]"
+                  fill
+                  className='w-full h-auto object-cover object-center opacity-90 brightness-90'
 
                 />
               </div>

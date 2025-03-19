@@ -1,3 +1,6 @@
+import Navbar from "../navbar1";
+import Sidebar from "../sideBar";
+
 export default function Hero() {
   return (
     <section className="py-16">
@@ -7,7 +10,8 @@ export default function Hero() {
             <h1 className="text-8xl font-light">Rashod Korala</h1>
             <p className="text-4xl text-slate-400 font-light">Software Developer</p>
           </div>
-          <button className="text-8xl font-medium">+ Menu</button>
+           <Sidebar />
+         
         </header>
 
       </div>
