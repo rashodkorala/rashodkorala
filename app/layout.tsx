@@ -4,6 +4,7 @@ import '@/styles/globals.css'
 
 import { Josefin_Sans, Inter, Poppins, Space_Grotesk } from 'next/font/google';
 import Footer from '@/src/components/footer';
+import Home from '@/src/components/main/home';
 
 const josefinSans = Josefin_Sans({
     subsets: ['latin'],
@@ -36,6 +37,7 @@ export default function RootLayout({
         <html lang="en" className={spaceGrotesk.className}>
             <body>
                 <div>
+                    <Home />
                     {children}
                     <Footer />
                 </div>

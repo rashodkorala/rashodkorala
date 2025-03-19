@@ -5,7 +5,7 @@ export default function Index() {
     return (
         <>
             {/* <ParticleComponent /> */}
-            <Home />
+            
             {/* <About /> */}
             <Projects />
         </>

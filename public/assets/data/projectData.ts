@@ -24,6 +24,9 @@ import getFit7 from "@/public/assets/ProjectsPhotos/getFit/getFit7.png";
 import getFit8 from "@/public/assets/ProjectsPhotos/getFit/getFit8.png";
 import getFit9 from "@/public/assets/ProjectsPhotos/getFit/getFit9.png";
 import getFit10 from "@/public/assets/ProjectsPhotos/getFit/getFit10.png";
+import getFit12 from "@/public/assets/ProjectsPhotos/getFit/getFit12.png";
+import getFit13 from "@/public/assets/ProjectsPhotos/getFit/getFit13.jpg";
+
 
 
 import squeeKleen1 from "@/public/assets/ProjectsPhotos/squeekleen/squeekleen1.jpeg";
@@ -55,7 +58,7 @@ export const projectData = [
     description:
       "Track workouts, plan meals, and achieve fitness goals on-the-go.",
     about:
-      "getFit is a mobile fitness app developed with Flutter, allowing users to track workouts, plan meals, and set fitness goals. Integrated with Firebase for secure authentication and data management, the app also utilizes ChatGPT's API for personalized workout creation. With a user-friendly interface, getFit provides a seamless fitness experience on-the-go, catering to individual needs and preferences. Available as an open-source project on GitHub, getFit represents my commitment to leveraging technology for holistic wellness, offering users a transformative fitness journey.",
+      "GetFit is a mobile fitness app developed with Flutter, allowing users to track workouts, plan meals, and set fitness goals. Integrated with Firebase for secure authentication and data management, the app also utilizes ChatGPT's API for personalized workout creation. With a user-friendly interface, getFit provides a seamless fitness experience on-the-go, catering to individual needs and preferences. Available as an open-source project on GitHub, getFit represents my commitment to leveraging technology for holistic wellness, offering users a transformative fitness journey.",
     image: [
       getFitlogo,
       getFit1,
@@ -68,6 +71,8 @@ export const projectData = [
       getFit8,
       getFit9,
       getFit10,
+      getFit12,
+      getFit13
     ],
     Imagewidth: 400,
     height: 1000,
@@ -99,7 +104,7 @@ export const projectData = [
       "Discover, explore, and engage with your favorite movies and TV shows.",
     about:
       "This is a website that helps users discover, explore, and engage with their favorite movies and TV shows. Built with React as the frontend, Express as the backend, and MongoDB as the database, the website is designed to provide a seamless user experience. Styled with TailWindCSS, the website is responsive and mobile-friendly. Developed for a Final group project of a web development course at Memorial Univeristy of Newfoundland. Refer to the GitHub repository for more details. This projects is done to showcase my skills in handling API's, and working with databases as well as to showcase my skills in web development.",
-    image: [imdblogo,imdb1, imdb2, imdb3, imdb4, imdb5],
+    image: [imdblogo, imdb1, imdb2, imdb3, imdb4, imdb5],
     link: "https://github.com/rashodkorala/IMDB-Clone",
     linkText: "view on GitHub",
     tags: ["React", "MondoDb", "Express", "TailwindCss", "Web"],
@@ -127,7 +132,7 @@ export const projectData = [
       "Showcase your work, connect with clients, and grow your online presence.",
     about:
       "This project utilizes AWS Amplify as the backend to manage content efficiently. The website, built with Next.js and styled with Tailwind CSS, is responsive and mobile-friendly, designed to provide a seamless user experience. Developed to enhance my skills in AWS and client collaboration, the GitHub repository for this client project is available upon request.",
-    image: [artistportflioLogo,Artistportfolio1, Artistportfolio2, Artistportfolio3, CMS1, CMS2, CMS3, CMS4, CMS5, CMS6],
+    image: [artistportflioLogo, Artistportfolio1, Artistportfolio2, Artistportfolio3, CMS1, CMS2, CMS3, CMS4, CMS5, CMS6],
     link: "https://dev.bandumanamperi.com",
     linkText: "view website",
     tags: ["NextJs", "TailwindCss", "TypeScript", "Web", "AWS Amplify", "AWS S3", "Ongoing Project"],

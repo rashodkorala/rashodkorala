@@ -1,143 +1,161 @@
 'use client';
-import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { projectData } from '@/public/assets/data/projectData';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
 const ProjectComp = ({ projectId }: { projectId: string }) => {
-  // Find project by projectId
-  const project = projectData.find(
+  const router = useRouter();
+  const projectIndex = projectData.findIndex(
     (project) => project.id === Number(projectId)
   );
+  const project = projectData[projectIndex];
 
-  if (project) {
-    const sliderSettings = {
-      dots: true,
-      infinite: true,
-      autoplay: true,
-      speed: 500,
-      slidesToScroll: 1,
-      slidesToShow: project.slidesToShow || 1,
-      centerMode: true,
-      centerPadding: '60px',
-      customPaging: function (i: number) {
-        return (
-          <a className="hidden md:inline-block">
-            <Image src={project.image[i]} alt="" width={50} height={50} />
-          </a>
-        );
-      },
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: project.slidesToShow || 1,
-            slidesToScroll: 1,
-            infinite: true,
-            dots: true,
-          },
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-          },
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-          },
-        },
-      ],
-    };
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
 
-    return (
-      <div className="w-full bg-transparent pt-[40px] xl:pt-[120px]">
-        <div className="max-w-[1500px] mx-auto p-4 flex flex-col h-full xsm:px-5 justify-center md:items-center">
-          {/* Project Title and Tags */}
-          <div className="flex flex-col gap-3 w-full">
-            <h1 className="text-[48px] font-bold">{project.title}</h1>
-            <div className="flex flex-wrap gap-4 pl-3">
-              {project.tags.map((tag, index) => (
+  const handleImageClick = (index: number) => {
+    setSelectedImageIndex(index);
+  };
+
+  const handleClose = () => {
+    setSelectedImageIndex(null);
+  };
+
+  const handlePrevImage = () => {
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((prev) =>
+        prev === 0 ? project.image.length - 1 : prev! - 1
+      );
+    }
+  };
+
+  const handleNextImage = () => {
+    if (selectedImageIndex !== null) {
+      setSelectedImageIndex((prev) =>
+        prev === project.image.length - 1 ? 0 : prev! + 1
+      );
+    }
+  };
+
+  const handlePrevProject = () => {
+    if (projectIndex > 0) {
+      router.push(`/projects/${projectData[projectIndex - 1].id}`);
+    }
+  };
+
+  const handleNextProject = () => {
+    if (projectIndex < projectData.length - 1) {
+      router.push(`/projects/${projectData[projectIndex + 1].id}`);
+    }
+  };
+
+  return (
+    <div className="min-h-screen px-10 font-light m-10">
+      <div className="max-w-[2300px] mx-auto">
+        <div className="grid grid-cols-3 gap-8">
+          <div>
+            <h2 className="text-6xl font-light mb-6">{project?.title}</h2>
+            <div className="flex flex-wrap font-light w-1/3">
+              {project?.tags.map((tag, index) => (
                 <span
                   key={index}
-                  className="text-white ring-2 ring-blue-500 px-2 py-1 rounded-3xl text-center bg-transparent hover:scale-110 transition-all duration-1000 ease-in-out"
+                  className="text-white rounded-3xl bg-transparent hover:scale-110 transition-all duration-1000 ease-in-out"
                 >
-                  {tag}
+                  {tag},
                 </span>
               ))}
             </div>
-            <p className="text-lg text-systemGray pl-4">{project.about}</p>
           </div>
-
-          {/* Project Slider */}
-          <div className="max-w-[1500px] mx-auto w-full p-7">
-            <Slider
-              {...sliderSettings}
-              className="text-white brightness-90 justify-center items-center flex"
-            >
-              {project.image.map((image, index) => (
-                <div key={index} className="flex justify-center items-center">
-                  <Image
-                    src={image}
-                    alt={`Project image ${index}`}
-                    className={`md:p-7 w-full`}
-                    width={project.Imagewidth}
-                    height={500}
-                  />
-                </div>
-              ))}
-            </Slider>
+          <div>
+            <p className="text-xl font-medium">{project?.about}</p>
           </div>
-
-          {/* Video Section */}
-          {project.video && (
-            <div className="flex justify-center w-full xl:h-screen max-h-[500px] max-w-[1000px] my-5">
-              <iframe
-                className="w-full h-full"
-                src={project.video}
-                title={project.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-            </div>
-          )}
-
-          {/* Links */}
-          <div className="flex flex-col justify-center items-center w-full h-full p-5">
+          <div className="flex flex-col items-center w-full h-full">
             <Link
-              href={project.link}
+              href={project?.link || "/"}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-[200px] flex justify-center bg-transparent px-2 py-2 rounded-3xl ring-2 ring-blue-500 m-4 hover:scale-110 transition-all duration-1000 ease-in-out"
+              className="text-2xl font-light underline"
             >
-              {project.linkText}
-            </Link>
-
-            <Link
-              href="/#Projects"
-              className="text-blue-500 hover:underline mt-4"
-            >
-              Back to projects
+              {project?.linkText}
             </Link>
           </div>
         </div>
+
+        {/* Image Grid */}
+        <div className="grid md:grid-cols-4 gap-8 py-10">
+          {project?.image.map((imgSrc, index) => (
+            <div
+              key={index}
+              className="relative overflow-hidden rounded-lg h-[500px] cursor-pointer"
+              onClick={() => handleImageClick(index)}
+            >
+              <Image
+                src={typeof imgSrc === 'string' ? imgSrc : imgSrc.src}
+                alt={project?.title || "Project Image"}
+                fill
+                className="w-full h-auto object-cover object-center opacity-90 brightness-90"
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Previous / Next Project Buttons */}
+        <div className="flex justify-between mt-10">
+          <button
+            onClick={handlePrevProject}
+            className={`px-6 py-3 text-lg font-medium rounded-lg ${projectIndex === 0 ? "bg-gray-500 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
+              } text-white transition-all`}
+            disabled={projectIndex === 0}
+          >
+            ← Previous Project
+          </button>
+          <button
+            onClick={handleNextProject}
+            className={`px-6 py-3 text-lg font-medium rounded-lg ${projectIndex === projectData.length - 1 ? "bg-gray-500 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
+              } text-white transition-all`}
+            disabled={projectIndex === projectData.length - 1}
+          >
+            Next Project →
+          </button>
+        </div>
       </div>
-    );
-  } else {
-    console.log('Project not found');
-    return (
-      <div className="flex justify-center items-center h-screen w-full">
-        Project not found
-      </div>
-    );
-  }
+
+      {/* Popup Modal for Image */}
+      {selectedImageIndex !== null && (
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 flex items-center justify-center z-50">
+          <button
+            className="absolute top-5 right-5 text-white text-3xl"
+            onClick={handleClose}
+          >
+            ✕
+          </button>
+          <button
+            className="absolute left-5 text-white text-3xl bg-gray-800 p-2 rounded-full"
+            onClick={handlePrevImage}
+          >
+            ◀
+          </button>
+          <div className="relative w-[80%] max-w-3xl h-[80%]">
+            <Image
+              src={typeof project.image[selectedImageIndex] === 'string'
+                ? project.image[selectedImageIndex]
+                : project.image[selectedImageIndex].src}
+              alt={project?.title || "Project Image"}
+              fill
+              className="w-full h-auto object-contain"
+            />
+          </div>
+          <button
+            className="absolute right-5 text-white text-3xl bg-gray-800 p-2 rounded-full"
+            onClick={handleNextImage}
+          >
+            ▶
+          </button>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default ProjectComp;
