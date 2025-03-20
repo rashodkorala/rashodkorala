@@ -75,11 +75,13 @@ export default function Contact() {
                         name="message"
                         placeholder="Message *"
                         required
-                        className="border-b-2  focus:border-orange-600 outline-none py-2 border-slate-400"
+                        className="border-b-2  focus:border-orange-600 outline-none py-2 border-slate-400 h-56"
+
                     />
                     <Button
                         variant={"default"}
                         type="submit"
+                        
                         className="border-2  hover:border-orange-600 outline-none p-4 border-slate-400 text-lg"
                     >
                         Send Message
