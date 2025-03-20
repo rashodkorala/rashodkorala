@@ -94,6 +94,8 @@ export default function Contact() {
                     </Button>
 
                     {formStatus && <p className="text-green-600 mt-4 font-thin">{formStatus}</p>}
+                    <input type="hidden" name="from_name" value="rashodkorala.com"></input>
+
                 </form>
             </div>
         </div>
