@@ -2,9 +2,9 @@
 
 export default function About() {
     return (
-        <div className="max-w-7xl mx-auto p-6 lg:px-12 lg:pb-20">
+        <div className="max-w-7xl mx-auto  px-6 pb-6 lg:px-12 lg:pb-20 font-thin">
             {/* Title */}
-            <h1 className="text-5xl lg:text-7xl font-thin mb-8 lg:mb-14 relative">
+            <h1 className="text-5xl lg:text-7xl mb-8 lg:mb-14 relative font-light">
                 About Me
                 <span className="absolute left-0 bottom-0 h-1 w-16 lg:w-24 bg-orange-600"></span>
             </h1>
@@ -18,7 +18,7 @@ export default function About() {
 
             {/* Section: What I Do */}
             <div className="mb-16">
-                <h2 className="text-3xl lg:text-5xl font-thin mb-6 lg:mb-10 relative">
+                <h2 className="text-3xl lg:text-5xl font-light mb-6 lg:mb-10 relative">
                     What I Do
                     <span className="absolute left-0 bottom-0 h-1 w-12 lg:w-20 bg-orange-600"></span>
                 </h2>
@@ -30,7 +30,7 @@ export default function About() {
 
             {/* Section: My Philosophy */}
             <div className="mb-16">
-                <h2 className="text-3xl lg:text-5xl font-thin mb-6 lg:mb-10 relative">
+                <h2 className="text-3xl lg:text-5xl font-light mb-6 lg:mb-10 relative">
                     My Philosophy
                     <span className="absolute left-0 bottom-0 h-1 w-12 lg:w-20 bg-orange-600"></span>
                 </h2>
@@ -43,7 +43,7 @@ export default function About() {
 
             {/* Section: Let's Connect */}
             <div>
-                <h2 className="text-3xl lg:text-5xl font-thin mb-6 lg:mb-10 relative">
+                <h2 className="text-3xl lg:text-5xl font-light mb-6 lg:mb-10 relative">
                     Let's Connect
                     <span className="absolute left-0 bottom-0 h-1 w-12 lg:w-20 bg-orange-600"></span>
                 </h2>
