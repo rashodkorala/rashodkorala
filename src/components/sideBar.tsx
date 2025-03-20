@@ -9,13 +9,19 @@ export default function Sidebar() {
     return (
         <>
             <button
-                className="text-8xl font-medium focus:outline-none"
+                className="text-8xl font-medium focus:outline-none hidden lg:block"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 + Menu
             </button>
+            <button
+                className="text-8xl font-medium focus:outline-none block lg:hidden"
+                onClick={() => setIsOpen(!isOpen)}
+            >
+                +
+            </button>
             {isOpen && (
-                <div className="fixed top-0 right-0 w-1/3 h-full bg-background shadow-lg p-6 z-10">
+                <div className="fixed top-0 right-0 w-full lg:w-1/3 h-full bg-background shadow-lg p-6 z-10">
                     <button
                         className="text-8xl font-medium mb-4 focus:outline-none absolute top-4 right-4"
                         onClick={() => setIsOpen(false)}
