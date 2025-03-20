@@ -7,7 +7,6 @@ import { useState } from "react";
 export default function Contact() {
     const [formStatus, setFormStatus] = useState("");
     const access_key = process.env.NEXT_PUBLIC_CONTACTFORM;
-    console.log(access_key);
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
