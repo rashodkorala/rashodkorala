@@ -6,13 +6,19 @@ import { useState } from "react";
 
 export default function Contact() {
     const [formStatus, setFormStatus] = useState("");
-    const access_key = process.env.SECRET_KEY;
+    const access_key = process.env.CONTACTFORM;
+    console.log(access_key);
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
 
-        formData.append("access_key", "b9fe62b9-4f2c-4ea7-86c9-67cb85b87757");
+        if (access_key) {
+            formData.append("access_key", access_key);
+        } else {
+            setFormStatus("Access key is missing.");
+            return;
+        }
 
         const object = Object.fromEntries(formData);
         const json = JSON.stringify(object);
@@ -81,7 +87,7 @@ export default function Contact() {
                     <Button
                         variant={"default"}
                         type="submit"
-                        
+
                         className="border-2  hover:border-orange-600 outline-none p-4 border-slate-400 text-lg"
                     >
                         Send Message
