@@ -2,7 +2,7 @@
 
 export default function About() {
     return (
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 lg:pb-20">
+        <div className="max-w-7xl mx-auto p-6 lg:px-12 lg:pb-20">
             {/* Title */}
             <h1 className="text-5xl lg:text-7xl font-thin mb-8 lg:mb-14 relative">
                 About Me
