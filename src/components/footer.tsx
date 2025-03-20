@@ -28,9 +28,9 @@ export default function Footer() {
           {/* Right Section */}
           <div className="text-right font-light">
             <nav className="mt-4 space-y-2 text-3xl">
-              <Link href="https://instagram.com" className="block">Instagram</Link>
-              <Link href="https://linkedin.com" className="block">LinkedIn</Link>
-              <Link href="https://behance.net" className="block">Behance</Link>
+              <Link href="https://instagram.com/rashodk_" className="block">Instagram</Link>
+              <Link href="https://linkedin.com/in/rashodk" className="block">LinkedIn</Link>
+              <Link href="https://github.com/rashodkorala" className="block">GitHub</Link>
             </nav>
           </div>
         </div>
@@ -48,9 +48,9 @@ export default function Footer() {
         <div className="mb-8 w-full h-full flex flex-col border-b pb-8 Border-b border-forground">
           <h2 className="text-6xl font-light">Follow</h2>
           <nav className="mt-4 space-y-2 text-3xl">
-            <Link href="https://instagram.com" className="block">Instagram</Link>
-            <Link href="https://linkedin.com" className="block">LinkedIn</Link>
-            <Link href="https://behance.net" className="block">Behance</Link>
+            <Link href="https://instagram.com/rashodk_" className="block">Instagram</Link>
+            <Link href="https://linkedin.com/in/rashodk" className="block">LinkedIn</Link>
+            <Link href="https://github.com/rashodkorala" className="block">GitHub</Link>
           </nav>
         </div>
         <div className="mb-8 w-full h-full flex flex-col border-b pb-8 Border-b border-forground">

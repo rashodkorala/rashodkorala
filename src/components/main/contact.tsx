@@ -42,9 +42,9 @@ export default function Contact() {
 
     return (
         <div className="flex items-center justify-center p-8 ">
-            <div className="max-w-7xl w-full  h-full p-10 rounded-lg min-h-screen">
+            <div className="max-w-7xl w-full h-full lg:p-10 rounded-lg min-h-screen">
                 <h2 className="text-7xl font-thin mb-6">Contact Me</h2>
-                <form onSubmit={handleSubmit} className="space-y-20 font-thin text-2xl p-10">
+                <form onSubmit={handleSubmit} className="space-y-20 font-thin text-2xl lg:p-10">
                     <div className="grid grid-cols-2 gap-8">
                         <Input
                             type="text"
@@ -92,7 +92,7 @@ export default function Contact() {
                         Send Message
                     </Button>
 
-                    {formStatus && <p className="text-green-600 mt-4 font-thin">{formStatus}</p>}
+                    {formStatus && <p className="text-orange-600 mt-4 font-thin">{formStatus}</p>}
                     <input type="hidden" name="from_name" value="rashodkorala.com"></input>
 
                 </form>

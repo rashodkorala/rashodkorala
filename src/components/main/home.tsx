@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "../navbar1";
 import Sidebar from "../sideBar";
 
@@ -7,8 +8,10 @@ export default function Hero() {
       <div className="w-full h-full">
         <header className="flex justify-between items-start mb-10">
           <div>
-            <h1 className="text-6xl md:text-7xl font-light">Rashod Korala</h1>
-            <p className="text-3xl md:text-5xl text-slate-400 font-light">
+            <Link href="/">
+              <h1 className="text-6xl md:text-7xl font-light">Rashod Korala</h1>
+            </Link>
+            <p className="text-3xl md:text-5xl text-orange-700 font-light">
               Software Developer
             </p>
           </div>
