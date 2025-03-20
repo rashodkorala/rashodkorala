@@ -51,9 +51,15 @@ const ProjectComp = ({ projectId }: { projectId: string }) => {
   };
 
   return (
-    <div className="min-h-screen px-10 font-light m-10">
-      <div className="max-w-[2300px] mx-auto">
+    <div className="min-h-screen font-light py-10 ">
+
+      <div className="">
+        <button onClick={() => router.push("/")} className="text-2xl font-light underline pb-10 ">
+          ← Back to Projects
+        </button>
+
         <div className="grid grid-cols-3 gap-8">
+
           <div>
             <h2 className="text-6xl font-light mb-6">{project?.title}</h2>
             <div className="flex flex-wrap font-light w-1/3">
@@ -136,14 +142,14 @@ const ProjectComp = ({ projectId }: { projectId: string }) => {
           >
             ◀
           </button>
-          <div className="relative w-[80%] max-w-3xl h-[80%]">
+          <div className="relative w-[80%] max-w-full h-[80%]">
             <Image
               src={typeof project.image[selectedImageIndex] === 'string'
                 ? project.image[selectedImageIndex]
                 : project.image[selectedImageIndex].src}
               alt={project?.title || "Project Image"}
               fill
-              className="w-full h-auto object-contain"
+              className="w-full h-auto object-contain object-center"
             />
           </div>
           <button

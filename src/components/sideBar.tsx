@@ -1,4 +1,5 @@
 'use client';
+import { ModeToggle } from "@/lib/theme_switcher";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -14,7 +15,7 @@ export default function Sidebar() {
                 + Menu
             </button>
             {isOpen && (
-                <div className="fixed top-0 right-0 w-1/3 h-full bg-black shadow-lg p-6 z-10">
+                <div className="fixed top-0 right-0 w-1/3 h-full bg-background shadow-lg p-6 z-10">
                     <button
                         className="text-8xl font-medium mb-4 focus:outline-none absolute top-4 right-4"
                         onClick={() => setIsOpen(false)}
