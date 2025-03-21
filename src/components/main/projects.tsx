@@ -1,42 +1,95 @@
+'use client';
 import React from 'react';
-
-import router from 'next/router';
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 import { projectData } from '@/public/assets/data/projectData';
+import PortfolioProject from './featured';
 
 const Projects: React.FC = () => {
-  
-  const handleViewProject = (projectId: number) => {
-    // Implement logic to handle the view project action
-    // redirect to the project page
-    
-    router.push(`/projects/${projectId}`);
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const projectVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
   };
 
   return (
-    <div className='w-full md:h-screen flex justify-center items-center snap-mandotory snap-center' id='Projects'>
-    <div className="max-w-screen-lg p-8" >
-      <h2 className="text-[48px] w-56 md:w-full font-bold mb-4">My Projects</h2>
-      <div className="flex flex-col p-6">
-        {projectData.map((project, index) => (
-          <React.Fragment key={project.id}>
-            <div className=" flex flex-col md:grid grid-cols-3 md:justify-center md:items-center bg-transparent ">
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-systemGray">{project.description}</p>
-              <button
-                className="flex justify-center bg-transparent px-2 py-2 rounded-3xl ring-2 ring-blue-500 m-4 hover:scale-110 transition-all duration-1000 ease-in-out "
-                onClick={() => handleViewProject(project.id)}
+    <>
+      <section className="min-h-screen px-4 sm:px-6 md:px-10 py-20 max-w-[2000px] mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-light mb-16 relative">
+            Projects
+          </h2>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8 md:gap-10 lg:gap-12"
+          >
+            {projectData.map((project, index) => (
+              <motion.div
+                key={index}
+                variants={projectVariants}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                View Project
-              </button>
-              
-            </div>
-            {index !== projectData.length && <hr className="my-4 border-gray-300" />}
-          </React.Fragment>
-        ))}
-      </div>
-    </div>
-    </div>
+                <Link href={`/projects/${project.id}`} className="group block">
+                  <div className="relative overflow-hidden aspect-[4/5] rounded-xl shadow-lg transition-all duration-300 ease-in-out hover:shadow-2xl">
+                    <Image
+                      src={project.image[0]}
+                      alt={project.title}
+                      fill
+                      className="object-cover object-center transition-all duration-500 ease-out group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-t from-orange-600/90 to-transparent opacity-0 group-hover:opacity-90 transition-all duration-300 ease-in-out"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 0.9 }}
+                    />
+                  </div>
+                  <div className="mt-6 space-y-2">
+                    <h3 className="text-xl sm:text-2xl font-medium leading-snug transition-colors duration-200 group-hover:text-orange-600">
+                      {project.title}
+                    </h3>
+                    <p className="text-base sm:text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+                      {project.description}
+                    </p>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+      </section>
+      <PortfolioProject />
+    </>
   );
 };
 

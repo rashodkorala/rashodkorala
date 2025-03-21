@@ -1,48 +1,69 @@
-import React from "react";
-
-import { FaGithub, FaInstagram, FaRegCopyright, FaTwitter } from "react-icons/fa";
-import { HiOutlineMail } from "react-icons/hi";
 import Link from "next/link";
-type Props = {};
 
-const footer = (props: Props) => {
+export default function Footer() {
   return (
-    <div
-      id="Footer"
-      className="flex flex-col w-full h-[120px] text-systemGray justify-center items-center text-[12px]">
-      <div className="py-3">
-        <ul className="flex ">
-          <li className="hover:text-pink-500 hover:scale-110 transition-all duration-1000 ease-in-out">
-            <Link href="https://www.instagram.com/rashodk_/">
-              <FaInstagram size={20} />
-            </Link>
-          </li>
-          <li className="hover:text-purple-500 hover:scale-110 transition-all duration-1000 ease-in-out">
-            <Link href="https://github.com/rashodkorala">
-              <FaGithub size={20} />
-            </Link>
-          </li>
-          <li className="hover:text-blue-500 hover:scale-110 transition-all duration-1000 ease-in-out">
-            <Link href="https://twitter.com/rashodkorala">
-              <FaTwitter size={20} />
-            </Link>
-          </li>
-          <li className="hover:text-red-500 hover:scale-110 transition-all duration-1000 ease-in-out">
-            <Link href="mailto:rashodkorala2002@gmail.com">
-              <HiOutlineMail size={20} />
-            </Link>
-          </li>
-        </ul>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <p className="flex items-center font-mono">
-          <FaRegCopyright size={22} className="px-1" />
-          Rashod Korala 2024
-        </p>
-        <p className="font-mono">Designed & built by Rashod Korala</p>
-      </div>
-    </div>
-  );
-};
+    <>
+      <footer className="py-12 px-10 border-t font-light hidden lg:block">
+        <div className="mb-8 w-full h-full flex justify-between items-center border-b pb-8 border-white">
+          <h2 className="text-6xl font-light">Contact Me</h2>
+          <h2 className="text-6xl font-light">Follow</h2>
 
-export default footer;
+        </div>
+        <div className=" mx-auto grid md:grid-cols-3 gap-6 items-start text-left">
+          {/* Left Section */}
+          <div>
+            <nav className="mt-4 space-y-2 text-3xl">
+              <Link href="/projects" className="block">Projects</Link>
+              <Link href="/about" className="block">About</Link>
+              <Link href="/contact" className="block">Contact</Link>
+            </nav>
+          </div>
+
+          {/* Center Section */}
+          <div className="text-center flex flex-col items-center justify-between w-full h-full font-light">
+            <p className="text-3xl">Got a project in mind? <Link href="/contact" className="underline">Say hi</Link></p>
+            <p className="text-sm mt-4">&copy; 2025 by Rashod Korala. All Rights Reserved.</p>
+          </div>
+
+          {/* Right Section */}
+          <div className="text-right font-light">
+            <nav className="mt-4 space-y-2 text-3xl">
+              <Link href="https://instagram.com/rashodk_" className="block">Instagram</Link>
+              <Link href="https://linkedin.com/in/rashodk" className="block">LinkedIn</Link>
+              <Link href="https://github.com/rashodkorala" className="block">GitHub</Link>
+            </nav>
+          </div>
+        </div>
+      </footer>
+
+      <footer className="py-12 px-10 border-t font-light block lg:hidden">
+        <div className="mb-8 w-full h-full flex justify-between items-center border-b pb-8 border-forground">
+          {/* <h2 className="text-6xl font-light">Contact Me</h2> */}
+          <div className="font-light gap-4 flex flex-col items-start">
+            <h2 className="text-6xl font-light">Contact Me</h2>
+            <p className="text-3xl">Got a project in mind? <Link href="/contact" className="underline">Say hi</Link></p>
+
+          </div>
+        </div>
+        <div className="mb-8 w-full h-full flex flex-col border-b pb-8 Border-b border-forground">
+          <h2 className="text-6xl font-light">Follow</h2>
+          <nav className="mt-4 space-y-2 text-3xl">
+            <Link href="https://instagram.com/rashodk_" className="block">Instagram</Link>
+            <Link href="https://linkedin.com/in/rashodk" className="block">LinkedIn</Link>
+            <Link href="https://github.com/rashodkorala" className="block">GitHub</Link>
+          </nav>
+        </div>
+        <div className="mb-8 w-full h-full flex flex-col border-b pb-8 Border-b border-forground">
+          <nav className="mt-4 space-y-2 text-3xl">
+            <Link href="/projects" className="block">Projects</Link>
+            <Link href="/about" className="block">About</Link>
+            <Link href="/contact" className="block">Contact</Link>
+          </nav>
+        </div>
+        <div className="text-center flex flex-col items-center justify-between w-full h-full font-light">
+          <p className="text-sm mt-4">&copy; 2025 by Rashod Korala</p>
+        </div>
+      </footer>
+    </>
+  );
+}
