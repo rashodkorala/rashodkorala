@@ -57,10 +57,10 @@ const ProjectComp = ({ projectId }: { projectId: string }) => {
         ← Back to Projects
       </button>
 
-      <div className="flex flex-col lg:grid grid-cols-3 gap-8">
+      <div className="flex flex-col lg:grid grid-cols-2 gap-8">
         {/* Project Title & Tags */}
-        <div className="flex flex-col">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light mb-6">
+        <div className="flex flex-col gap-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light">
             {project?.title}
           </h2>
           <div className="flex flex-wrap font-light space-x-2">
@@ -73,26 +73,27 @@ const ProjectComp = ({ projectId }: { projectId: string }) => {
               </span>
             ))}
           </div>
+          <Link
+            href={project?.link || "/"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xl md:text-2xl lg:text-3xl font-light underline underline-offset-4 hover:text-orange-600 transition"
+          >
+            {project?.linkText}
+          </Link>
+
+
         </div>
 
         {/* Project Description */}
         <div>
-          <p className="text-lg md:text-xl lg:text-2xl font-medium">
+          <p className="text-lg md:text-xl lg:text-2xl font-light">
             {project?.about}
           </p>
         </div>
 
         {/* Project Link */}
-        <div className="flex flex-col items-center w-full h-full">
-          <Link
-            href={project?.link || "/"}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xl md:text-2xl lg:text-3xl font-light underline"
-          >
-            {project?.linkText}
-          </Link>
-        </div>
+
       </div>
 
       {/* Image Grid */}

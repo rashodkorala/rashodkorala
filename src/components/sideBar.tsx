@@ -12,13 +12,13 @@ export default function Sidebar() {
         <>
             {/* Menu Buttons */}
             <button
-                className="text-6xl md:text-7xl font-medium focus:outline-none hidden text-orange-600 lg:block bg-text-orange-600"
+                className="text-6xl md:text-7xl font-medium focus:outline-none hidden text-orange-600 lg:block"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 + Menu
             </button>
             <button
-                className="text-6xl md:text-7xl font-medium focus:outline-none  text-orange-600 block lg:hidden"
+                className="text-6xl md:text-7xl font-medium focus:outline-none text-orange-600 block lg:hidden"
                 onClick={() => setIsOpen(!isOpen)}
             >
                 +
@@ -37,16 +37,52 @@ export default function Sidebar() {
                     {/* Navigation Links */}
                     <nav className="flex flex-col space-y-11 w-full h-full justify-center font-thin px-[40px]">
                         <div className="flex flex-col space-y-4 text-5xl md:text-6xl">
-                            <Link href="/projects" onClick={closeMenu}>Projects</Link>
-                            <Link href="/about" onClick={closeMenu}>About</Link>
-                            <Link href="/contact" onClick={closeMenu}>Contact</Link>
+                            <Link 
+                                href="/projects" 
+                                className="transform transition-transform duration-300 ease-in-out hover:scale-105"
+                                onClick={closeMenu}
+                            >
+                                Projects
+                            </Link>
+                            <Link 
+                                href="/about" 
+                                className="transform transition-transform duration-300 ease-in-out hover:scale-105"
+                                onClick={closeMenu}
+                            >
+                                About
+                            </Link>
+                            <Link 
+                                href="/contact" 
+                                className="transform transition-transform duration-300 ease-in-out hover:scale-105"
+                                onClick={closeMenu}
+                            >
+                                Contact
+                            </Link>
                         </div>
 
                         {/* Social Links */}
                         <div className="flex flex-col space-y-4 text-3xl md:text-4xl">
-                            <Link href="https://instagram.com/rashodk_" onClick={closeMenu}>Instagram</Link>
-                            <Link href="https://linkedin.com/in/rashodk" onClick={closeMenu}>LinkedIn</Link>
-                            <Link href="https://github.com/rashodkorala" onClick={closeMenu}>GitHub</Link>
+                            <Link 
+                                href="https://instagram.com/rashodk_" 
+                                className="transform transition-transform duration-300 ease-in-out hover:scale-105"
+                                onClick={closeMenu}
+                            >
+                                Instagram
+                            </Link>
+                            <Link 
+                                href="https://linkedin.com/in/rashodk" 
+                                className="transform transition-transform duration-300 ease-in-out hover:scale-105"
+                                onClick={closeMenu}
+                            >
+                                LinkedIn
+                            </Link>
+                            <Link 
+                                href="https://github.com/rashodkorala" 
+                                className="transform transition-transform duration-300 ease-in-out hover:scale-105"
+                                onClick={closeMenu}
+                            >
+                                GitHub
+                            </Link>
                         </div>
                     </nav>
                 </div>
