@@ -166,7 +166,7 @@
 
 .dark {
   /* Dark Mode: Shades of black */
-  --background: 218 32% 1% ;/* Near black */
+  --background: 0 0% 3.92% ;/* Near black */  
   --foreground: 0 0% 90%; /* Light gray text */
 
   --card: 0 0% 2%; /* Dark gray card */
