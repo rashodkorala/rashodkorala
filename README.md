@@ -2,7 +2,7 @@
 
 ## 🎓 About Me
 
-I am a 4th year computer science student at Memorial University of Newfoundland, passionate about creating innovative solutions through technology. My current focus areas include:
+I am a computer science undergraduate from Memorial University of Newfoundland, passionate about creating innovative solutions through technology. My current focus areas include:
 
 - Next.js and React development
 - REST API design and implementation
@@ -71,6 +71,3 @@ I'm always open to discussing new projects, creative ideas, or opportunities to 
 
 ---
 ⭐️ From [Rashod Korala](https://github.com/rashodkorala)
-
-<!---
-rashodkorala/rashodkorala is a ✨ special ✨ repository because its `
