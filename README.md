@@ -1,38 +1,76 @@
-# My GitHub Portfolio
+# 👋 Hi, I'm Rashod Korala
 
-## About Me
+## 🎓 About Me
 
-I am a 4th year computer science student at Memorial University of Newfoundland, currently learning Next.js, React, REST API, AI, and AI in game programming. I am passionate about using technology to solve problems and create meaningful experiences for users.
+I am a 4th year computer science student at Memorial University of Newfoundland, passionate about creating innovative solutions through technology. My current focus areas include:
 
-## Skills
+- Next.js and React development
+- REST API design and implementation
+- AI and machine learning
+- Game programming with AI integration
 
--   Next.js
--   React
--   REST API
--   Python
--   C++
--   Firebase authentication , cloud storage , firestores and realtime databases
--   Flutter for developing mobile apps
--   Proficient in HTML, CSS, JavaScript, NextJS , NodeJS and React
--   Experience with Git and GitHub
+## 🛠️ Technical Skills
 
-## Projects
+### Frontend Development
+- Next.js
+- React
+- HTML5
+- CSS3
+- JavaScript/TypeScript
 
-### Project 1: Freelance Website for a Local Mobile Car Detailing Company
+### Backend Development
+- Node.js
+- REST API
+- Firebase
+  - Authentication
+  - Cloud Storage
+  - Firestore
+  - Realtime Database
 
-A website designed for a local cleaning company to showcase their services and allow customers to make bookings online. The website was built using NextJS.
-[visit website](https://dev.squeekleen.com)
+### Programming Languages
+- Python
+- C++
+- JavaScript
 
-### Project 2: Artist Portfolio/online store 
+### Mobile Development
+- Flutter
 
-A portfolio website to showcase their works and sell artworks worlwide . The website was built using NextJS and React .[visit website](https://dev.bandumanamperi.com)
+### Version Control
+- Git
+- GitHub
 
+## 🚀 Featured Projects
 
-## Contact Me
+### 1. Squeekleen - Mobile Car Detailing Website
+A professional website for a local car detailing company featuring:
+- Online booking system
+- Service showcase
+- Customer testimonials
+- Responsive design
 
-Feel free to reach out to me via my [email](mailto:rashodkorala2002@gmail.com) or connect with me on [LinkedIn](www.linkedin.com/in/rashodk), [Twitter](https://twitter.com/rashodkorala), [Instagram](https://www.instagram.com/rashodk_/) or visit my [website](www.rashodkorala.com)
+[Visit Website →](https://dev.squeekleen.com)
+
+### 2. Bandu Manamperi - Artist Portfolio & Store
+A global platform for artists to showcase and sell their artwork featuring:
+- Portfolio gallery
+- E-commerce functionality
+- International shipping
+- Secure payment processing
+
+[Visit Website →](https://dev.bandumanamperi.com)
+
+## 📫 Connect With Me
+
+I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+
+- 📧 [Email](mailto:rashodkorala2002@gmail.com)
+- 💼 [LinkedIn](www.linkedin.com/in/rashodk)
+- 🐦 [Twitter](https://twitter.com/rashodkorala)
+- 📸 [Instagram](https://www.instagram.com/rashodk_/)
+- 🌐 [Personal Website](www.rashodkorala.com)
+
+---
+⭐️ From [Rashod Korala](https://github.com/rashodkorala)
 
 <!---
-rashodkorala/rashodkorala is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
+rashodkorala/rashodkorala is a ✨ special ✨ repository because its `
