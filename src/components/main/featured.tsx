@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Github, ExternalLink } from "lucide-react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 const techStack = [
     // Core Technologies
@@ -101,25 +102,18 @@ export default function ProjectSection() {
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="relative"
+                        className="relative w-full"
                     >
-                        <div className="aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 shadow-2xl">
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="text-center p-8">
-                                    <div className="text-4xl mb-4">📱</div>
-                                    <p className="text-gray-400 text-lg">App Interface</p>
-                                    <p className="text-gray-500 text-sm mt-2">Replace with actual product screenshot</p>
-                                </div>
-                            </div>
+                        <div className="w-full rounded-2xl overflow-hidden bg-gradient-to-br from-gray-900 to-gray-800 shadow-2xl">
+                            <Image
+                                src="/assets/ProjectsPhotos/aether/dashboard.png"
+                                alt="Aether Dashboard Interface"
+                                width={800}
+                                height={600}
+                                className="w-full h-auto object-contain"
+                                priority
+                            />
                         </div>
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ delay: 0.5, duration: 0.5 }}
-                            className="absolute -bottom-4 -right-4 bg-orange-600 p-4 rounded-full shadow-xl"
-                        >
-                            <p className="text-white font-semibold">Scan to Verify</p>
-                        </motion.div>
                     </motion.div>
 
                     {/* Right Column - Description */}

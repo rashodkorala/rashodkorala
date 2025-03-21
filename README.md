@@ -71,6 +71,3 @@ I'm always open to discussing new projects, creative ideas, or opportunities to 
 
 ---
 ⭐️ From [Rashod Korala](https://github.com/rashodkorala)
-
-<!---
-rashodkorala/rashodkorala is a ✨ special ✨ repository because its `
