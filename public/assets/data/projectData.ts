@@ -1,15 +1,11 @@
-import Artistportfolio4 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/ArtistPortfolio4.png";
-import Artistportfolio1 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/ArtistPortfolio1.png";
-import Artistportfolio2 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/ArtistPortfolio2.png";
-import Artistportfolio3 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/ArtistPortfolio3.png";
 import artistportflioLogo from "@/public/assets/ProjectsPhotos/ArtistPortfolio/logo.png";
 
-import CMS1 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/CMS1.png";
-import CMS2 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/CMS2.png";
-import CMS3 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/CMS3.png";
-import CMS4 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/CMS4.png";
-import CMS5 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/CMS5.png";
-import CMS6 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/CMS6.png";
+import Ap1 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/Ap1.png";
+import Ap2 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/Ap2.png";
+import Ap3 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/Ap3.png";
+import Ap4 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/Ap4.png";
+import Ap5 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/Ap5.png";
+import Ap6 from "@/public/assets/ProjectsPhotos/ArtistPortfolio/Ap6.png";
 
 
 
@@ -132,7 +128,7 @@ export const projectData = [
       "Showcase your work, connect with clients, and grow your online presence.",
     about:
       "This project utilizes AWS Amplify as the backend to manage content efficiently. The website, built with Next.js and styled with Tailwind CSS, is responsive and mobile-friendly, designed to provide a seamless user experience. Developed to enhance my skills in AWS and client collaboration, the GitHub repository for this client project is available upon request.",
-    image: [artistportflioLogo, Artistportfolio1, Artistportfolio2, Artistportfolio3, CMS1, CMS2, CMS3, CMS4, CMS5, CMS6],
+    image: [artistportflioLogo  , Ap1, Ap2, Ap3, Ap4, Ap5, Ap6],
     link: "https://dev.bandumanamperi.com",
     linkText: "view website",
     tags: ["NextJs", "TailwindCss", "TypeScript", "Web", "AWS Amplify", "AWS S3", "Ongoing Project"],
