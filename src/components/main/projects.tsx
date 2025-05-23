@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 import { projectData } from '@/public/assets/data/projectData';
-import PortfolioProject from './featured';
+import Featured from './featured';
 
 const Projects: React.FC = () => {
   const containerVariants = {
@@ -35,6 +35,7 @@ const Projects: React.FC = () => {
 
   return (
     <>
+      <Featured />
       <section className="min-h-screen px-4 sm:px-6 md:px-10 py-20 max-w-[2000px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -88,7 +89,7 @@ const Projects: React.FC = () => {
           </motion.div>
         </motion.div>
       </section>
-      <PortfolioProject />
+
     </>
   );
 };
