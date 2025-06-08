@@ -1,4 +1,3 @@
-
 import { Metadata } from 'next'
 import '@/styles/globals.css'
 
@@ -25,8 +24,49 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-    title: 'Home',
-    description: 'Rashod korala',
+    metadataBase: new URL('https://rashodkorala.com'),
+    title: {
+        default: 'Rashod Korala | Software Developer',
+        template: '%s | Rashod Korala'
+    },
+    description: 'Software Developer specializing in Next.js, React Native, and AI solutions. Building innovative digital experiences with a focus on user-centric design.',
+    keywords: ['Software Developer', 'Next.js', 'React Native', 'AI', 'Web Development', 'Mobile Development', 'TypeScript', 'AWS'],
+    authors: [{ name: 'Rashod Korala' }],
+    creator: 'Rashod Korala',
+    publisher: 'Rashod Korala',
+    openGraph: {
+        type: 'website',
+        locale: 'en_US',
+        url: 'https://rashodkorala.com',
+        title: 'Rashod Korala | Software Developer',
+        description: 'Software Developer specializing in Next.js, React Native, and AI solutions. Building innovative digital experiences with a focus on user-centric design.',
+        siteName: 'Rashod Korala',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Rashod Korala | Software Developer',
+        description: 'Software Developer specializing in Next.js, React Native, and AI solutions. Building innovative digital experiences with a focus on user-centric design.',
+        creator: '@rashodkorala',
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
+    },
+    icons: {
+        icon: '/favicon.ico',
+        shortcut: '/favicon-16x16.png',
+        apple: '/apple-touch-icon.png',
+    },
+    verification: {
+        google: 'your-google-site-verification',
+    },
 }
 
 export default function RootLayout({
