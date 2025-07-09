@@ -67,7 +67,7 @@ I'm always open to discussing new projects, creative ideas, or opportunities to 
 - 💼 [LinkedIn](www.linkedin.com/in/rashodk)
 - 🐦 [Twitter](https://twitter.com/rashodkorala)
 - 📸 [Instagram](https://www.instagram.com/rashodk_/)
-- 🌐 [Personal Website](www.rashodkorala.com)
+- 🌐 [Personal Website](https://www.rashodkorala.com)
 
 ---
 ⭐️ From [Rashod Korala](https://github.com/rashodkorala)
