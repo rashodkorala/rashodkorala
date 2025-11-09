@@ -115,7 +115,7 @@ export default function AetherPage() {
                         Aether helped me blend backend architecture with creative UI thinking. I learned to balance tech constraints with UX expectations and refined my skills in full-stack development, responsive design, and NFC integrations.
                     </p>
                     <div className="flex justify-center gap-4">
-                        <Link href="https://startup.rashodkorala.com/" target="_blank">
+                        <Link href="https://www.aetherlabs.art" target="_blank" rel="noopener noreferrer">
                             <Button className="bg-orange-600 hover:bg-orange-700 text-white rounded-full px-6">
                                 <ExternalLink className="w-4 h-4 mr-2" /> Live Demo
                             </Button>

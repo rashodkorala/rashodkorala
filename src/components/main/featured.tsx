@@ -31,8 +31,9 @@ export default function ProjectSection() {
                     </p>
                     <div className="flex gap-4">
                         <Link
-                            href="https://startup.rashodkorala.com/"
+                            href="https://www.aetherlabs.art"
                             target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-flex items-center px-5 py-2.5 bg-orange-600 text-white text-sm font-medium rounded-full hover:bg-orange-700 transition"
                         >
                             <ExternalLink className="mr-2 h-4 w-4" />
