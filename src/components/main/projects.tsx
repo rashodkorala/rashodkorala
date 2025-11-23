@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -8,9 +8,30 @@ import { ArrowUpRight, ExternalLink, Play } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { projectData } from '@/public/assets/data/projectData';
+import { getAllProjects } from '@/lib/supabase/projects';
+import { Project } from '@/lib/types';
 
 const Projects: React.FC = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchProjects() {
+      try {
+        setIsLoading(true);
+        const data = await getAllProjects();
+        setProjects(data);
+      } catch (err) {
+        setError('Failed to load projects');
+        console.error(err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchProjects();
+  }, []);
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -35,6 +56,26 @@ const Projects: React.FC = () => {
       }
     }
   };
+
+  if (isLoading) {
+    return (
+      <section className="mx-auto min-h-screen max-w-[2440px] px-4 py-20 sm:px-6 lg:px-10 xl:px-16">
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-orange-600"></div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error) {
+    return (
+      <section className="mx-auto min-h-screen max-w-[2440px] px-4 py-20 sm:px-6 lg:px-10 xl:px-16">
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <p className="text-red-600 dark:text-red-400">{error}</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="mx-auto min-h-screen max-w-[2440px] px-4 py-20 sm:px-6 lg:px-10 xl:px-16">
@@ -61,7 +102,7 @@ const Projects: React.FC = () => {
         animate="visible"
         className="grid gap-10 md:grid-cols-2 xl:grid-cols-3"
       >
-        {projectData.map((project) => (
+        {projects.map((project) => (
           <motion.article
             key={project.id}
             variants={projectVariants}
@@ -71,7 +112,7 @@ const Projects: React.FC = () => {
             <div className="relative h-60 overflow-hidden ">
               <div className="absolute inset-0 z-0 bg-gradient-to-br from-orange-600/70 via-orange-500/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
               <Image
-                src={project.image[0]}
+                src={project.image?.[0] || '/assets/logo.png'}
                 alt={project.title}
                 fill
                 className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110 grayscale"

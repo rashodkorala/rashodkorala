@@ -4,22 +4,36 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { projectData } from '@/public/assets/data/projectData';
+import { getProjectById, getAllProjects } from '@/lib/supabase/projects';
+import { Project } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
 const ProjectComp = ({ projectId }: { projectId: string }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
-  const projectIndex = projectData.findIndex(
-    (project) => project.id === Number(projectId)
-  );
-  const project = projectData[projectIndex];
-
+  const [project, setProject] = useState<Project | null>(null);
+  const [allProjects, setAllProjects] = useState<Project[]>([]);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
 
   useEffect(() => {
-    setIsLoading(false);
+    async function fetchProject() {
+      try {
+        setIsLoading(true);
+        const [projectData, projectsData] = await Promise.all([
+          getProjectById(Number(projectId)),
+          getAllProjects()
+        ]);
+        setProject(projectData);
+        setAllProjects(projectsData);
+      } catch (err) {
+        console.error('Error fetching project:', err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchProject();
   }, [projectId]);
 
   const handleImageClick = (index: number) => {
@@ -31,7 +45,7 @@ const ProjectComp = ({ projectId }: { projectId: string }) => {
   };
 
   const handlePrevImage = () => {
-    if (selectedImageIndex !== null) {
+    if (selectedImageIndex !== null && project) {
       setSelectedImageIndex((prev) =>
         prev === 0 ? project.image.length - 1 : prev! - 1
       );
@@ -39,7 +53,7 @@ const ProjectComp = ({ projectId }: { projectId: string }) => {
   };
 
   const handleNextImage = () => {
-    if (selectedImageIndex !== null) {
+    if (selectedImageIndex !== null && project) {
       setSelectedImageIndex((prev) =>
         prev === project.image.length - 1 ? 0 : prev! + 1
       );
@@ -61,17 +75,19 @@ const ProjectComp = ({ projectId }: { projectId: string }) => {
     }
   }, [selectedImageIndex]);
 
+  const projectIndex = project ? allProjects.findIndex((p) => p.id === project.id) : -1;
+
   const handlePrevProject = () => {
     if (projectIndex > 0) {
       setIsLoading(true);
-      router.push(`/projects/${projectData[projectIndex - 1].id}`);
+      router.push(`/projects/${allProjects[projectIndex - 1].id}`);
     }
   };
 
   const handleNextProject = () => {
-    if (projectIndex < projectData.length - 1) {
+    if (projectIndex < allProjects.length - 1) {
       setIsLoading(true);
-      router.push(`/projects/${projectData[projectIndex + 1].id}`);
+      router.push(`/projects/${allProjects[projectIndex + 1].id}`);
     }
   };
 
@@ -79,6 +95,14 @@ const ProjectComp = ({ projectId }: { projectId: string }) => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-orange-600"></div>
+      </div>
+    );
+  }
+
+  if (!project) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <p className="text-red-600 dark:text-red-400">Project not found</p>
       </div>
     );
   }
@@ -111,15 +135,15 @@ const ProjectComp = ({ projectId }: { projectId: string }) => {
               Case Study
             </Badge>
             <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
-              {project?.title}
+              {project.title}
             </h1>
             <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-              {project?.description}
+              {project.description}
             </p>
           </div>
 
           <div className="flex flex-wrap gap-3">
-            {project?.tags.map((tag, index) => (
+            {project.tags?.map((tag, index) => (
               <Badge
                 key={index}
                 className="rounded-none border border-gray-300 bg-gray-50 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-gray-700 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 dark:border-white/20 dark:bg-white/10 dark:text-gray-200 dark:hover:border-orange-400 dark:hover:bg-orange-500/10 dark:hover:text-orange-200"
@@ -130,14 +154,14 @@ const ProjectComp = ({ projectId }: { projectId: string }) => {
           </div>
 
           <div className="flex flex-wrap gap-3">
-            {project?.link && (
+            {project.link && (
               <Link href={project.link} target="_blank" rel="noopener noreferrer">
                 <Button className="rounded-none bg-orange-600 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-orange-700 dark:bg-orange-500 dark:hover:bg-orange-400">
-                  {project?.linkText ?? 'Visit Project'}
+                  {project.linkText ?? 'Visit Project'}
                 </Button>
               </Link>
             )}
-            {project?.video && (
+            {project.video && (
               <Link href={project.video} target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="outline"
@@ -160,8 +184,8 @@ const ProjectComp = ({ projectId }: { projectId: string }) => {
           <div className="absolute inset-0 bg-gradient-to-br from-orange-600/30 via-transparent to-purple-500/20 opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
           <div className="relative h-[320px] w-full overflow-hidden border border-white/40 dark:border-white/10">
             <Image
-              src={project?.image?.[0] ?? ''}
-              alt={project?.title || 'Project hero image'}
+              src={project.image?.[0] || '/assets/logo.png'}
+              alt={project.title || 'Project hero image'}
               fill
               className="object-cover object-center grayscale transition-transform duration-700 ease-out group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
@@ -178,7 +202,7 @@ const ProjectComp = ({ projectId }: { projectId: string }) => {
         transition={{ delay: 0.35 }}
         className="mt-16 max-w-3xl text-lg leading-relaxed text-gray-600 dark:text-gray-300"
       >
-        {project?.about}
+        {project.about}
       </motion.div>
 
       {/* Image Grid */}
@@ -188,7 +212,7 @@ const ProjectComp = ({ projectId }: { projectId: string }) => {
         transition={{ delay: 0.4 }}
         className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
       >
-        {project?.image.map((imgSrc, index) => (
+        {project.image?.map((imgSrc, index) => (
           <motion.div
             key={index}
             whileHover={{ y: -6 }}
@@ -197,8 +221,8 @@ const ProjectComp = ({ projectId }: { projectId: string }) => {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-transparent to-purple-400/0 transition duration-500 group-hover:from-orange-500/20 group-hover:via-orange-400/10 group-hover:to-purple-400/20" />
             <Image
-              src={typeof imgSrc === 'string' ? imgSrc : imgSrc.src}
-              alt={project?.title || 'Project image'}
+              src={imgSrc}
+              alt={project.title || 'Project image'}
               fill
               className="object-cover object-center grayscale transition-transform duration-700 ease-out group-hover:scale-110"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -227,8 +251,8 @@ const ProjectComp = ({ projectId }: { projectId: string }) => {
         </Button>
         <Button
           onClick={handleNextProject}
-          disabled={projectIndex === projectData.length - 1}
-          className={`rounded-none px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] transition ${projectIndex === projectData.length - 1
+          disabled={projectIndex === allProjects.length - 1}
+          className={`rounded-none px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] transition ${projectIndex === allProjects.length - 1
             ? 'cursor-not-allowed border border-gray-400 bg-gray-400 text-white'
             : 'border border-gray-900 bg-gray-900 text-white hover:border-orange-600 hover:bg-orange-600'
             }`}
@@ -271,10 +295,8 @@ const ProjectComp = ({ projectId }: { projectId: string }) => {
               className="relative w-[80%] max-w-full h-[80%]"
             >
               <Image
-                src={typeof project.image[selectedImageIndex] === 'string'
-                  ? project.image[selectedImageIndex]
-                  : project.image[selectedImageIndex].src}
-                alt={project?.title || "Project Image"}
+                src={project.image[selectedImageIndex]}
+                alt={project.title || "Project Image"}
                 fill
                 className="w-full h-auto object-contain object-center"
                 priority
