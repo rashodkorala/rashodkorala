@@ -1,15 +1,15 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getProjectById, getAllProjects } from '@/lib/supabase/projects';
+import { getProjectBySlug, getAllProjects } from '@/lib/supabase/projects';
 import { Project } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
-const ProjectComp = ({ projectId }: { projectId: string }) => {
+const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [project, setProject] = useState<Project | null>(null);
@@ -21,7 +21,7 @@ const ProjectComp = ({ projectId }: { projectId: string }) => {
       try {
         setIsLoading(true);
         const [projectData, projectsData] = await Promise.all([
-          getProjectById(Number(projectId)),
+          getProjectBySlug(projectSlug),
           getAllProjects()
         ]);
         setProject(projectData);
@@ -34,60 +34,60 @@ const ProjectComp = ({ projectId }: { projectId: string }) => {
     }
 
     fetchProject();
-  }, [projectId]);
+  }, [projectSlug]);
 
   const handleImageClick = (index: number) => {
     setSelectedImageIndex(index);
   };
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setSelectedImageIndex(null);
-  };
+  }, []);
 
-  const handlePrevImage = () => {
+  const handlePrevImage = useCallback(() => {
     if (selectedImageIndex !== null && project) {
       setSelectedImageIndex((prev) =>
         prev === 0 ? project.image.length - 1 : prev! - 1
       );
     }
-  };
+  }, [selectedImageIndex, project]);
 
-  const handleNextImage = () => {
+  const handleNextImage = useCallback(() => {
     if (selectedImageIndex !== null && project) {
       setSelectedImageIndex((prev) =>
         prev === project.image.length - 1 ? 0 : prev! + 1
       );
     }
-  };
+  }, [selectedImageIndex, project]);
 
-  const handleKeyDown = (e: KeyboardEvent) => {
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (selectedImageIndex !== null) {
       if (e.key === 'ArrowLeft') handlePrevImage();
       if (e.key === 'ArrowRight') handleNextImage();
       if (e.key === 'Escape') handleClose();
     }
-  };
+  }, [selectedImageIndex, handlePrevImage, handleNextImage, handleClose]);
 
   useEffect(() => {
     if (selectedImageIndex !== null) {
       window.addEventListener('keydown', handleKeyDown);
       return () => window.removeEventListener('keydown', handleKeyDown);
     }
-  }, [selectedImageIndex]);
+  }, [selectedImageIndex, handleKeyDown]);
 
   const projectIndex = project ? allProjects.findIndex((p) => p.id === project.id) : -1;
 
   const handlePrevProject = () => {
     if (projectIndex > 0) {
       setIsLoading(true);
-      router.push(`/projects/${allProjects[projectIndex - 1].id}`);
+      router.push(`/projects/${allProjects[projectIndex - 1].slug}`);
     }
   };
 
   const handleNextProject = () => {
     if (projectIndex < allProjects.length - 1) {
       setIsLoading(true);
-      router.push(`/projects/${allProjects[projectIndex + 1].id}`);
+      router.push(`/projects/${allProjects[projectIndex + 1].slug}`);
     }
   };
 

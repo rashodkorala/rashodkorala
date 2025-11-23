@@ -17,6 +17,7 @@ In your Supabase project, go to the SQL Editor and run the following SQL to crea
 CREATE TABLE projects (
   id SERIAL PRIMARY KEY,
   title TEXT NOT NULL,
+  slug TEXT NOT NULL UNIQUE, -- URL-friendly slug (e.g., "getfit", "small-business-website")
   description TEXT NOT NULL,
   about TEXT NOT NULL,
   image TEXT[] NOT NULL, -- Array of image URLs
@@ -30,6 +31,9 @@ CREATE TABLE projects (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
+
+-- Create an index on slug for faster lookups
+CREATE INDEX idx_projects_slug ON projects(slug);
 
 -- Enable Row Level Security (optional, but recommended)
 ALTER TABLE projects ENABLE ROW LEVEL SECURITY;
@@ -73,9 +77,10 @@ You can insert sample data using the Supabase dashboard:
 Or use the SQL Editor to insert data:
 
 ```sql
-INSERT INTO projects (title, description, about, image, tags, link, linkText)
+INSERT INTO projects (title, slug, description, about, image, tags, link, linkText)
 VALUES (
   'GetFit',
+  'getfit', -- URL-friendly slug (lowercase, hyphens for spaces)
   'Track workouts, plan meals, and achieve fitness goals on-the-go.',
   'GetFit is a mobile fitness app developed with Flutter...',
   ARRAY['/assets/ProjectsPhotos/getFit/logo.png', '/assets/ProjectsPhotos/getFit/getFit1.png'],
@@ -84,6 +89,11 @@ VALUES (
   'view on GitHub'
 );
 ```
+
+**Important:** The `slug` field must be:
+- Unique (no duplicates)
+- URL-friendly (lowercase, use hyphens instead of spaces)
+- Examples: `getfit`, `small-business-website`, `movie-database-website`
 
 ## 6. Image Storage
 

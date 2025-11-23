@@ -138,7 +138,7 @@ const Projects: React.FC = () => {
                 </Badge>
               ))}
               <div className="space-y-3">
-                <Link href={`/projects/${project.id}`} className="inline-flex items-center gap-2 text-2xl font-semibold">
+                <Link href={`/projects/${project.slug}`} className="inline-flex items-center gap-2 text-2xl font-semibold">
                   <span className="transition-colors group-hover:text-orange-600">{project.title}</span>
                   <ArrowUpRight className="h-4 w-4 text-orange-500 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </Link>
@@ -164,7 +164,7 @@ const Projects: React.FC = () => {
               </div>
 
               <div className="flex flex-wrap gap-3">
-                <Link href={`/projects/${project.id}`}>
+                <Link href={`/projects/${project.slug}`}>
                   <Button className="rounded-none bg-gray-900 px-5 text-sm font-medium text-white hover:bg-orange-600 dark:bg-white dark:text-gray-900">
                     View Details
                   </Button>
