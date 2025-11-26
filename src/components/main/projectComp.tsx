@@ -36,9 +36,12 @@ const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
     fetchProject();
   }, [projectSlug]);
 
-  const handleImageClick = (index: number) => {
-    setSelectedImageIndex(index);
-  };
+  const handleImageClick = useCallback((galleryIndex: number) => {
+    if (!project) return;
+    // If there's a cover image, offset by 1 (cover is at index 0)
+    const imageIndex = project.cover_image_url ? galleryIndex + 1 : galleryIndex;
+    setSelectedImageIndex(imageIndex);
+  }, [project]);
 
   const handleClose = useCallback(() => {
     setSelectedImageIndex(null);
@@ -46,16 +49,24 @@ const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
 
   const handlePrevImage = useCallback(() => {
     if (selectedImageIndex !== null && project) {
+      const galleryImages = project.gallery_image_urls || [];
+      const allImages = project.cover_image_url
+        ? [project.cover_image_url, ...galleryImages]
+        : galleryImages;
       setSelectedImageIndex((prev) =>
-        prev === 0 ? project.image.length - 1 : prev! - 1
+        prev === 0 ? allImages.length - 1 : prev! - 1
       );
     }
   }, [selectedImageIndex, project]);
 
   const handleNextImage = useCallback(() => {
     if (selectedImageIndex !== null && project) {
+      const galleryImages = project.gallery_image_urls || [];
+      const allImages = project.cover_image_url
+        ? [project.cover_image_url, ...galleryImages]
+        : galleryImages;
       setSelectedImageIndex((prev) =>
-        prev === project.image.length - 1 ? 0 : prev! + 1
+        prev === allImages.length - 1 ? 0 : prev! + 1
       );
     }
   }, [selectedImageIndex, project]);
@@ -107,6 +118,12 @@ const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
     );
   }
 
+  // Define images after we know project exists
+  const galleryImages = project.gallery_image_urls || [];
+  const allImages = project.cover_image_url
+    ? [project.cover_image_url, ...galleryImages]
+    : galleryImages;
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -131,43 +148,79 @@ const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
           className="space-y-8"
         >
           <div className="space-y-5">
-            <Badge className="rounded-none border-0 bg-orange-100 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-orange-700 dark:bg-orange-500/15 dark:text-orange-200">
-              Case Study
-            </Badge>
+            {project.category && (
+              <Badge className="rounded-none border-0 bg-orange-100 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-orange-700 dark:bg-orange-500/15 dark:text-orange-200">
+                {project.category}
+              </Badge>
+            )}
             <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
               {project.title}
             </h1>
-            <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-              {project.description}
-            </p>
+            {project.subtitle && (
+              <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+                {project.subtitle}
+              </p>
+            )}
           </div>
 
-          <div className="flex flex-wrap gap-3">
-            {project.tags?.map((tag, index) => (
-              <Badge
-                key={index}
-                className="rounded-none border border-gray-300 bg-gray-50 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-gray-700 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 dark:border-white/20 dark:bg-white/10 dark:text-gray-200 dark:hover:border-orange-400 dark:hover:bg-orange-500/10 dark:hover:text-orange-200"
-              >
-                {tag}
-              </Badge>
-            ))}
-          </div>
+          {/* Tech Stack */}
+          {project.tech && project.tech.length > 0 && (
+            <div className="flex flex-wrap gap-3">
+              {project.tech.map((tech, index) => (
+                <Badge
+                  key={index}
+                  className="rounded-none border border-gray-300 bg-gray-50 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-gray-700 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 dark:border-white/20 dark:bg-white/10 dark:text-gray-200 dark:hover:border-orange-400 dark:hover:bg-orange-500/10 dark:hover:text-orange-200"
+                >
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+          )}
 
+          {/* Roles */}
+          {project.roles && project.roles.length > 0 && (
+            <div className="space-y-2">
+              <p className="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">Roles</p>
+              <div className="flex flex-wrap gap-2">
+                {project.roles.map((role, index) => (
+                  <Badge
+                    key={index}
+                    variant="outline"
+                    className="rounded-none border-gray-200 bg-white px-3 py-1 text-xs font-medium text-gray-600 dark:border-white/20 dark:bg-white/5 dark:text-gray-300"
+                  >
+                    {role}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Action Buttons */}
           <div className="flex flex-wrap gap-3">
-            {project.link && (
-              <Link href={project.link} target="_blank" rel="noopener noreferrer">
+            {project.live_url && (
+              <Link href={project.live_url} target="_blank" rel="noopener noreferrer">
                 <Button className="rounded-none bg-orange-600 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-orange-700 dark:bg-orange-500 dark:hover:bg-orange-400">
-                  {project.linkText ?? 'Visit Project'}
+                  View Live
                 </Button>
               </Link>
             )}
-            {project.video && (
-              <Link href={project.video} target="_blank" rel="noopener noreferrer">
+            {project.github_url && (
+              <Link href={project.github_url} target="_blank" rel="noopener noreferrer">
                 <Button
                   variant="outline"
                   className="rounded-none border-gray-300 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-gray-700 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 dark:border-white/20 dark:text-gray-200 dark:hover:border-orange-400 dark:hover:bg-orange-500/10 dark:hover:text-orange-200"
                 >
-                  Watch Demo
+                  View Code
+                </Button>
+              </Link>
+            )}
+            {project.case_study_url && (
+              <Link href={project.case_study_url} target="_blank" rel="noopener noreferrer">
+                <Button
+                  variant="outline"
+                  className="rounded-none border-gray-300 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-gray-700 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 dark:border-white/20 dark:text-gray-200 dark:hover:border-orange-400 dark:hover:bg-orange-500/10 dark:hover:text-orange-200"
+                >
+                  Case Study
                 </Button>
               </Link>
             )}
@@ -184,7 +237,7 @@ const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
           <div className="absolute inset-0 bg-gradient-to-br from-orange-600/30 via-transparent to-purple-500/20 opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
           <div className="relative h-[320px] w-full overflow-hidden border border-white/40 dark:border-white/10">
             <Image
-              src={project.image?.[0] || '/assets/logo.png'}
+              src={project.cover_image_url || '/assets/logo.png'}
               alt={project.title || 'Project hero image'}
               fill
               className="object-cover object-center grayscale transition-transform duration-700 ease-out group-hover:scale-105"
@@ -195,43 +248,81 @@ const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
         </motion.div>
       </div>
 
-      {/* Project Description */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.35 }}
-        className="mt-16 max-w-3xl text-lg leading-relaxed text-gray-600 dark:text-gray-300"
-      >
-        {project.about}
-      </motion.div>
+      {/* Problem & Solution */}
+      {(project.problem || project.solution) && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.35 }}
+          className="mt-16 max-w-3xl space-y-8"
+        >
+          {project.problem && (
+            <div>
+              <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Problem</h2>
+              <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+                {project.problem}
+              </p>
+            </div>
+          )}
+          {project.solution && (
+            <div>
+              <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Solution</h2>
+              <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+                {project.solution}
+              </p>
+            </div>
+          )}
+        </motion.div>
+      )}
 
-      {/* Image Grid */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4 }}
-        className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
-      >
-        {project.image?.map((imgSrc, index) => (
-          <motion.div
-            key={index}
-            whileHover={{ y: -6 }}
-            onClick={() => handleImageClick(index)}
-            className="group relative h-[340px] cursor-pointer overflow-hidden border border-orange-100/60 bg-white/60 shadow-lg transition duration-300 hover:shadow-2xl dark:border-white/10 dark:bg-white/5"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-transparent to-purple-400/0 transition duration-500 group-hover:from-orange-500/20 group-hover:via-orange-400/10 group-hover:to-purple-400/20" />
-            <Image
-              src={imgSrc}
-              alt={project.title || 'Project image'}
-              fill
-              className="object-cover object-center grayscale transition-transform duration-700 ease-out group-hover:scale-110"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/30 to-transparent" />
-          </motion.div>
-        ))}
-      </motion.div>
+      {/* Features */}
+      {project.features && project.features.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="mt-16 max-w-3xl"
+        >
+          <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">Features</h2>
+          <ul className="space-y-3">
+            {project.features.map((feature, index) => (
+              <li key={index} className="flex items-start gap-3 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+                <span className="text-orange-600 dark:text-orange-400 mt-1">•</span>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      )}
 
+      {/* Gallery Images */}
+      {galleryImages.length > 0 && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.45 }}
+          className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+        >
+          {galleryImages.map((imgSrc, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ y: -6 }}
+              onClick={() => handleImageClick(index)}
+              className="group relative h-[340px] cursor-pointer overflow-hidden border border-orange-100/60 bg-white/60 shadow-lg transition duration-300 hover:shadow-2xl dark:border-white/10 dark:bg-white/5"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-transparent to-purple-400/0 transition duration-500 group-hover:from-orange-500/20 group-hover:via-orange-400/10 group-hover:to-purple-400/20" />
+              <Image
+                src={imgSrc}
+                alt={project.title || 'Project image'}
+                fill
+                className="object-cover object-center grayscale transition-transform duration-700 ease-out group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/30 to-transparent" />
+            </motion.div>
+          ))}
+        </motion.div>
+      )}
       {/* Previous / Next Project Buttons */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -295,7 +386,7 @@ const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
               className="relative w-[80%] max-w-full h-[80%]"
             >
               <Image
-                src={project.image[selectedImageIndex]}
+                src={allImages[selectedImageIndex]}
                 alt={project.title || "Project Image"}
                 fill
                 className="w-full h-auto object-contain object-center"
