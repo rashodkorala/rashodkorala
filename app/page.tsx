@@ -1,4 +1,5 @@
 import Projects from "@/src/components/main/projects";
+// import Work from "@/src/components/main/work"; // Disabled - keeping code for future use
 
 import { Metadata } from "next";
 
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
 export default function Index() {
     return (
         <>
+            {/* <Work /> Disabled - keeping code for future use */}
             <Projects />
         </>
     );

@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,6 +8,7 @@ import { getProjectBySlug, getAllProjects } from '@/lib/supabase/projects';
 import { Project } from '@/lib/types';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { ArrowLeft, ArrowUpRight, ExternalLink, Github, ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
   const router = useRouter();
@@ -15,6 +16,7 @@ const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
   const [project, setProject] = useState<Project | null>(null);
   const [allProjects, setAllProjects] = useState<Project[]>([]);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const galleryScrollRef = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     async function fetchProject() {
@@ -104,16 +106,31 @@ const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-orange-600"></div>
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-[#1a1a1a]">
+        <div className="animate-pulse space-y-4 w-full max-w-4xl px-6">
+          <div className="h-12 bg-gray-200 dark:bg-gray-800 rounded w-1/4"></div>
+          <div className="h-96 bg-gray-200 dark:bg-gray-800 rounded"></div>
+          <div className="h-6 bg-gray-200 dark:bg-gray-800 rounded w-3/4"></div>
+          <div className="h-6 bg-gray-200 dark:bg-gray-800 rounded w-1/2"></div>
+        </div>
       </div>
     );
   }
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <p className="text-red-600 dark:text-red-400">Project not found</p>
+      <div className="min-h-screen flex items-center justify-center bg-white dark:bg-[#1a1a1a]">
+        <div className="text-center space-y-4">
+          <p className="text-gray-600 dark:text-gray-400">Project not found</p>
+          <Button
+            onClick={() => router.push("/")}
+            variant="ghost"
+            className="text-orange-600 dark:text-orange-400 hover:text-orange-900 dark:hover:text-orange-100"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2 text-orange-600 dark:text-orange-400" />
+            Back to Home
+          </Button>
+        </div>
       </div>
     );
   }
@@ -125,287 +142,402 @@ const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
     : galleryImages;
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="mx-auto min-h-screen max-w-[1400px] px-4 py-16 sm:px-6 lg:px-10 xl:px-16"
-    >
-      <motion.button
-        whileHover={{ x: -5 }}
-        onClick={() => router.push("/")}
-        className="mb-12 inline-flex items-center gap-3 text-sm font-medium uppercase tracking-widest text-orange-600 transition hover:text-orange-500"
+    <div className="min-h-screen">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4 }}
+        className="mx-auto max-w-4xl px-6 py-12 sm:py-16"
       >
-        <span className="text-xl">←</span> Back to Projects
-      </motion.button>
-
-      <div className="grid gap-12 lg:grid-cols-[1.1fr,1fr]">
-        {/* Project Title & Meta */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="space-y-8"
+        {/* Back Button - Notion Style */}
+        <motion.button
+          whileHover={{ x: -2 }}
+          onClick={() => router.push("/")}
+          className="mb-10 inline-flex items-center gap-1.5 text-[14px] leading-[20px] text-gray-500 dark:text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors font-normal"
         >
-          <div className="space-y-5">
-            {project.category && (
-              <Badge className="rounded-none border-0 bg-orange-100 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-orange-700 dark:bg-orange-500/15 dark:text-orange-200">
-                {project.category}
-              </Badge>
-            )}
-            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl md:text-6xl">
-              {project.title}
-            </h1>
-            {project.subtitle && (
-              <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-                {project.subtitle}
-              </p>
-            )}
-          </div>
+          <ArrowLeft className="w-3.5 h-3.5" />
+          Back
+        </motion.button>
 
-          {/* Tech Stack */}
-          {project.tech && project.tech.length > 0 && (
-            <div className="flex flex-wrap gap-3">
-              {project.tech.map((tech, index) => (
-                <Badge
-                  key={index}
-                  className="rounded-none border border-gray-300 bg-gray-50 px-4 py-2 text-xs font-semibold uppercase tracking-widest text-gray-700 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 dark:border-white/20 dark:bg-white/10 dark:text-gray-200 dark:hover:border-orange-400 dark:hover:bg-orange-500/10 dark:hover:text-orange-200"
-                >
-                  {tech}
-                </Badge>
-              ))}
+        {/* Header Section - Notion Style */}
+        <div className="space-y-3 mb-16">
+          {project.category && (
+            <div className="text-[13px] leading-[18px] text-gray-500 dark:text-gray-500 font-normal uppercase tracking-[0.5px]">
+              {project.category}
             </div>
           )}
+          <h1 className="text-[40px] sm:text-[48px] md:text-[56px] font-semibold tracking-[-0.5px] text-gray-900 dark:text-gray-50 leading-[1.2]">
+            {project.title}
+          </h1>
+          {project.subtitle && (
+            <p className="text-[17px] leading-[1.6] text-gray-600 dark:text-gray-400 font-normal mt-2">
+              {project.subtitle}
+            </p>
+          )}
+        </div>
 
-          {/* Roles */}
-          {project.roles && project.roles.length > 0 && (
-            <div className="space-y-2">
-              <p className="text-sm font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-400">Roles</p>
-              <div className="flex flex-wrap gap-2">
-                {project.roles.map((role, index) => (
-                  <Badge
+        {/* Cover Image - Notion Style */}
+        {project.cover_image_url && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="relative w-full h-[400px] sm:h-[500px] rounded-lg overflow-hidden mb-16 bg-gray-50 dark:bg-gray-900"
+          >
+            <Image
+              src={project.cover_image_url}
+              alt={project.title || 'Project cover'}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 900px"
+              priority
+            />
+          </motion.div>
+        )}
+
+        {/* Metadata - Notion Style */}
+        <div className="space-y-4 mb-16 pb-8 border-b border-gray-200/50 dark:border-gray-800/50">
+          {project.tech && project.tech.length > 0 && (
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-[13px] leading-[18px] text-gray-500 dark:text-gray-500 font-normal">Tech</span>
+              <span className="text-[13px] leading-[18px] text-gray-400 dark:text-gray-600">•</span>
+              <div className="flex flex-wrap items-center gap-2">
+                {project.tech.map((tech, index) => (
+                  <span
                     key={index}
-                    variant="outline"
-                    className="rounded-none border-gray-200 bg-white px-3 py-1 text-xs font-medium text-gray-600 dark:border-white/20 dark:bg-white/5 dark:text-gray-300"
+                    className="text-[13px] leading-[18px] text-gray-600 dark:text-gray-400 font-normal"
                   >
-                    {role}
-                  </Badge>
+                    {tech}{index < (project.tech?.length ?? 0) - 1 && ','}
+                  </span>
                 ))}
               </div>
             </div>
           )}
-
-          {/* Action Buttons */}
-          <div className="flex flex-wrap gap-3">
-            {project.live_url && (
-              <Link href={project.live_url} target="_blank" rel="noopener noreferrer">
-                <Button className="rounded-none bg-orange-600 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-orange-700 dark:bg-orange-500 dark:hover:bg-orange-400">
-                  View Live
-                </Button>
-              </Link>
-            )}
-            {project.github_url && (
-              <Link href={project.github_url} target="_blank" rel="noopener noreferrer">
-                <Button
-                  variant="outline"
-                  className="rounded-none border-gray-300 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-gray-700 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 dark:border-white/20 dark:text-gray-200 dark:hover:border-orange-400 dark:hover:bg-orange-500/10 dark:hover:text-orange-200"
-                >
-                  View Code
-                </Button>
-              </Link>
-            )}
-            {project.case_study_url && (
-              <Link href={project.case_study_url} target="_blank" rel="noopener noreferrer">
-                <Button
-                  variant="outline"
-                  className="rounded-none border-gray-300 px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] text-gray-700 transition hover:border-orange-300 hover:bg-orange-50 hover:text-orange-700 dark:border-white/20 dark:text-gray-200 dark:hover:border-orange-400 dark:hover:bg-orange-500/10 dark:hover:text-orange-200"
-                >
-                  Case Study
-                </Button>
-              </Link>
-            )}
-          </div>
-        </motion.div>
-
-        {/* Hero Image */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="group relative flex items-end justify-end border border-orange-100/60 bg-white/80 p-4 shadow-xl dark:border-white/10 dark:bg-white/5"
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-600/30 via-transparent to-purple-500/20 opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
-          <div className="relative h-[320px] w-full overflow-hidden border border-white/40 dark:border-white/10">
-            <Image
-              src={project.cover_image_url || '/assets/logo.png'}
-              alt={project.title || 'Project hero image'}
-              fill
-              className="object-cover object-center grayscale transition-transform duration-700 ease-out group-hover:scale-105"
-              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-            />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent" />
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Problem & Solution */}
-      {(project.problem || project.solution) && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35 }}
-          className="mt-16 max-w-3xl space-y-8"
-        >
-          {project.problem && (
-            <div>
-              <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Problem</h2>
-              <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-                {project.problem}
-              </p>
+          {project.roles && project.roles.length > 0 && (
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-[13px] leading-[18px] text-gray-500 dark:text-gray-500 font-normal">Role</span>
+              <span className="text-[13px] leading-[18px] text-gray-400 dark:text-gray-600">•</span>
+              <div className="flex flex-wrap items-center gap-2">
+                {project.roles.map((role, index) => (
+                  <span
+                    key={index}
+                    className="text-[13px] leading-[18px] text-gray-600 dark:text-gray-400 font-normal"
+                  >
+                    {role}{index < project.roles!.length - 1 && ','}
+                  </span>
+                ))}
+              </div>
             </div>
           )}
-          {project.solution && (
-            <div>
-              <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Solution</h2>
-              <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-                {project.solution}
-              </p>
-            </div>
-          )}
-        </motion.div>
-      )}
+        </div>
 
-      {/* Features */}
-      {project.features && project.features.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="mt-16 max-w-3xl"
-        >
-          <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">Features</h2>
-          <ul className="space-y-3">
-            {project.features.map((feature, index) => (
-              <li key={index} className="flex items-start gap-3 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-                <span className="text-orange-600 dark:text-orange-400 mt-1">•</span>
-                <span>{feature}</span>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-      )}
-
-      {/* Gallery Images */}
-      {galleryImages.length > 0 && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.45 }}
-          className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {galleryImages.map((imgSrc, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ y: -6 }}
-              onClick={() => handleImageClick(index)}
-              className="group relative h-[340px] cursor-pointer overflow-hidden border border-orange-100/60 bg-white/60 shadow-lg transition duration-300 hover:shadow-2xl dark:border-white/10 dark:bg-white/5"
+        {/* Action Links - Notion Style */}
+        <div className="flex flex-wrap gap-2 mb-20">
+          {project.live_url && (
+            <Link
+              href={project.live_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[14px] leading-[20px] text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded transition-colors font-normal"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-transparent to-purple-400/0 transition duration-500 group-hover:from-orange-500/20 group-hover:via-orange-400/10 group-hover:to-purple-400/20" />
-              <Image
-                src={imgSrc}
-                alt={project.title || 'Project image'}
-                fill
-                className="object-cover object-center grayscale transition-transform duration-700 ease-out group-hover:scale-110"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/30 to-transparent" />
-            </motion.div>
-          ))}
-        </motion.div>
-      )}
-      {/* Previous / Next Project Buttons */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-        className="mt-16 flex flex-wrap justify-between gap-4"
-      >
-        <Button
-          onClick={handlePrevProject}
-          disabled={projectIndex === 0}
-          className={`rounded-none px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] transition ${projectIndex === 0
-            ? 'cursor-not-allowed border border-gray-400 bg-gray-400 text-white'
-            : 'border border-gray-900 bg-gray-900 text-white hover:border-orange-600 hover:bg-orange-600'
-            }`}
-        >
-          ← Previous Project
-        </Button>
-        <Button
-          onClick={handleNextProject}
-          disabled={projectIndex === allProjects.length - 1}
-          className={`rounded-none px-6 py-3 text-sm font-semibold uppercase tracking-[0.2em] transition ${projectIndex === allProjects.length - 1
-            ? 'cursor-not-allowed border border-gray-400 bg-gray-400 text-white'
-            : 'border border-gray-900 bg-gray-900 text-white hover:border-orange-600 hover:bg-orange-600'
-            }`}
-        >
-          Next Project →
-        </Button>
+              <ExternalLink className="w-3.5 h-3.5" />
+              View Live
+            </Link>
+          )}
+          {project.github_url && (
+            <Link
+              href={project.github_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[14px] leading-[20px] text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded transition-colors font-normal"
+            >
+              <Github className="w-3.5 h-3.5" />
+              View Code
+            </Link>
+          )}
+          {project.case_study_url && (
+            <Link
+              href={project.case_study_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[14px] leading-[20px] text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded transition-colors font-normal"
+            >
+              <ExternalLink className="w-3.5 h-3.5" />
+              Case Study
+            </Link>
+          )}
+        </div>
+
+        {/* Problem & Solution - Notion Style */}
+        {(project.problem || project.solution) && (
+          <div className="space-y-12 mb-20">
+            {project.problem && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="notion-block"
+              >
+                <h2 className="text-[24px] leading-[1.4] font-semibold mb-4 text-gray-900 dark:text-gray-50 tracking-[-0.3px]">Problem</h2>
+                <div className="text-[16px] leading-[1.6] text-gray-700 dark:text-gray-300 font-normal">
+                  {project.problem}
+                </div>
+              </motion.div>
+            )}
+            {project.solution && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="notion-block"
+              >
+                <h2 className="text-[24px] leading-[1.4] font-semibold mb-4 text-gray-900 dark:text-gray-50 tracking-[-0.3px]">Solution</h2>
+                <div className="text-[16px] leading-[1.6] text-gray-700 dark:text-gray-300 font-normal">
+                  {project.solution}
+                </div>
+              </motion.div>
+            )}
+          </div>
+        )}
+
+        {/* Features - Notion Style */}
+        {project.features && project.features.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mb-20"
+          >
+            <h2 className="text-[24px] leading-[1.4] font-semibold mb-6 text-gray-900 dark:text-gray-50 tracking-[-0.3px]">Features</h2>
+            <ul className="space-y-2">
+              {project.features.map((feature, index) => (
+                <li
+                  key={index}
+                  className="flex items-start gap-2.5 text-[16px] leading-[1.6] text-gray-700 dark:text-gray-300 font-normal"
+                >
+                  <span className="text-gray-400 dark:text-gray-600 mt-1.5 text-[14px]">•</span>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+
+        {/* Gallery Images - Horizontal Carousel - Notion Style */}
+        {galleryImages.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="mb-20"
+          >
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-[24px] leading-[1.4] font-semibold text-gray-900 dark:text-gray-50 tracking-[-0.3px]">Gallery</h2>
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center gap-2">
+                <button
+                  onClick={() => {
+                    if (galleryScrollRef.current) {
+                      galleryScrollRef.current.scrollBy({ left: -400, behavior: 'smooth' });
+                    }
+                  }}
+                  className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                  aria-label="Scroll left"
+                >
+                  <ChevronLeft className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                </button>
+                <button
+                  onClick={() => {
+                    if (galleryScrollRef.current) {
+                      galleryScrollRef.current.scrollBy({ left: 400, behavior: 'smooth' });
+                    }
+                  }}
+                  className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                  aria-label="Scroll right"
+                >
+                  <ChevronRight className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                </button>
+              </div>
+            </div>
+
+            {/* Horizontal Scroll Container */}
+            <div
+              ref={galleryScrollRef}
+              className="flex gap-4 overflow-x-auto overflow-y-hidden scrollbar-hide pb-4 -mx-6 px-6 md:-mx-0 md:px-0 scroll-smooth"
+            >
+              {galleryImages.map((imgSrc, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    delay: 0.5 + (index * 0.05),
+                    duration: 0.4,
+                    ease: [0.25, 0.1, 0.25, 1]
+                  }}
+                  whileHover={{
+                    scale: 1.02,
+                    transition: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }
+                  }}
+                  onClick={() => handleImageClick(index)}
+                  className="relative flex-shrink-0 w-[280px] sm:w-[320px] md:w-[380px] lg:w-[420px] aspect-[4/5] cursor-pointer overflow-hidden rounded-2xl bg-gray-100 dark:bg-gray-900 group"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+                  <Image
+                    src={imgSrc}
+                    alt={`${project.title} - Image ${index + 1}`}
+                    fill
+                    className="object-cover transition-all duration-700 ease-out group-hover:scale-110"
+                    sizes="(max-width: 640px) 280px, (max-width: 768px) 320px, (max-width: 1024px) 380px, 420px"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+                    <div className="bg-white/10 backdrop-blur-md rounded-full p-3 border border-white/20">
+                      <ArrowUpRight className="w-5 h-5 text-white" />
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        )}
+        {/* Navigation - Notion Style */}
+        <div className="flex items-center justify-between pt-8 mt-20 border-t border-gray-200/50 dark:border-gray-800/50">
+          <button
+            onClick={handlePrevProject}
+            disabled={projectIndex === 0}
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-[14px] leading-[20px] text-gray-600 dark:text-gray-400 rounded transition-colors font-normal ${projectIndex === 0
+              ? 'cursor-not-allowed opacity-40'
+              : 'hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
+              }`}
+          >
+            <ChevronLeft className="w-3.5 h-3.5" />
+            Previous
+          </button>
+          <button
+            onClick={handleNextProject}
+            disabled={projectIndex === allProjects.length - 1}
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-[14px] leading-[20px] text-gray-600 dark:text-gray-400 rounded transition-colors font-normal ${projectIndex === allProjects.length - 1
+              ? 'cursor-not-allowed opacity-40'
+              : 'hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100/50 dark:hover:bg-gray-800/50'
+              }`}
+          >
+            Next
+            <ChevronRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
       </motion.div>
 
-      {/* Popup Modal for Image */}
-      <AnimatePresence>
+      {/* Image Modal - Apple Style */}
+      <AnimatePresence mode="wait">
         {selectedImageIndex !== null && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 flex items-center justify-center z-50"
+            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+            onClick={handleClose}
+            className="fixed inset-0 bg-black z-50 flex items-center justify-center"
           >
+            {/* Close Button */}
             <motion.button
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              whileHover={{ scale: 1.05 }}
-              className="absolute top-5 right-5 border border-orange-500/50 bg-black/40 px-4 py-2 text-lg font-semibold uppercase tracking-[0.3em] text-orange-200 transition hover:bg-orange-500/20"
+              transition={{ delay: 0.1, duration: 0.3 }}
+              className="absolute top-6 right-6 z-50 p-3 bg-white/10 backdrop-blur-xl hover:bg-white/20 rounded-full transition-all duration-300 border border-white/10"
               onClick={handleClose}
             >
-              Close
+              <X className="w-5 h-5 text-white" />
             </motion.button>
-            <motion.button
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              whileHover={{ scale: 1.05 }}
-              className="absolute left-5 border border-orange-500/40 bg-black/40 px-4 py-2 text-sm font-semibold uppercase tracking-[0.3em] text-orange-200 transition hover:bg-orange-500/20"
-              onClick={handlePrevImage}
-            >
-              Prev
-            </motion.button>
+
+            {/* Image Counter */}
             <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15, duration: 0.3 }}
+              className="absolute top-6 left-1/2 -translate-x-1/2 z-50 px-4 py-2 bg-white/10 backdrop-blur-xl rounded-full border border-white/10"
+            >
+              <span className="text-[13px] leading-[18px] text-white font-medium">
+                {selectedImageIndex + 1} / {allImages.length}
+              </span>
+            </motion.div>
+
+            {/* Previous Button */}
+            {allImages.length > 1 && (
+              <motion.button
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1, duration: 0.3 }}
+                className="absolute left-6 z-50 p-4 bg-white/10 backdrop-blur-xl hover:bg-white/20 rounded-full transition-all duration-300 border border-white/10 disabled:opacity-30 disabled:cursor-not-allowed"
+                onClick={(e: React.MouseEvent) => {
+                  e.stopPropagation();
+                  handlePrevImage();
+                }}
+                disabled={selectedImageIndex === 0}
+              >
+                <ChevronLeft className="w-6 h-6 text-white" />
+              </motion.button>
+            )}
+
+            {/* Image Container */}
+            <motion.div
+              key={selectedImageIndex}
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              className="relative w-[80%] max-w-full h-[80%]"
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+              onClick={(e: React.MouseEvent) => e.stopPropagation()}
+              className="relative w-full h-full max-w-[95vw] max-h-[95vh] p-4 sm:p-8"
             >
               <Image
                 src={allImages[selectedImageIndex]}
                 alt={project.title || "Project Image"}
                 fill
-                className="w-full h-auto object-contain object-center"
+                className="object-contain"
                 priority
+                sizes="95vw"
               />
             </motion.div>
-            <motion.button
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              whileHover={{ scale: 1.05 }}
-              className="absolute right-5 border border-orange-500/40 bg-black/40 px-4 py-2 text-sm font-semibold uppercase tracking-[0.3em] text-orange-200 transition hover:bg-orange-500/20"
-              onClick={handleNextImage}
-            >
-              Next
-            </motion.button>
+
+            {/* Next Button */}
+            {allImages.length > 1 && (
+              <motion.button
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1, duration: 0.3 }}
+                className="absolute right-6 z-50 p-4 bg-white/10 backdrop-blur-xl hover:bg-white/20 rounded-full transition-all duration-300 border border-white/10 disabled:opacity-30 disabled:cursor-not-allowed"
+                onClick={(e: React.MouseEvent) => {
+                  e.stopPropagation();
+                  handleNextImage();
+                }}
+                disabled={selectedImageIndex === allImages.length - 1}
+              >
+                <ChevronRight className="w-6 h-6 text-white" />
+              </motion.button>
+            )}
+
+            {/* Swipe Indicator (for mobile) */}
+            {allImages.length > 1 && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 flex gap-1.5"
+              >
+                {allImages.map((_, idx) => (
+                  <div
+                    key={idx}
+                    className={`h-1 rounded-full transition-all duration-300 ${idx === selectedImageIndex
+                      ? 'w-6 bg-white'
+                      : 'w-1 bg-white/40'
+                      }`}
+                  />
+                ))}
+              </motion.div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.div>
+    </div>
   );
 };
 
