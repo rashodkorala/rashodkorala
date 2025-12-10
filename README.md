@@ -1,73 +1,63 @@
-# 👋 Hi, I'm Rashod Korala
+# Hi, I’m Rashod Korala
 
-## 🎓 About Me
+## Professional Summary
+Computer Science graduate from Memorial University of Newfoundland focused on full stack engineering, cloud development, and building practical digital products. Work includes developing production-ready applications, designing scalable backend systems, and driving early-stage product development through multiple ventures. Strong interest in creating technology that solves real problems with clarity, performance, and thoughtful design.
 
-I am a computer science undergraduate from Memorial University of Newfoundland, passionate about creating innovative solutions through technology. My current focus areas include:
+## Core Skills
 
-- Next.js and React development
-- REST API design and implementation
-- AI and machine learning
-- Game programming with AI integration
+### Web Development
+Next.js  
+React  
+JavaScript and TypeScript  
+HTML5 and CSS3  
 
-## 🛠️ Technical Skills
-
-### Frontend Development
-- Next.js
-- React
-- HTML5
-- CSS3
-- JavaScript/TypeScript
-
-### Backend Development
-- Node.js
-- REST API
-- Firebase
-  - Authentication
-  - Cloud Storage
-  - Firestore
-  - Realtime Database
+### Backend and Cloud
+Node.js  
+REST API development  
+Firebase (Auth, Storage, Firestore, Realtime DB)  
+AWS Amplify Gen 2  
+Cloud security fundamentals  
 
 ### Programming Languages
-- Python
-- C++
-- JavaScript
+Python  
+C++  
+JavaScript  
 
 ### Mobile Development
-- Flutter
+Flutter  
+Expo and React Native  
 
-### Version Control
-- Git
-- GitHub
+### Tools and Processes
+Git and GitHub  
+Agile workflows  
+Product planning  
+UI and UX fundamentals  
 
-## 🚀 Featured Projects
+## Current Ventures
 
-### 1. Squeekleen - Mobile Car Detailing Website
-A professional website for a local car detailing company featuring:
-- Online booking system
-- Service showcase
-- Customer testimonials
-- Responsive design
+### AetherLabs
+Art management and authenticity platform using NFC technology to support artists, galleries, and collectors. Focus on certificate verification, digital provenance, and simple, scalable user experiences.
 
-[Visit Website →](https://dev.squeekleen.com)
+### SecureCloudScan
+Microservice-based cloud threat detection platform designed to analyze cloud environments and surface risks through automated and modular processes.
 
-### 2. Bandu Manamperi - Artist Portfolio & Store
-A global platform for artists to showcase and sell their artwork featuring:
-- Portfolio gallery
-- E-commerce functionality
-- International shipping
-- Secure payment processing
+### Photography Platform
+Custom system for managing and presenting a growing photography portfolio using metadata-driven uploads, tagging, and responsive design.
 
-[Visit Website →](https://dev.bandumanamperi.com)
+## Selected Projects
 
-## 📫 Connect With Me
+### Squeekleen
+Website for a mobile car detailing service featuring a booking flow, service showcase, and responsive interface.  
+https://dev.squeekleen.com
 
-I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+### Bandu Manamperi Portfolio and Store
+Artist portfolio and e-commerce platform supporting international sales, Stripe payments, and custom gallery layouts.  
+https://dev.bandumanamperi.com
 
-- 📧 [Email](mailto:rashodkorala2002@gmail.com)
-- 💼 [LinkedIn](www.linkedin.com/in/rashodk)
-- 🐦 [Twitter](https://twitter.com/rashodkorala)
-- 📸 [Instagram](https://www.instagram.com/rashodk_/)
-- 🌐 [Personal Website](www.rashodkorala.com)
+### EntertainMate
+Movie and TV exploration platform developed with React, Express, and MongoDB.
 
----
-⭐️ From [Rashod Korala](https://github.com/rashodkorala)
+## Contact
+Email: rashodkorala2002@gmail.com  
+LinkedIn: www.linkedin.com/in/rashodk  
+Portfolio: www.rashodkorala.com
