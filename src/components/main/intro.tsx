@@ -34,7 +34,7 @@ const Intro = () => {
             initial={{ opacity: 1 }}
             animate={{ opacity: isExiting ? 0 : 1 }}
             transition={{ duration: 0.8 }}
-            className="fixed inset-0 z-[9999] bg-white dark:bg-black flex items-center justify-center"
+            className={`fixed inset-0 z-[9999] bg-white dark:bg-black flex items-center justify-center ${isExiting ? 'pointer-events-none' : ''}`}
         >
             <div className="relative font-light">
                 <AnimatePresence mode="wait">

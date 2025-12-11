@@ -12,6 +12,11 @@ export default function IntroWrapper() {
         const hasSeenIntro = sessionStorage.getItem('hasSeenIntro');
         if (!hasSeenIntro) {
             setShowIntro(true);
+            // Unmount intro after animation completes (8.5 seconds)
+            const timer = setTimeout(() => {
+                setShowIntro(false);
+            }, 8500);
+            return () => clearTimeout(timer);
         }
     }, []);
 
