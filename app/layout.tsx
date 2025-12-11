@@ -5,12 +5,14 @@ import { Geist_Mono, Geist } from 'next/font/google';
 import Footer from '@/src/components/footer';
 import Home from '@/src/components/main/home';
 import Provider from '@/lib/provider';
+import IntroWrapper from '@/src/components/introWrapper';
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
     subsets: ["latin"],
     display: "swap",
     adjustFontFallback: true,
+    fallback: ['system-ui', 'arial'],
 });
 
 const geistMono = Geist_Mono({
@@ -18,6 +20,7 @@ const geistMono = Geist_Mono({
     subsets: ["latin"],
     display: "swap",
     adjustFontFallback: true,
+    fallback: ['ui-monospace', 'monospace'],
 });
 
 export const metadata: Metadata = {
@@ -76,8 +79,9 @@ export default function RootLayout({
             <html lang="en" suppressHydrationWarning  >
                 <body className={`${geistSans.variable} ${geistMono.variable}`}>
                     <Provider>
+                        <IntroWrapper />
                         <main className='max-w-[2800px] mx-auto px-6'>
-                            <Home />
+                            {/* <Home /> */}
                             {children}
                             <Footer />
                         </main>

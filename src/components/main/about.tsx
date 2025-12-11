@@ -1,132 +1,158 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { ArrowLeft, Code, Coffee, Globe, Camera } from "lucide-react";
+import Link from "next/link";
+
+const skills = [
+  { category: "Languages", items: ["JavaScript", "TypeScript", "Python", "Go", "Swift"] },
+  { category: "Frontend", items: ["React", "Next.js", "Tailwind CSS", "Framer Motion"] },
+  { category: "Backend", items: ["Node.js", "PostgreSQL", "Redis", "GraphQL"] },
+  { category: "Cloud", items: ["AWS", "Kubernetes", "Docker", "CI/CD"] }
+];
+
+const interests = [
+  { icon: Code, title: "Open Source", description: "Contributing to projects that make developers' lives easier" },
+  { icon: Coffee, title: "Coffee Culture", description: "Exploring specialty coffee shops and brewing methods" },
+  { icon: Globe, title: "Travel", description: "Working remotely from different cities around the world" },
+  { icon: Camera, title: "Photography", description: "Documenting life through a minimalist lens" }
+];
 
 export default function About() {
-    return (
-        <div className="max-w-7xl mx-auto px-6 pb-6 lg:px-12 lg:pb-20 font-thin">
-            {/* Title */}
-            <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-5xl lg:text-7xl mb-8 lg:mb-14 relative font-light"
-            >
-                About Me
-                <span className="absolute left-0 bottom-0 h-1 w-16 lg:w-24 bg-orange-600"></span>
-            </motion.h1>
-
-            {/* Introduction */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-            >
-                <p className="text-lg lg:text-2xl leading-relaxed lg:leading-loose mb-10">
-                    I'm Rashod Korala, a Computer Science graduate from Memorial University of Newfoundland with a passion for creating innovative digital solutions.
-                    My journey in technology is driven by a desire to build products that make a difference in people's lives.
-                </p>
-            </motion.div>
-
-            {/* Section: What I Do */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                className="mb-16"
-            >
-                <h2 className="text-3xl lg:text-5xl font-light mb-6 lg:mb-10 relative">
-                    What I Do
-                    <span className="absolute left-0 bottom-0 h-1 w-12 lg:w-20 bg-orange-600"></span>
-                </h2>
-                <ul className="space-y-6 lg:space-y-8 text-lg lg:text-2xl leading-relaxed lg:leading-loose">
-                    <li className="flex items-start">
-                        <span className="text-orange-600 mr-3">•</span>
-                        Full-Stack Development – Specializing in Next.js, React Native, TypeScript, and AWS
-                    </li>
-                    <li className="flex items-start">
-                        <span className="text-orange-600 mr-3">•</span>
-                        Design & User Experience – Creating minimalist, mobile-first interfaces with a focus on usability
-                    </li>
-                    <li className="flex items-start">
-                        <span className="text-orange-600 mr-3">•</span>
-                        AI & Machine Learning – Developing intelligent solutions for real-world problems
-                    </li>
-                </ul>
-            </motion.div>
-
-            {/* Section: Skills */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="mb-16"
-            >
-                <h2 className="text-3xl lg:text-5xl font-light mb-6 lg:mb-10 relative">
-                    Skills
-                    <span className="absolute left-0 bottom-0 h-1 w-12 lg:w-20 bg-orange-600"></span>
-                </h2>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    {['Next.js', 'React Native', 'TypeScript', 'AWS', 'Node.js', 'Python', 'UI/UX Design', 'AI/ML', 'Git'].map((skill) => (
-                        <div key={skill} className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg text-center hover:bg-orange-50 dark:hover:bg-orange-900/20 transition-colors">
-                            {skill}
-                        </div>
-                    ))}
-                </div>
-            </motion.div>
-
-            {/* Section: My Philosophy */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.8 }}
-                className="mb-16"
-            >
-                <h2 className="text-3xl lg:text-5xl font-light mb-6 lg:mb-10 relative">
-                    My Philosophy
-                    <span className="absolute left-0 bottom-0 h-1 w-12 lg:w-20 bg-orange-600"></span>
-                </h2>
-                <p className="text-lg lg:text-2xl leading-relaxed lg:leading-loose">
-                    I believe that technology should be both functional and beautiful. My approach blends engineering with design,
-                    ensuring that every product I create is efficient, intuitive, and scalable. Whether through AI, web development,
-                    or digital authentication, my goal is to enhance how people interact with technology.
-                </p>
-            </motion.div>
-
-            {/* Section: Let's Connect */}
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 1 }}
-            >
-                <h2 className="text-3xl lg:text-5xl font-light mb-6 lg:mb-10 relative">
-                    Let's Connect
-                    <span className="absolute left-0 bottom-0 h-1 w-12 lg:w-20 bg-orange-600"></span>
-                </h2>
-                <p className="text-lg lg:text-2xl leading-relaxed lg:leading-loose mb-8">
-                    I'm always open to new ideas, collaborations, and projects. Let's create something amazing together!
-                </p>
-                <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
-                    <a
-                        href="/contact"
-                        className="text-xl lg:text-2xl underline hover:text-orange-500 transition-colors"
-                    >
-                        Contact Me →
-                    </a>
-                    <div className="flex gap-4">
-                        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-orange-500 transition-colors">
-                            <FaGithub />
-                        </a>
-                        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-orange-500 transition-colors">
-                            <FaLinkedin />
-                        </a>
-                        <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-2xl hover:text-orange-500 transition-colors">
-                            <FaTwitter />
-                        </a>
-                    </div>
-                </div>
-            </motion.div>
+  return (
+    <div className="min-h-screen bg-white text-black">
+      {/* Navigation */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="px-6 py-8"
+      >
+        <div className="max-w-6xl mx-auto">
+          <Link href="/" className="inline-flex items-center gap-2 text-black/50 hover:text-black transition-colors group">
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" strokeWidth={1.5} />
+            <span className="text-sm font-light">Back to home</span>
+          </Link>
         </div>
-    );
+      </motion.div>
+
+      <div className="px-6 pb-24">
+        <div className="max-w-6xl mx-auto">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="mb-20"
+          >
+            <p className="text-sm tracking-[0.3em] uppercase text-black/40 mb-4">
+              About
+            </p>
+            <h1 className="text-4xl md:text-6xl font-light tracking-tight mb-8">
+              Where curiosity meets execution
+            </h1>
+          </motion.div>
+
+          {/* Bio */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="max-w-4xl mb-24"
+          >
+            <div className="space-y-6 text-lg text-black/60 font-light leading-relaxed">
+              <p>
+                Five years of building web and mobile applications. A journey that started with curiosity about how things work, naturally leading to a deep connection with code and craft.
+              </p>
+              <p>
+                Specializing in creating elegant, performant applications across the full stack. The belief is simple: the best software is invisible, working seamlessly, integrating into lives without friction.
+              </p>
+              <p>
+                Beyond coding, time is spent building a startup, mentoring junior developers, and exploring new cities with a camera. Open source isn't just a practice but a way of giving back to the community that made growth possible.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Skills */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="mb-24"
+          >
+            <h2 className="text-sm tracking-[0.3em] uppercase text-black/40 mb-8">
+              Technical Skills
+            </h2>
+            <div className="grid md:grid-cols-2 gap-12">
+              {skills.map((skill, i) => (
+                <motion.div
+                  key={skill.category}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 + i * 0.1 }}
+                >
+                  <h3 className="text-xl font-light mb-4">{skill.category}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {skill.items.map(item => (
+                      <span
+                        key={item}
+                        className="px-4 py-2 border border-black/10 rounded-full text-sm text-black/60 hover:bg-black hover:text-white transition-colors"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Interests */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="mb-24"
+          >
+            <h2 className="text-sm tracking-[0.3em] uppercase text-black/40 mb-8">
+              Beyond Code
+            </h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              {interests.map((interest, i) => (
+                <motion.div
+                  key={interest.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.6 + i * 0.1 }}
+                  className="p-6 border border-black/10 rounded-lg hover:border-black/20 transition-colors"
+                >
+                  <interest.icon className="w-6 h-6 text-black/40 mb-4" strokeWidth={1.5} />
+                  <h3 className="text-lg font-light mb-2">{interest.title}</h3>
+                  <p className="text-sm text-black/50 font-light">{interest.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="border-t border-black/10 pt-16 text-center"
+          >
+            <p className="text-lg text-black/50 font-light mb-6">
+              Interested in working together?
+            </p>
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-black/20 rounded-full text-sm hover:bg-black hover:text-white transition-colors"
+            >
+              Get in touch
+            </Link>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
 }

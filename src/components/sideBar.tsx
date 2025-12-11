@@ -9,7 +9,7 @@ export default function Sidebar() {
     const closeMenu = () => setIsOpen(false);
 
     return (
-        <>
+        <div className="z-50">
             {/* Menu Buttons */}
             <button
                 className="text-6xl md:text-7xl font-medium focus:outline-none hidden text-orange-600 lg:block"
@@ -87,6 +87,6 @@ export default function Sidebar() {
                     </nav>
                 </div>
             )}
-        </>
+        </div>
     );
 }

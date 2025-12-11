@@ -6,7 +6,7 @@
   :root {
     /* Light Mode: Shades of white */
     --background: 0 0% 100%; /* Near white */
-    --foreground: 222.2 84% 4.9%; /* Dark gray text */
+    --foreground: 0 0% 0%; /* Dark gray text */
 
     --card: 0 0% 100%; /* Pure white */
     --card-foreground: 222.2 84% 4.9%; /* Dark gray */
@@ -14,7 +14,7 @@
     --popover: 0 0% 100%; /* Pure white */
     --popover-foreground: 222.2 84% 4.9%; /* Dark gray */
 
-    --primary: 222.2 47.4% 11.2%; /* Dark gray */
+    --primary: 0 0% 0%; /* Dark gray */
     --primary-foreground: 210 40% 98%; /* White text on dark gray */
 
     --secondary: 210 40% 96.1%; /* Light gray background */
@@ -129,9 +129,9 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 0 0% 0%;
     --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
+    --card: 0 0% 0%;
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
@@ -166,7 +166,7 @@
 
 .dark {
   /* Dark Mode: Shades of black */
-  --background: 0 0% 3.92% ;/* Near black */  
+  --background: 0 0% 0% ;/* Near black */  
   --foreground: 0 0% 90%; /* Light gray text */
 
   --card: 0 0% 2%; /* Dark gray card */
