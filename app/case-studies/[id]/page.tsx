@@ -34,10 +34,6 @@ export default function CaseStudyDetail() {
               mdxOptions: {
                 remarkPlugins: [remarkGfm],
                 format: 'mdx',
-                parseOptions: {
-                  ecmaVersion: 2020,
-                  sourceType: 'module',
-                },
               },
               parseFrontmatter: false,
             });
