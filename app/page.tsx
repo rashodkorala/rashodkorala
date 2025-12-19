@@ -1,6 +1,7 @@
 import Projects from "@/src/components/main/projects";
 import Startup from "@/src/components/main/startup";
 import AboutSection from "@/src/components/main/aboutSection";
+import CaseStudies from "@/src/components/main/caseStudies";
 // import Work from "@/src/components/main/work"; // Disabled - keeping code for future use
 
 import { Metadata } from "next";
@@ -25,6 +26,7 @@ export default function Index() {
         <>
             {/* <Work /> Disabled - keeping code for future use */}
             <Projects />
+            <CaseStudies />
             <AboutSection />
             <Startup /> {/* Disabled - keeping code for future use */}
         </>
