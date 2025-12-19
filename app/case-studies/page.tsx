@@ -60,13 +60,12 @@ export default function CaseStudiesPage() {
               Case Studies
             </p>
             <h1 className="text-4xl md:text-6xl font-light tracking-tight mb-6">
-              Client success
+              Featured
               <br />
-              <span className="font-medium">stories</span>
+              <span className="font-medium">Case Studies</span>
             </h1>
             <p className="text-lg text-black/50 font-light max-w-2xl">
-              Real-world examples of how I've helped companies build better products
-              and achieve their business goals.
+              Real world challenges, explored through systems and design.
             </p>
           </motion.div>
 

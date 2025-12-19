@@ -34,11 +34,11 @@ export default function CaseStudies() {
         >
           <div>
             <p className="text-sm tracking-[0.3em] uppercase text-white/40 mb-4">
-              Case Studies
+                Case Studies
             </p>
-            <h2 className="text-4xl md:text-5xl font-light tracking-tight">
-              Client <span className="font-medium">success stories</span>
-            </h2>
+              <h2 className="text-4xl md:text-5xl font-light tracking-tight">
+                Real world Challenges 
+              </h2>
           </div>
           <Link
             href="/case-studies"
