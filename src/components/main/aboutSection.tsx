@@ -45,7 +45,7 @@ export default function AboutSection() {
               something beautiful and functional.
             </p>
 
-            <div className="pt-8 grid grid-cols-3 gap-8">
+            {/* <div className="pt-8 grid grid-cols-3 gap-8">
               {[
                 { number: "5+", label: "Years Exp." },
                 { number: "20+", label: "Projects" },
@@ -61,7 +61,7 @@ export default function AboutSection() {
                   <p className="text-sm text-black/40 mt-1">{stat.label}</p>
                 </motion.div>
               ))}
-            </div>
+            </div> */}
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
