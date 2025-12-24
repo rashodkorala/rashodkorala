@@ -13,6 +13,12 @@ const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const [showAllImages, setShowAllImages] = useState(false);
 
+  // Define images - safe to do even if project is null
+  const galleryImages = project?.gallery_image_urls || [];
+  const allImages = project?.cover_image_url
+    ? [project.cover_image_url, ...galleryImages]
+    : galleryImages;
+
   useEffect(() => {
     async function fetchProject() {
       try {
@@ -28,6 +34,25 @@ const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
 
     fetchProject();
   }, [projectSlug]);
+
+  // Keyboard navigation - must be called before any conditional returns
+  useEffect(() => {
+    if (selectedImageIndex === null || allImages.length === 0) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedImageIndex(null);
+      } else if (e.key === 'ArrowLeft') {
+        const totalImages = allImages.length;
+        setSelectedImageIndex((selectedImageIndex - 1 + totalImages) % totalImages);
+      } else if (e.key === 'ArrowRight') {
+        setSelectedImageIndex((selectedImageIndex + 1) % allImages.length);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImageIndex, allImages.length]);
 
   const handleClose = () => {
     setSelectedImageIndex(null);
@@ -77,31 +102,6 @@ const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
       </div>
     );
   }
-
-  // Define images after we know project exists
-  const galleryImages = project.gallery_image_urls || [];
-  const allImages = project.cover_image_url
-    ? [project.cover_image_url, ...galleryImages]
-    : galleryImages;
-
-  // Keyboard navigation
-  useEffect(() => {
-    if (selectedImageIndex === null) return;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        handleClose();
-      } else if (e.key === 'ArrowLeft') {
-        const totalImages = allImages.length;
-        setSelectedImageIndex((selectedImageIndex - 1 + totalImages) % totalImages);
-      } else if (e.key === 'ArrowRight') {
-        setSelectedImageIndex((selectedImageIndex + 1) % allImages.length);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [selectedImageIndex, allImages.length]);
 
   return (
     <div className="min-h-screen bg-black text-white">
