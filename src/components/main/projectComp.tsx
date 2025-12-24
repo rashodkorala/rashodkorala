@@ -5,12 +5,13 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getProjectBySlug } from '@/lib/supabase/projects';
 import { Project } from '@/lib/types';
-import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Github, ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [project, setProject] = useState<Project | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+  const [showAllImages, setShowAllImages] = useState(false);
 
   useEffect(() => {
     async function fetchProject() {
@@ -30,6 +31,18 @@ const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
 
   const handleClose = () => {
     setSelectedImageIndex(null);
+  };
+
+  const handlePrevImage = (e: React.MouseEvent, totalImages: number) => {
+    e.stopPropagation();
+    if (selectedImageIndex === null) return;
+    setSelectedImageIndex((selectedImageIndex - 1 + totalImages) % totalImages);
+  };
+
+  const handleNextImage = (e: React.MouseEvent, totalImages: number) => {
+    e.stopPropagation();
+    if (selectedImageIndex === null) return;
+    setSelectedImageIndex((selectedImageIndex + 1) % totalImages);
   };
 
   // Get year from created_at
@@ -70,6 +83,25 @@ const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
   const allImages = project.cover_image_url
     ? [project.cover_image_url, ...galleryImages]
     : galleryImages;
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (selectedImageIndex === null) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        handleClose();
+      } else if (e.key === 'ArrowLeft') {
+        const totalImages = allImages.length;
+        setSelectedImageIndex((selectedImageIndex - 1 + totalImages) % totalImages);
+      } else if (e.key === 'ArrowRight') {
+        setSelectedImageIndex((selectedImageIndex + 1) % allImages.length);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImageIndex, allImages.length]);
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -153,23 +185,58 @@ const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="grid md:grid-cols-2 gap-6 mb-20"
+              className="mb-20"
             >
-              {allImages.slice(0, 4).map((image, index) => (
-                <div
-                  key={index}
-                  className="relative aspect-video rounded-lg overflow-hidden border border-white/10 cursor-pointer"
-                  onClick={() => setSelectedImageIndex(index)}
+              <div className="grid md:grid-cols-2 gap-6">
+                {(showAllImages ? allImages : allImages.slice(0, 4)).map((image, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="relative aspect-video rounded-lg overflow-hidden border border-white/10 cursor-pointer group"
+                    onClick={() => setSelectedImageIndex(index)}
+                  >
+                    <Image
+                      src={image}
+                      alt={`${project.title} screenshot ${index + 1}`}
+                      fill
+                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+                    <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full border border-white/20">
+                        <span className="text-xs text-white">View</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {allImages.length > 4 && !showAllImages && (
+                <motion.button
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                  onClick={() => setShowAllImages(true)}
+                  className="mt-8 mx-auto block px-6 py-3 border border-white/20 rounded-full text-sm hover:bg-white hover:text-black transition-all duration-300"
                 >
-                  <Image
-                    src={image}
-                    alt={`${project.title} screenshot ${index + 1}`}
-                    fill
-                    className="object-cover grayscale hover:grayscale-0 transition-all duration-500"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
-                </div>
-              ))}
+                  View All {allImages.length} Images
+                </motion.button>
+              )}
+
+              {showAllImages && allImages.length > 4 && (
+                <motion.button
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  onClick={() => setShowAllImages(false)}
+                  className="mt-8 mx-auto block px-6 py-3 border border-white/20 rounded-full text-sm text-white/50 hover:text-white hover:border-white/40 transition-all duration-300"
+                >
+                  Show Less
+                </motion.button>
+              )}
             </motion.div>
           )}
 
@@ -251,18 +318,61 @@ const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             onClick={handleClose}
-            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/95 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           >
+            {/* Close Button */}
             <motion.button
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.1, duration: 0.3 }}
-              className="absolute top-6 right-6 z-50 p-3 bg-white/10 backdrop-blur-xl hover:bg-white/20 rounded-full transition-all duration-300 border border-white/10"
+              className="absolute top-6 right-6 z-50 p-3 bg-white/10 backdrop-blur-xl hover:bg-white/20 rounded-full transition-all duration-300 border border-white/10 group"
               onClick={handleClose}
+              aria-label="Close"
             >
-              <ArrowLeft className="w-5 h-5 text-white rotate-90" />
+              <X className="w-5 h-5 text-white" />
             </motion.button>
 
+            {/* Image Counter */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.3 }}
+              className="absolute top-6 left-6 z-50 px-4 py-2 bg-white/10 backdrop-blur-xl rounded-full border border-white/10"
+            >
+              <span className="text-sm text-white/80">
+                {selectedImageIndex + 1} / {allImages.length}
+              </span>
+            </motion.div>
+
+            {/* Previous Button */}
+            {allImages.length > 1 && (
+              <motion.button
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.15, duration: 0.3 }}
+                onClick={(e: React.MouseEvent) => handlePrevImage(e, allImages.length)}
+                className="absolute left-6 top-1/2 -translate-y-1/2 z-50 p-4 bg-white/10 backdrop-blur-xl hover:bg-white/20 rounded-full transition-all duration-300 border border-white/10 group"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
+              </motion.button>
+            )}
+
+            {/* Next Button */}
+            {allImages.length > 1 && (
+              <motion.button
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.15, duration: 0.3 }}
+                onClick={(e: React.MouseEvent) => handleNextImage(e, allImages.length)}
+                className="absolute right-6 top-1/2 -translate-y-1/2 z-50 p-4 bg-white/10 backdrop-blur-xl hover:bg-white/20 rounded-full transition-all duration-300 border border-white/10 group"
+                aria-label="Next image"
+              >
+                <ChevronRight className="w-6 h-6 text-white group-hover:scale-110 transition-transform" />
+              </motion.button>
+            )}
+
+            {/* Image Container */}
             <motion.div
               key={selectedImageIndex}
               initial={{ scale: 0.9, opacity: 0 }}
@@ -270,16 +380,28 @@ const ProjectComp = ({ projectSlug }: { projectSlug: string }) => {
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
               onClick={(e: React.MouseEvent) => e.stopPropagation()}
-              className="relative w-full h-full max-w-[95vw] max-h-[95vh]"
+              className="relative w-full h-full max-w-[90vw] max-h-[85vh]"
             >
               <Image
                 src={allImages[selectedImageIndex]}
-                alt={project.title || "Project Image"}
+                alt={`${project.title} - Image ${selectedImageIndex + 1}`}
                 fill
                 className="object-contain"
                 priority
-                sizes="95vw"
+                sizes="90vw"
               />
+            </motion.div>
+
+            {/* Keyboard Hint */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.3 }}
+              className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 px-4 py-2 bg-white/10 backdrop-blur-xl rounded-full border border-white/10"
+            >
+              <span className="text-xs text-white/60">
+                Use arrow keys to navigate • ESC to close
+              </span>
             </motion.div>
           </motion.div>
         )}
