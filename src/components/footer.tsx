@@ -36,7 +36,7 @@ export default function Footer() {
             </p>
 
             <motion.a
-              href="mailto:hello@rashodkorala.com"
+              href="mailto:rashodkorala2002@gmail.com"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-3 text-2xl md:text-3xl font-light hover:text-black/60 dark:hover:text-white/60 transition-colors group"
