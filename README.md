@@ -6,22 +6,24 @@ Computer Science graduate from Memorial University of Newfoundland focused on fu
 ## Core Skills
 
 ### Web Development
-Next.js  
-React  
-JavaScript and TypeScript  
-HTML5 and CSS3  
+TypeScript
+HTML
+CSS
+JavaScript
+React
 
 ### Backend and Cloud
 Node.js  
 REST API development  
 Firebase (Auth, Storage, Firestore, Realtime DB)  
-AWS Amplify Gen 2  
+Amazon Web Servuces
 Cloud security fundamentals  
 
 ### Programming Languages
 Python  
 C++  
-JavaScript  
+JavaScript
+Typescript
 
 ### Mobile Development
 Flutter  
@@ -38,24 +40,16 @@ UI and UX fundamentals
 ### AetherLabs
 Art management and authenticity platform using NFC technology to support artists, galleries, and collectors. Focus on certificate verification, digital provenance, and simple, scalable user experiences.
 
-### SecureCloudScan
-Microservice-based cloud threat detection platform designed to analyze cloud environments and surface risks through automated and modular processes.
-
-### Photography Platform
-Custom system for managing and presenting a growing photography portfolio using metadata-driven uploads, tagging, and responsive design.
 
 ## Selected Projects
 
-### Squeekleen
-Website for a mobile car detailing service featuring a booking flow, service showcase, and responsive interface.  
-https://dev.squeekleen.com
 
-### Bandu Manamperi Portfolio and Store
+### Artist Portfolio and Store
 Artist portfolio and e-commerce platform supporting international sales, Stripe payments, and custom gallery layouts.  
 https://dev.bandumanamperi.com
 
-### EntertainMate
-Movie and TV exploration platform developed with React, Express, and MongoDB.
+### FyyndFit - UI/UX designer
+AI based Fitness app that helps beginners to understand equipments in the gym and build routines accodingly.
 
 ## Contact
 Email: rashodkorala2002@gmail.com  
