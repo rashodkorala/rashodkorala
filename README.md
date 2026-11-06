@@ -3,7 +3,7 @@
 Full-stack software engineer based in St. John's, Newfoundland.
 I have shipped across firmware, mobile, and cloud as the sole engineer on a live product.
 I work hands-on with spec-driven development, secure backends on AWS, SwiftUI and BLE iOS apps, and nRF52840 firmware.
-Co-founder of AetherLabs and R&D Creative Agency.
+Founder of AetherLabs and co-founder of R&D Creative Agency.
 
 [rashodkorala.com](https://www.rashodkorala.com) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/rashodk) &nbsp;·&nbsp; hello@rashodkorala.com
 
@@ -42,7 +42,7 @@ Connected smart alarm: nRF52840 firmware, SwiftUI iPhone app, Kotlin and Compose
 ## Projects
 
 ### AetherLabs: NFC artwork authentication
-*Co-founder · Aug 2024 to present · Propel ICT Vision and Genesis Evolve accelerators · [aetherlabs.art](https://aetherlabs.art)*
+*Founder · Aug 2024 to present · Propel ICT Vision and Genesis Evolve accelerators · [aetherlabs.art](https://aetherlabs.art)*
 
 - Built a platform that uses NFC to give physical artwork a digital identity, verifiable by anyone with a single tap.
 - Implemented cryptographic chip authentication (NTAG 424 DNA, AES-CMAC, KMS) that rejects cloned or fake chips.
