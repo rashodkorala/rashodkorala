@@ -1,52 +1,78 @@
 # Rashod Korala
 
-Full-stack engineer and technical founder based in St. John's, Newfoundland. I build production web applications, design backend systems, and run early-stage product development across two ventures. BSc Computer Science with a Minor in Business Administration, Memorial University (2025).
+Full-stack software engineer based in St. John's, Newfoundland.
+I have shipped across firmware, mobile, and cloud as the sole engineer on a live product.
+I work hands-on with spec-driven development, secure backends on AWS, SwiftUI and BLE iOS apps, and nRF52840 firmware.
+Co-founder of AetherLabs and R&D Creative Agency.
 
-My work sits at the intersection of engineering and product thinking — I've shipped client storefronts, CMS platforms, and a startup focused on business operations for independent artists.
+[rashodkorala.com](https://www.rashodkorala.com) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/rashodk) &nbsp;·&nbsp; hello@rashodkorala.com
 
 ---
 
 ## Stack
 
-**Frontend** — TypeScript, React, Next.js, HTML, CSS, Tailwind CSS  
-**Backend** — Node.js, REST APIs, PostgreSQL, Supabase, Firebase  
-**Mobile** — Flutter, React Native, Expo  
-**Infrastructure** — AWS, Docker, Git  
-**Design** — Figma, UI/UX fundamentals  
-**Other** — Shopify (Dawn theme, Liquid, metafields), Python, C++
+**Languages** - TypeScript, JavaScript, Swift, Kotlin, Python, C, Java, SQL  
+**Frontend** - React, Next.js, Tailwind CSS, shadcn/ui  
+**Mobile** - SwiftUI, Jetpack Compose, React Native, AlarmKit, CoreBluetooth, Core NFC, WidgetKit, Live Activities  
+**Backend & Data** - Node.js, NestJS, Hono, Express, PostgreSQL, Prisma, Drizzle, Supabase, OpenAPI, GraphQL  
+**Embedded** - nRF52840, Zephyr RTOS, MCUboot, BLE GATT, DFU over BLE, NFC (NTAG 424 DNA)  
+**Cloud & DevOps** - AWS (CDK, SST, Lambda, Aurora, RDS, Fargate, S3, KMS, Cognito), Cloudflare, Vercel, Docker, GitHub Actions  
+**AI** - Claude API, structured outputs, spec-driven development, human-in-the-loop review
 
 ---
 
-## Ventures
+## Experience
 
-### AetherLabs
-A business operations platform for independent artists. Covers inventory management, digital provenance, NFC authentication, invoicing, CRM, and Certificates of Authenticity — the administrative layer that artists typically manage manually or not at all.
+### Software Engineering Intern (Mitacs), MOOV Technologies
+*St. John's, NL · Aug 2026 to present*
 
-### R&D Creative Agency
-A St. John's creative agency focused on hospitality venues. Services include web development, CMS builds, photography, and digital marketing. Current clients include Rob Roy and Konfusion.
+Connected smart alarm: nRF52840 firmware, SwiftUI iPhone app, Kotlin and Compose Android app, AWS backend.
 
----
-
-## Selected Work
-
-### Bandu Manamperi — Artist Portfolio & Store
-Full-stack portfolio and e-commerce platform for a contemporary performance artist. Built with Next.js, Supabase, and TypeScript. Includes a bespoke admin CMS, bulk media upload, Stripe payments, and international shipping support.  
-[bandumanamperi.com](https://bandumanamperi.com)
-
-### MOOV — Shopify Storefront
-Complete Dawn-theme rebuild for a smart alarm brand. Custom sections, metafield architecture, and a design system (Cormorant Garamond, Fibonacci type scale, Onyx/Golden Orange/Parchment palette) delivered under R&D Creative Agency.
-
-### Rob Roy & Konfusion — Venue CMS
-Custom CMS and public-facing websites for two St. John's hospitality venues. Built with Supabase and Drizzle ORM. Non-technical staff can manage DJ lineups, events, drink deals, gallery photos, and Instagram feeds through a purpose-built admin interface.
-
-### Fyynd Fit — Product Design
-UI/UX design for an AI fitness app targeting beginners. Delivered Figma prototypes with radial progress charts, Apple/Google Health integration, and a Fibonacci-based visual hierarchy for Flutter handoff.
-
-### Transcript Processing Pipeline
-Automated transcript processing tool using the Anthropic API with three-tier confidence classification. Built as both a standalone tool and a planned AetherLabs feature.
+- Sole engineer across firmware, iOS, and cloud, owning architecture, delivery, and production issues for a live product.
+- Delivered the product's first end-to-end over-the-air update, from backend to app to BLE to MCUboot, on real hardware.
+- Designed a spec-driven, agent-operated engineering process: one source of truth across four codebases, with spec updates and test evidence required for every behaviour change.
+- Audited the legacy backend with the team, found critical security flaws, and built a secure NestJS, Prisma, and PostgreSQL replacement on AWS with 194 unit and contract tests in CI/CD.
+- Cut monthly AWS costs by over 55% through right-sizing, while keeping the system ready to scale.
+- Rebuilt the SwiftUI iOS app and took it through TestFlight to App Store submission.
+- Won Apple's approval for the restricted Screen Time distribution entitlement.
+- Added downgrade prevention, self-reverting trial images, and automatic rollback for failed firmware updates.
 
 ---
 
-## Contact
+## Projects
 
-[rashodkorala.com](https://www.rashodkorala.com) &nbsp;·&nbsp; [LinkedIn](https://www.linkedin.com/in/rashodk) &nbsp;·&nbsp; hello@rashodkorala.com
+### AetherLabs: NFC artwork authentication
+*Co-founder · Aug 2024 to present · Propel ICT Vision and Genesis Evolve accelerators · [aetherlabs.art](https://aetherlabs.art)*
+
+- Built a platform that uses NFC to give physical artwork a digital identity, verifiable by anyone with a single tap.
+- Implemented cryptographic chip authentication (NTAG 424 DNA, AES-CMAC, KMS) that rejects cloned or fake chips.
+- Architected a serverless AWS backend that scales to zero when idle and runs for under $15 a month.
+- Designed the PostgreSQL schema with row-level security and role-based access control across artists, galleries, and collectors.
+
+### AI Medical Interpreter
+*Genesis Centre T-Minus30 build sprint · Oct 2026, ongoing*
+
+- Building a live two-way interpreter: patient and physician see the conversation in both languages on a shared screen, hear each translation spoken, and can hand off to a human interpreter at any time.
+- Covers 13 languages in its first version, with dose read-back, comprehension checks, and consent in the patient's language.
+- Keeps a hash-chained audit trail and a bilingual record that both parties verify afterwards.
+
+### Rob Roy & Merchant Tavern: venue site and CMS
+- Built a marketing site and CMS for two St. John's venues in a TypeScript monorepo with Next.js, Supabase, and Drizzle.
+- Staff manage events, performers, deals, galleries, and hours themselves, with Instagram sync.
+- Integrated the Claude API to draft social posts in each venue's brand voice, alongside a scheduling calendar.
+
+### Moov Shopify Storefront
+- Built a custom Shopify 2.0 theme that merged two legacy websites into one pre-order storefront.
+- Made all site copy editable from Shopify admin, so the client can update content without a developer.
+
+### [Transcript Processing Pipeline](https://github.com/rashodkorala/transcript-pipeline)
+- Built a two-phase pipeline that turns wealth-management meeting transcripts into CRM updates, action items, and follow-up emails.
+- Designed a confidence taxonomy that routes ambiguous extractions to human review instead of auto-applying them.
+
+---
+
+## Education & Certifications
+
+**BSc Computer Science, Minor in Business Administration** - Memorial University of Newfoundland, 2025
+
+Mitacs Innovation Leader · Leadership (University of Illinois Urbana-Champaign) · Google IT Support · Meta Front-End Developer · AWS Certified Cloud Practitioner (in progress)
