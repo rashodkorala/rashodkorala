@@ -65,7 +65,7 @@ Connected smart alarm: nRF52840 firmware, SwiftUI iPhone app, Kotlin and Compose
 - Built a custom Shopify 2.0 theme that merged two legacy websites into one pre-order storefront.
 - Made all site copy editable from Shopify admin, so the client can update content without a developer.
 
-### [Transcript Processing Pipeline](https://github.com/rashodkorala/transcript-pipeline)
+### Transcript Processing Pipeline
 - Built a two-phase pipeline that turns wealth-management meeting transcripts into CRM updates, action items, and follow-up emails.
 - Designed a confidence taxonomy that routes ambiguous extractions to human review instead of auto-applying them.
 
