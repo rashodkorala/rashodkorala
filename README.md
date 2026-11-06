@@ -56,10 +56,10 @@ Connected smart alarm: nRF52840 firmware, SwiftUI iPhone app, Kotlin and Compose
 - Covers 13 languages in its first version, with dose read-back, comprehension checks, and consent in the patient's language.
 - Keeps a hash-chained audit trail and a bilingual record that both parties verify afterwards.
 
-### Rob Roy & Merchant Tavern: venue site and CMS
-- Built a marketing site and CMS for two St. John's venues in a TypeScript monorepo with Next.js, Supabase, and Drizzle.
+### Rob Roy: venue site and CMS
+- Built a marketing site and CMS for a St. John's venue in a TypeScript monorepo with Next.js, Supabase, and Drizzle.
 - Staff manage events, performers, deals, galleries, and hours themselves, with Instagram sync.
-- Integrated the Claude API to draft social posts in each venue's brand voice, alongside a scheduling calendar.
+- Integrated the Claude API to draft social posts in the venue's brand voice, alongside a scheduling calendar.
 
 ### Moov Shopify Storefront
 - Built a custom Shopify 2.0 theme that merged two legacy websites into one pre-order storefront.
